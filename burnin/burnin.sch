@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.4.2">
+<eagle version="9.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -4134,14 +4134,13 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <parts>
 <part name="FRAME1" library="scono" deviceset="FRAME_SCHEMATIC" device="">
 <attribute name="AUTHOR" value="S. Ono"/>
-<attribute name="REV" value="A"/>
+<attribute name="REV" value="B"/>
 <attribute name="SUBSYSTEM_NAME" value="bootloader"/>
 </part>
 <part name="M1" library="scono" deviceset="ARDUINO_R3_ICSP" device="_NODIM" value="ARDUINO_R3_ICSP_NODIM"/>
 <part name="ISP1" library="scono" deviceset="AVRISP" device="-6"/>
 <part name="J1" library="scono" deviceset="CONN_02" device="" package3d_urn="urn:adsk.eagle:package:38039/1"/>
 <part name="U1" library="scono" deviceset="TXB0104PWR" device=""/>
-<part name="SUPPLY1" library="scono" deviceset="GND" device=""/>
 <part name="SUPPLY2" library="scono" deviceset="GND" device=""/>
 <part name="SUPPLY3" library="scono" deviceset="GND" device=""/>
 <part name="SUPPLY5" library="scono" deviceset="GND" device=""/>
@@ -4167,6 +4166,7 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <part name="SUPPLY9" library="scono" deviceset="GND" device=""/>
 <part name="SUPPLY10" library="scono" deviceset="GND" device=""/>
 <part name="SUPPLY11" library="scono" deviceset="GND" device=""/>
+<part name="U$8" library="scono" deviceset="3.3V" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -4193,9 +4193,6 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <instance part="U1" gate="A" x="147.32" y="71.12" smashed="yes">
 <attribute name="NAME" x="173.0756" y="80.2386" size="2.0828" layer="95" ratio="6" rot="SR0"/>
 <attribute name="VALUE" x="172.4406" y="77.6986" size="2.0828" layer="96" ratio="6" rot="SR0"/>
-</instance>
-<instance part="SUPPLY1" gate="GND" x="205.74" y="53.34" smashed="yes">
-<attribute name="VALUE" x="204.47" y="50.8" size="1.016" layer="96"/>
 </instance>
 <instance part="SUPPLY2" gate="GND" x="149.86" y="53.34" smashed="yes">
 <attribute name="VALUE" x="148.59" y="50.8" size="1.016" layer="96"/>
@@ -4280,15 +4277,14 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <instance part="SUPPLY11" gate="GND" x="228.6" y="142.24" smashed="yes" rot="R180">
 <attribute name="VALUE" x="229.87" y="144.78" size="1.016" layer="96" rot="R180"/>
 </instance>
+<instance part="U$8" gate="G$1" x="205.74" y="55.88" smashed="yes" rot="R270">
+<attribute name="VALUE" x="209.55" y="57.15" size="1.778" layer="96" rot="R270"/>
+</instance>
 </instances>
 <busses>
 </busses>
 <nets>
 <net name="GND" class="0">
-<segment>
-<pinref part="U1" gate="A" pin="OE"/>
-<pinref part="SUPPLY1" gate="GND" pin="GND"/>
-</segment>
 <segment>
 <pinref part="U1" gate="A" pin="GND"/>
 <pinref part="SUPPLY2" gate="GND" pin="GND"/>
@@ -4346,6 +4342,10 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <segment>
 <pinref part="C1" gate="G$1" pin="2"/>
 <pinref part="U$6" gate="G$1" pin="3.3V"/>
+</segment>
+<segment>
+<pinref part="U1" gate="A" pin="OE"/>
+<pinref part="U$8" gate="G$1" pin="3.3V"/>
 </segment>
 </net>
 <net name="5V" class="0">
