@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.25" unitdist="mm" unit="mm" style="lines" multiple="2" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
+<grid distance="0.1" unitdist="mm" unit="mm" style="lines" multiple="2" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="16" fill="1" visible="no" active="no"/>
@@ -190,6 +190,22 @@
 <wire x1="160" y1="0" x2="160" y2="100" width="0" layer="20"/>
 <wire x1="160" y1="100" x2="0" y2="100" width="0" layer="20"/>
 <wire x1="0" y1="100" x2="0" y2="0" width="0" layer="20"/>
+<polygon width="0.1016" layer="41">
+<vertex x="17.5" y="18.8"/>
+<vertex x="17.5" y="13.2"/>
+<vertex x="16.5" y="12.2"/>
+<vertex x="14.7" y="10.4"/>
+<vertex x="14.7" y="9.3"/>
+<vertex x="17.4" y="6.6"/>
+<vertex x="20.1" y="6.6"/>
+<vertex x="22.4" y="8.9"/>
+<vertex x="22.4" y="10"/>
+<vertex x="18.9" y="13.5"/>
+<vertex x="18.9" y="16.6"/>
+<vertex x="18.9" y="17.3"/>
+<vertex x="18.4" y="17.8"/>
+<vertex x="18.4" y="18.8"/>
+</polygon>
 </plain>
 <libraries>
 <library name="scono">
@@ -587,20 +603,38 @@
 <variantdefs>
 </variantdefs>
 <classes>
-<class number="0" name="default" width="0.254" drill="0.499">
-<clearance class="0" value="0.254"/>
+<class number="0" name="default" width="0.1524" drill="0.381">
+<clearance class="0" value="0.1524"/>
 </class>
 <class number="1" name="power" width="0.254" drill="0.499">
+<clearance class="0" value="0.1524"/>
 <clearance class="1" value="0.254"/>
 </class>
 <class number="2" name="gnd" width="0.254" drill="0.499">
+<clearance class="0" value="0.1524"/>
+<clearance class="1" value="0.1524"/>
 <clearance class="2" value="0.254"/>
 </class>
 <class number="3" name="usbvcc" width="0.254" drill="0.499">
+<clearance class="0" value="0.1524"/>
+<clearance class="1" value="0.1524"/>
+<clearance class="2" value="0.1524"/>
 <clearance class="3" value="0.254"/>
 </class>
 <class number="4" name="aref" width="0.254" drill="0.499">
+<clearance class="0" value="0.1524"/>
+<clearance class="1" value="0.1524"/>
+<clearance class="2" value="0.1524"/>
+<clearance class="3" value="0.1524"/>
 <clearance class="4" value="0.254"/>
+</class>
+<class number="5" name="diff pairs" width="0.1524" drill="0">
+<clearance class="0" value="0.1524"/>
+<clearance class="1" value="0.1524"/>
+<clearance class="2" value="0.1524"/>
+<clearance class="3" value="0.1524"/>
+<clearance class="4" value="0.1524"/>
+<clearance class="5" value="0.1524"/>
 </class>
 </classes>
 <designrules name="scono">
@@ -923,40 +957,45 @@ Combination of BAC and AC</description>
 <contactref element="D1" pad="A"/>
 <wire x1="26.75" y1="4.6" x2="28.75" y2="4.627" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="D-">
+<signal name="D_N" class="5">
 <contactref element="Z2" pad="1"/>
 <contactref element="R4" pad="1"/>
 <contactref element="J2" pad="2"/>
-<wire x1="17.25" y1="9.9" x2="15.25" y2="9.9" width="0" layer="19" extent="1-1"/>
-<wire x1="18.6" y1="5.575" x2="17.25" y2="9.9" width="0" layer="19" extent="1-1"/>
+<wire x1="15.25" y1="9.9" x2="17.25" y2="9.9" width="0.254" layer="1"/>
+<wire x1="18.6" y1="5.575" x2="18.6" y2="7.4" width="0.254" layer="1"/>
+<wire x1="17.25" y1="8.75" x2="17.25" y2="9.9" width="0.254" layer="1"/>
+<wire x1="17.25" y1="8.75" x2="18.6" y2="7.4" width="0.254" layer="1"/>
 </signal>
-<signal name="D+">
+<signal name="D_P" class="5">
 <contactref element="Z1" pad="1"/>
 <contactref element="R5" pad="1"/>
 <contactref element="J2" pad="3"/>
-<wire x1="19.5" y1="9.9" x2="21.75" y2="9.9" width="0" layer="19" extent="1-1"/>
-<wire x1="19.25" y1="5.575" x2="19.5" y2="9.9" width="0" layer="19" extent="1-1"/>
-</signal>
-<signal name="RD-">
-<contactref element="U1" pad="3"/>
-<contactref element="R4" pad="2"/>
-<wire x1="17.25" y1="11.6" x2="17.75" y2="18.725" width="0" layer="19" extent="1-1"/>
-</signal>
-<signal name="RD+">
-<contactref element="U1" pad="4"/>
-<contactref element="R5" pad="2"/>
-<wire x1="19.5" y1="11.6" x2="18.25" y2="18.725" width="0" layer="19" extent="1-1"/>
+<wire x1="19.5" y1="9.9" x2="21.75" y2="9.9" width="0.254" layer="1"/>
+<wire x1="19.5" y1="9.9" x2="19.5" y2="9.1393625" width="0.254" layer="1"/>
+<wire x1="19.5" y1="9.1393625" x2="19.8175" y2="8.8218625" width="0.254" layer="1" curve="90"/>
+<wire x1="19.8175" y1="8.8218625" x2="20.135" y2="8.5043625" width="0.254" layer="1" curve="-90"/>
+<wire x1="20.135" y1="8.5043625" x2="20.135" y2="8.435" width="0.254" layer="1"/>
+<wire x1="20.135" y1="8.435" x2="19.8175" y2="8.1175" width="0.254" layer="1" curve="-90"/>
+<wire x1="19.8175" y1="8.1175" x2="19.5" y2="7.8" width="0.254" layer="1" curve="90"/>
+<wire x1="19.5" y1="7.8" x2="19.5" y2="7.7" width="0.254" layer="1"/>
+<wire x1="19.25" y1="5.575" x2="19.25" y2="7.45" width="0.254" layer="1"/>
+<wire x1="19.5" y1="7.7" x2="19.25" y2="7.45" width="0.254" layer="1"/>
 </signal>
 <signal name="UGND" class="2">
 <contactref element="U1" pad="5"/>
 <contactref element="C11" pad="1"/>
 <contactref element="J2" pad="5"/>
 <contactref element="L3" pad="2"/>
-<wire x1="24.5" y1="7.6516" x2="18.75" y2="18.725" width="0" layer="19" extent="1-1"/>
-<wire x1="26.75" y1="7.9" x2="24.5" y2="7.6516" width="0" layer="19" extent="1-1"/>
+<via x="19.4059" y="15.3" extent="1-16" drill="0.499"/>
+<wire x1="18.75" y1="18.725" x2="18.75" y2="17.7529" width="0.254" layer="1"/>
+<wire x1="18.75" y1="17.7529" x2="19.1056" y2="17.3973" width="0.254" layer="1"/>
+<wire x1="19.1056" y1="15.6003" x2="19.4059" y2="15.3" width="0.254" layer="1"/>
+<wire x1="19.1056" y1="17.3973" x2="19.1056" y2="15.6003" width="0.254" layer="1"/>
+<wire x1="24.5" y1="7.6516" x2="26.75" y2="7.9" width="0" layer="19" extent="1-1"/>
 <wire x1="20.55" y1="5.575" x2="24.5" y2="7.6516" width="0" layer="19" extent="1-1"/>
+<wire x1="19.4059" y1="15.3" x2="24.5" y2="7.6516" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="XUSB" class="3">
+<signal name="XUSB">
 <contactref element="J2" pad="1"/>
 <contactref element="F1" pad="1"/>
 <wire x1="13" y1="7.4" x2="17.95" y2="5.575" width="0" layer="19" extent="1-1"/>
@@ -964,7 +1003,8 @@ Combination of BAC and AC</description>
 <signal name="AREF" class="4">
 <contactref element="U1" pad="42"/>
 <contactref element="C6" pad="2"/>
-<wire x1="11.75" y1="18.6" x2="15.975" y2="20.5" width="0" layer="19" extent="1-1"/>
+<wire x1="15.975" y1="20.5" x2="13.65" y2="20.5" width="0.254" layer="1"/>
+<wire x1="13.65" y1="20.5" x2="11.75" y2="18.6" width="0.254" layer="1"/>
 </signal>
 <signal name="RESET">
 <contactref element="U1" pad="13"/>
@@ -1047,8 +1087,9 @@ Combination of BAC and AC</description>
 <contactref element="U1" pad="43"/>
 <contactref element="L2" pad="2"/>
 <contactref element="C6" pad="1"/>
-<wire x1="11.75" y1="16.9" x2="15.975" y2="20" width="0" layer="19" extent="1-1"/>
-<wire x1="11.75" y1="14.9016" x2="11.75" y2="16.9" width="0" layer="19" extent="1-1"/>
+<wire x1="15.975" y1="20" x2="14.85" y2="20" width="0.254" layer="1"/>
+<wire x1="14.85" y1="20" x2="11.75" y2="16.9" width="0.254" layer="1"/>
+<wire x1="11.75" y1="16.9" x2="11.75" y2="14.9016" width="0.254" layer="1"/>
 </signal>
 <signal name="RXLED">
 <contactref element="U1" pad="8"/>
@@ -1068,12 +1109,19 @@ Combination of BAC and AC</description>
 <signal name="UCAP">
 <contactref element="U1" pad="6"/>
 <contactref element="C11" pad="2"/>
-<wire x1="26.75" y1="9.6" x2="19.25" y2="18.725" width="0" layer="19" extent="1-1"/>
+<via x="19.8123" y="16.307" extent="1-16" drill="0.499"/>
+<wire x1="19.25" y1="18.725" x2="19.25" y2="17.8276375" width="0.254" layer="1"/>
+<wire x1="19.25" y1="17.8276375" x2="19.512" y2="17.5656375" width="0.254" layer="1"/>
+<wire x1="19.512" y1="16.6073" x2="19.8123" y2="16.307" width="0.254" layer="1"/>
+<wire x1="19.512" y1="17.5656375" x2="19.512" y2="16.6073" width="0.254" layer="1"/>
+<wire x1="19.8123" y1="16.307" x2="26.75" y2="9.6" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="HWB">
 <contactref element="U1" pad="33"/>
 <contactref element="R1" pad="1"/>
-<wire x1="11.75" y1="27.1" x2="16.75" y2="25.275" width="0" layer="19" extent="1-1"/>
+<wire x1="11.75" y1="27.1" x2="15.4" y2="27.1" width="0.1524" layer="1"/>
+<wire x1="16.75" y1="25.75" x2="16.75" y2="25.275" width="0.1524" layer="1"/>
+<wire x1="15.4" y1="27.1" x2="16.75" y2="25.75" width="0.1524" layer="1"/>
 </signal>
 <signal name="D4">
 <contactref element="U1" pad="25"/>
@@ -1081,7 +1129,7 @@ Combination of BAC and AC</description>
 <signal name="TXLED">
 <contactref element="U1" pad="22"/>
 </signal>
-<signal name="5V">
+<signal name="5V" class="1">
 <contactref element="U1" pad="7"/>
 <contactref element="C10" pad="2"/>
 <contactref element="U1" pad="2"/>
@@ -1102,21 +1150,44 @@ Combination of BAC and AC</description>
 <vertex x="36.5" y="0"/>
 <vertex x="36.5" y="36"/>
 </polygon>
-<wire x1="11.75" y1="21.15" x2="9.75" y2="21.15" width="0.254" layer="1"/>
 <wire x1="9.75" y1="21.15" x2="9.75" y2="20" width="0.254" layer="1"/>
 <via x="9.75" y="20" extent="1-16" drill="0.499"/>
-<wire x1="26.25" y1="21.15" x2="28.5" y2="21.15" width="0" layer="19" extent="1-1"/>
-<wire x1="22.525" y1="20.5" x2="26.25" y2="21.15" width="0" layer="19" extent="1-1"/>
-<wire x1="19.75" y1="18.725" x2="22.525" y2="20.5" width="0" layer="19" extent="1-1"/>
-<wire x1="17.25" y1="18.725" x2="19.75" y2="18.725" width="0" layer="19" extent="1-1"/>
-<wire x1="15.975" y1="19.5" x2="17.25" y2="18.725" width="0" layer="19" extent="1-1"/>
-<wire x1="26.25" y1="16.9" x2="26.25" y2="21.15" width="0" layer="19" extent="1-1"/>
-<wire x1="9.75" y1="20" x2="15.975" y2="19.5" width="0" layer="19" extent="1-1"/>
-<wire x1="21.25" y1="25.275" x2="22.525" y2="20.5" width="0" layer="19" extent="1-1"/>
-<wire x1="15.975" y1="24.5" x2="15.975" y2="19.5" width="0" layer="19" extent="1-1"/>
-<wire x1="24" y1="9.9" x2="26.25" y2="16.9" width="0" layer="19" extent="1-1"/>
-<wire x1="26.75" y1="2.9" x2="24" y2="9.9" width="0" layer="19" extent="1-1"/>
-<wire x1="13" y1="4.6" x2="24" y2="9.9" width="0" layer="19" extent="1-1"/>
+<wire x1="11.75" y1="21.15" x2="9.75" y2="21.15" width="0.254" layer="1"/>
+<wire x1="13" y1="4.6" x2="13" y2="3.25" width="0.254" layer="1"/>
+<via x="13" y="3.25" extent="1-16" drill="0.499"/>
+<wire x1="24" y1="9.9" x2="24.85" y2="9.9" width="0.254" layer="1"/>
+<wire x1="24.85" y1="9.9" x2="25" y2="9.75" width="0.254" layer="1"/>
+<via x="25" y="9.75" extent="1-16" drill="0.499"/>
+<wire x1="26.75" y1="2.9" x2="26.6" y2="2.75" width="0.254" layer="1"/>
+<wire x1="26.6" y1="2.75" x2="25.5" y2="2.75" width="0.254" layer="1"/>
+<via x="25.5" y="2.75" extent="1-16" drill="0.499"/>
+<wire x1="26.25" y1="16.9" x2="26.25" y2="15.25" width="0.254" layer="1"/>
+<via x="26.25" y="15.25" extent="1-16" drill="0.499"/>
+<wire x1="26.25" y1="21.15" x2="28.5" y2="21.15" width="0.254" layer="1"/>
+<wire x1="26.25" y1="21.15" x2="25.6" y2="21.15" width="0.254" layer="1"/>
+<wire x1="25.6" y1="21.15" x2="25.25" y2="21.5" width="0.254" layer="1"/>
+<via x="25.25" y="21.5" extent="1-16" drill="0.499"/>
+<wire x1="22.525" y1="20.5" x2="24.25" y2="20.5" width="0.254" layer="1"/>
+<wire x1="24.25" y1="20.5" x2="25.25" y2="21.5" width="0.254" layer="1"/>
+<wire x1="17.25" y1="18.725" x2="17.25" y2="15.25" width="0.254" layer="1"/>
+<wire x1="15.975" y1="19.5" x2="15.975" y2="18.975" width="0.254" layer="1"/>
+<wire x1="15.975" y1="18.975" x2="15" y2="18" width="0.254" layer="1"/>
+<via x="15" y="18" extent="1-16" drill="0.499"/>
+<wire x1="15.975" y1="24.5" x2="15.975" y2="25.275" width="0.254" layer="1"/>
+<wire x1="15.975" y1="25.275" x2="15.25" y2="26" width="0.254" layer="1"/>
+<via x="15.25" y="26" extent="1-16" drill="0.499"/>
+<wire x1="21.25" y1="25.275" x2="21.25" y2="28.5" width="0.254" layer="1"/>
+<via x="21.25" y="28.5" extent="1-16" drill="0.499"/>
+<wire x1="17.25" y1="15.25" x2="16.75" y2="14.75" width="0.254" layer="1"/>
+<via x="16.75" y="14.75" extent="1-16" drill="0.499"/>
+<wire x1="19.75" y1="18.725" x2="19.75" y2="17.902375" width="0.254" layer="1"/>
+<wire x1="19.75" y1="17.902375" x2="19.9184" y2="17.733975" width="0.254" layer="1"/>
+<wire x1="19.9184" y1="17.733975" x2="19.9184" y2="17.1" width="0.254" layer="1"/>
+<via x="21.3" y="16.1" extent="1-16" drill="0.499"/>
+<wire x1="19.9184" y1="17.1" x2="20.0047" y2="17.0137" width="0.254" layer="1"/>
+<wire x1="20.0047" y1="17.0137" x2="20.105025" y2="17.0137" width="0.254" layer="1"/>
+<wire x1="21.018725" y1="16.1" x2="21.3" y2="16.1" width="0.254" layer="1"/>
+<wire x1="20.105025" y1="17.0137" x2="21.018725" y2="16.1" width="0.254" layer="1"/>
 </signal>
 <signal name="USBID">
 <contactref element="J2" pad="4"/>
@@ -1135,6 +1206,22 @@ Combination of BAC and AC</description>
 <wire x1="18.2875" y1="2.5" x2="20.2125" y2="2.5" width="0" layer="19" extent="1-1"/>
 <wire x1="16.525" y1="2.75" x2="18.2875" y2="2.5" width="0" layer="19" extent="1-1"/>
 <wire x1="16.825" y1="5.78" x2="16.525" y2="2.75" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="RD_N" class="5">
+<contactref element="U1" pad="3"/>
+<contactref element="R4" pad="2"/>
+<wire x1="17.75" y1="18.725" x2="17.75" y2="17.5" width="0.1524" layer="1"/>
+<wire x1="17.75" y1="17.5" x2="18.1" y2="17.15" width="0.1524" layer="1"/>
+<wire x1="18.1" y1="12.45" x2="18.1" y2="17.15" width="0.1524" layer="1"/>
+<wire x1="18.1" y1="12.45" x2="17.25" y2="11.6" width="0.1524" layer="1"/>
+</signal>
+<signal name="RD_P" class="5">
+<contactref element="U1" pad="4"/>
+<contactref element="R5" pad="2"/>
+<wire x1="19.5" y1="11.6" x2="18.75" y2="12.35" width="0.1524" layer="1"/>
+<wire x1="18.75" y1="17.25" x2="18.75" y2="12.35" width="0.1524" layer="1"/>
+<wire x1="18.25" y1="18.725" x2="18.25" y2="17.75" width="0.1524" layer="1"/>
+<wire x1="18.25" y1="17.75" x2="18.75" y2="17.25" width="0.1524" layer="1"/>
 </signal>
 </signals>
 <mfgpreviewcolors>
