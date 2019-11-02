@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.5.0">
+<eagle version="9.5.1">
 <drawing>
 <settings>
-<setting alwaysvectorfont="no"/>
+<setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
 <grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
@@ -4134,7 +4134,7 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <parts>
 <part name="FRAME1" library="scono" deviceset="FRAME_SCHEMATIC" device="">
 <attribute name="AUTHOR" value="S. Ono"/>
-<attribute name="REV" value="B"/>
+<attribute name="REV" value="C"/>
 <attribute name="SUBSYSTEM_NAME" value="bootloader"/>
 </part>
 <part name="M1" library="scono" deviceset="ARDUINO_R3_ICSP" device="_NODIM" value="ARDUINO_R3_ICSP_NODIM"/>
@@ -4167,6 +4167,10 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <part name="SUPPLY10" library="scono" deviceset="GND" device=""/>
 <part name="SUPPLY11" library="scono" deviceset="GND" device=""/>
 <part name="U$8" library="scono" deviceset="3.3V" device=""/>
+<part name="ISP2" library="scono" deviceset="AVRISP" device="-6"/>
+<part name="J2" library="scono" deviceset="CONN_02" device="" package3d_urn="urn:adsk.eagle:package:38039/1"/>
+<part name="U$9" library="scono" deviceset="5V" device=""/>
+<part name="SUPPLY1" library="scono" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -4280,6 +4284,19 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <instance part="U$8" gate="G$1" x="205.74" y="55.88" smashed="yes" rot="R270">
 <attribute name="VALUE" x="209.55" y="57.15" size="1.778" layer="96" rot="R270"/>
 </instance>
+<instance part="ISP2" gate="G$1" x="55.88" y="33.02" smashed="yes">
+<attribute name="NAME" x="53.34" y="25.4" size="1.778" layer="95"/>
+</instance>
+<instance part="J2" gate="G$1" x="66.04" y="12.7" smashed="yes">
+<attribute name="VALUE" x="63.5" y="7.874" size="1.778" layer="96" font="vector"/>
+<attribute name="NAME" x="63.5" y="18.288" size="1.778" layer="95" font="vector"/>
+</instance>
+<instance part="U$9" gate="G$1" x="73.66" y="35.56" smashed="yes" rot="R270">
+<attribute name="VALUE" x="77.47" y="36.83" size="1.778" layer="96" rot="R270"/>
+</instance>
+<instance part="SUPPLY1" gate="GND" x="71.12" y="27.94" smashed="yes">
+<attribute name="VALUE" x="69.85" y="25.4" size="1.016" layer="96"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -4325,6 +4342,10 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <pinref part="D3" gate="G$1" pin="C"/>
 <pinref part="SUPPLY11" gate="GND" pin="GND"/>
 </segment>
+<segment>
+<pinref part="ISP2" gate="G$1" pin="GND"/>
+<pinref part="SUPPLY1" gate="GND" pin="GND"/>
+</segment>
 </net>
 <net name="3.3V" class="0">
 <segment>
@@ -4361,6 +4382,11 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <pinref part="C2" gate="G$1" pin="2"/>
 <pinref part="U$7" gate="G$1" pin="5V"/>
 </segment>
+<segment>
+<pinref part="ISP2" gate="G$1" pin="VCC"/>
+<pinref part="U$9" gate="G$1" pin="5V"/>
+<wire x1="71.12" y1="35.56" x2="73.66" y2="35.56" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="SCLK_5V" class="0">
 <segment>
@@ -4374,6 +4400,11 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <wire x1="210.82" y1="68.58" x2="213.36" y2="68.58" width="0.1524" layer="91"/>
 <label x="213.36" y="68.58" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="ISP2" gate="G$1" pin="SCK"/>
+<wire x1="43.18" y1="33.02" x2="38.1" y2="33.02" width="0.1524" layer="91"/>
+<label x="27.94" y="33.02" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="MISO_5V" class="0">
 <segment>
@@ -4385,6 +4416,11 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <pinref part="U1" gate="A" pin="B2"/>
 <wire x1="205.74" y1="66.04" x2="213.36" y2="66.04" width="0.1524" layer="91"/>
 <label x="213.36" y="66.04" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="ISP2" gate="G$1" pin="MISO"/>
+<wire x1="43.18" y1="35.56" x2="38.1" y2="35.56" width="0.1524" layer="91"/>
+<label x="27.94" y="35.56" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="MOSI_5V" class="0">
@@ -4398,6 +4434,11 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <wire x1="205.74" y1="63.5" x2="213.36" y2="63.5" width="0.1524" layer="91"/>
 <label x="213.36" y="63.5" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="ISP2" gate="G$1" pin="MOSI"/>
+<wire x1="71.12" y1="33.02" x2="76.2" y2="33.02" width="0.1524" layer="91"/>
+<label x="83.82" y="33.02" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="SS_5V" class="0">
 <segment>
@@ -4410,6 +4451,11 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <pinref part="U1" gate="A" pin="B4"/>
 <wire x1="205.74" y1="60.96" x2="213.36" y2="60.96" width="0.1524" layer="91"/>
 <label x="213.36" y="60.96" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="ISP2" gate="G$1" pin="RST"/>
+<wire x1="43.18" y1="30.48" x2="38.1" y2="30.48" width="0.1524" layer="91"/>
+<label x="27.94" y="30.48" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="SCLK_3V" class="0">
