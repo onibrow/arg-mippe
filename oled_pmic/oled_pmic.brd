@@ -186,10 +186,19 @@
 </layers>
 <board>
 <plain>
-<wire x1="0" y1="0" x2="160" y2="0" width="0" layer="20"/>
-<wire x1="160" y1="0" x2="160" y2="100" width="0" layer="20"/>
-<wire x1="160" y1="100" x2="0" y2="100" width="0" layer="20"/>
-<wire x1="0" y1="100" x2="0" y2="0" width="0" layer="20"/>
+<text x="14.5" y="10.75" size="1" layer="21" rot="R90">PWM</text>
+<text x="14.5" y="7.75" size="1" layer="21" rot="R90">BIAS</text>
+<text x="14.5" y="6" size="1" layer="21" rot="R90">FB</text>
+<text x="14.5" y="1.5" size="1" layer="21" rot="R90">GND</text>
+<text x="3" y="14.5" size="1" layer="21" rot="R180">VCC</text>
+<wire x1="-0.5" y1="15" x2="14" y2="15" width="0" layer="20"/>
+<wire x1="14" y1="15" x2="15" y2="14" width="0" layer="20"/>
+<wire x1="15" y1="14" x2="15" y2="0" width="0" layer="20"/>
+<wire x1="15" y1="0" x2="14" y2="-1" width="0" layer="20"/>
+<wire x1="14" y1="-1" x2="-0.5" y2="-1" width="0" layer="20"/>
+<wire x1="-0.5" y1="-1" x2="-1.5" y2="0" width="0" layer="20"/>
+<wire x1="-1.5" y1="0" x2="-1.5" y2="14" width="0" layer="20"/>
+<wire x1="-1.5" y1="14" x2="-0.5" y2="15" width="0" layer="20"/>
 </plain>
 <libraries>
 <library name="scono" urn="urn:adsk.eagle:library:14850048">
@@ -416,77 +425,79 @@ CONN_03
 <class number="0" name="default" width="0" drill="0">
 </class>
 </classes>
-<designrules name="default">
-<description language="en">&lt;b&gt;EAGLE Design Rules&lt;/b&gt;
+<designrules name="scono">
+<description language="de">&lt;b&gt;EAGLE Design Rules&lt;/b&gt;
 &lt;p&gt;
-The default Design Rules have been set to cover
-a wide range of applications. Your particular design
-may have different requirements, so please make the
-necessary adjustments and save your customized
-design rules under a new name.
-</description>
+Die Standard-Design-Rules sind so gewählt, dass sie für 
+die meisten Anwendungen passen. Sollte ihre Platine 
+besondere Anforderungen haben, treffen Sie die erforderlichen
+Einstellungen hier und speichern die Design Rules unter 
+einem neuen Namen ab.</description>
+<description language="en">&lt;b&gt;Seiya's 2 Layer DRU&lt;/b&gt;
+&lt;p&gt;
+Combination of BAC and AC</description>
 <param name="layerSetup" value="(1*16)"/>
-<param name="mtCopper" value="0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm 0.035mm"/>
-<param name="mtIsolate" value="0.15mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm 0.15mm 0.2mm"/>
-<param name="mdWireWire" value="6mil"/>
-<param name="mdWirePad" value="6mil"/>
-<param name="mdWireVia" value="6mil"/>
-<param name="mdPadPad" value="6mil"/>
-<param name="mdPadVia" value="6mil"/>
-<param name="mdViaVia" value="6mil"/>
-<param name="mdSmdPad" value="6mil"/>
-<param name="mdSmdVia" value="6mil"/>
-<param name="mdSmdSmd" value="6mil"/>
-<param name="mdViaViaSameLayer" value="6mil"/>
+<param name="mtCopper" value="2mil 2mil 2mil 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 2mil 2mil"/>
+<param name="mtIsolate" value="9mil 40mil 9mil 0.1499mm 0.2007mm 0.1499mm 0.2007mm 0.1499mm 0.2007mm 0.1499mm 0.2007mm 0.1499mm 0.2007mm 0.1499mm 9mil"/>
+<param name="mdWireWire" value="5.5mil"/>
+<param name="mdWirePad" value="5.5mil"/>
+<param name="mdWireVia" value="5.5mil"/>
+<param name="mdPadPad" value="5.5mil"/>
+<param name="mdPadVia" value="5.5mil"/>
+<param name="mdViaVia" value="5.5mil"/>
+<param name="mdSmdPad" value="0mil"/>
+<param name="mdSmdVia" value="0mil"/>
+<param name="mdSmdSmd" value="0mil"/>
+<param name="mdViaViaSameLayer" value="8mil"/>
 <param name="mnLayersViaInSmd" value="2"/>
-<param name="mdCopperDimension" value="40mil"/>
-<param name="mdDrill" value="6mil"/>
+<param name="mdCopperDimension" value="0.5mm"/>
+<param name="mdDrill" value="0.5mm"/>
 <param name="mdSmdStop" value="0mil"/>
-<param name="msWidth" value="6mil"/>
-<param name="msDrill" value="0.35mm"/>
+<param name="msWidth" value="3.5mil"/>
+<param name="msDrill" value="0.2mm"/>
 <param name="msMicroVia" value="9.99mm"/>
-<param name="msBlindViaRatio" value="0.5"/>
+<param name="msBlindViaRatio" value="0.125"/>
 <param name="rvPadTop" value="0.25"/>
 <param name="rvPadInner" value="0.25"/>
-<param name="rvPadBottom" value="0.25"/>
+<param name="rvPadBottom" value="0.05"/>
 <param name="rvViaOuter" value="0.25"/>
 <param name="rvViaInner" value="0.25"/>
 <param name="rvMicroViaOuter" value="0.25"/>
 <param name="rvMicroViaInner" value="0.25"/>
-<param name="rlMinPadTop" value="10mil"/>
-<param name="rlMaxPadTop" value="20mil"/>
-<param name="rlMinPadInner" value="10mil"/>
-<param name="rlMaxPadInner" value="20mil"/>
-<param name="rlMinPadBottom" value="10mil"/>
-<param name="rlMaxPadBottom" value="20mil"/>
-<param name="rlMinViaOuter" value="8mil"/>
-<param name="rlMaxViaOuter" value="20mil"/>
-<param name="rlMinViaInner" value="8mil"/>
-<param name="rlMaxViaInner" value="20mil"/>
-<param name="rlMinMicroViaOuter" value="4mil"/>
-<param name="rlMaxMicroViaOuter" value="20mil"/>
-<param name="rlMinMicroViaInner" value="4mil"/>
-<param name="rlMaxMicroViaInner" value="20mil"/>
+<param name="rlMinPadTop" value="3mil"/>
+<param name="rlMaxPadTop" value="6.3mm"/>
+<param name="rlMinPadInner" value="3mil"/>
+<param name="rlMaxPadInner" value="6.3mm"/>
+<param name="rlMinPadBottom" value="3mil"/>
+<param name="rlMaxPadBottom" value="6.3mm"/>
+<param name="rlMinViaOuter" value="3mil"/>
+<param name="rlMaxViaOuter" value="6.3mm"/>
+<param name="rlMinViaInner" value="3mil"/>
+<param name="rlMaxViaInner" value="6.3mm"/>
+<param name="rlMinMicroViaOuter" value="9.99mm"/>
+<param name="rlMaxMicroViaOuter" value="10mm"/>
+<param name="rlMinMicroViaInner" value="9.99mm"/>
+<param name="rlMaxMicroViaInner" value="10mm"/>
 <param name="psTop" value="-1"/>
 <param name="psBottom" value="-1"/>
-<param name="psFirst" value="-1"/>
+<param name="psFirst" value="0"/>
 <param name="psElongationLong" value="100"/>
 <param name="psElongationOffset" value="100"/>
-<param name="mvStopFrame" value="1"/>
-<param name="mvCreamFrame" value="0"/>
-<param name="mlMinStopFrame" value="4mil"/>
-<param name="mlMaxStopFrame" value="4mil"/>
-<param name="mlMinCreamFrame" value="0mil"/>
-<param name="mlMaxCreamFrame" value="0mil"/>
+<param name="mvStopFrame" value="0.25"/>
+<param name="mvCreamFrame" value="0.25"/>
+<param name="mlMinStopFrame" value="3mil"/>
+<param name="mlMaxStopFrame" value="5mil"/>
+<param name="mlMinCreamFrame" value="3mil"/>
+<param name="mlMaxCreamFrame" value="5mil"/>
 <param name="mlViaStopLimit" value="0mil"/>
 <param name="srRoundness" value="0"/>
 <param name="srMinRoundness" value="0mil"/>
 <param name="srMaxRoundness" value="0mil"/>
 <param name="slThermalIsolate" value="10mil"/>
 <param name="slThermalsForVias" value="0"/>
-<param name="dpMaxLengthDifference" value="10mm"/>
+<param name="dpMaxLengthDifference" value="0.5mm"/>
 <param name="dpGapFactor" value="2.5"/>
-<param name="checkAngle" value="0"/>
+<param name="checkAngle" value="1"/>
 <param name="checkFont" value="1"/>
 <param name="checkRestrict" value="1"/>
 <param name="checkStop" value="0"/>
@@ -495,7 +506,7 @@ design rules under a new name.
 <param name="checkWireStubs" value="1"/>
 <param name="checkPolygonWidth" value="0"/>
 <param name="useDiameter" value="13"/>
-<param name="maxErrors" value="999999"/>
+<param name="maxErrors" value="50"/>
 </designrules>
 <autorouter>
 <pass name="Default">
@@ -594,52 +605,51 @@ design rules under a new name.
 </pass>
 </autorouter>
 <elements>
-<element name="C1" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="0603-CAP" package3d_urn="urn:adsk.eagle:package:14850677/1" value="0.1uF" x="-15.24" y="7.62" smashed="yes">
-<attribute name="NAME" x="-16.51" y="8.382" size="0.508" layer="25" font="vector" ratio="10"/>
-<attribute name="PIE-INT-REF-NUM" value="CAPACITOR-GENERIC" x="0" y="0" size="1.778" layer="27" display="off"/>
-<attribute name="VALUE" x="-16.51" y="6.223" size="0.508" layer="27" font="vector"/>
+<element name="C1" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="0603-CAP" package3d_urn="urn:adsk.eagle:package:14850677/1" value="0.1uF" x="0.25" y="8" smashed="yes" rot="R90">
+<attribute name="NAME" x="-0.512" y="6.73" size="0.508" layer="25" font="vector" ratio="10" rot="R90"/>
+<attribute name="PIE-INT-REF-NUM" value="CAPACITOR-GENERIC" x="7.87" y="23.24" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="VALUE" x="1.647" y="6.73" size="0.508" layer="27" font="vector" rot="R90"/>
 </element>
-<element name="D1" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="LED-0603" package3d_urn="urn:adsk.eagle:package:14850721/2" value="" x="-20.32" y="10.16" smashed="yes">
-<attribute name="NAME" x="-21.82" y="11.41" size="0.5" layer="25" font="vector" ratio="10" align="top-left"/>
-<attribute name="VALUE" x="-21.82" y="8.91" size="0.5" layer="27" font="vector"/>
+<element name="D1" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="LED-0603" package3d_urn="urn:adsk.eagle:package:14850721/2" value="" x="2.25" y="0.75" smashed="yes">
+<attribute name="NAME" x="0.75" y="2" size="0.5" layer="25" font="vector" ratio="10" align="top-left"/>
+<attribute name="VALUE" x="0.75" y="-0.5" size="0.5" layer="27" font="vector"/>
 </element>
-<element name="D2" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="LED-0603" package3d_urn="urn:adsk.eagle:package:14850721/2" value="" x="-16.51" y="13.97" smashed="yes">
-<attribute name="NAME" x="-18.01" y="15.22" size="0.5" layer="25" font="vector" ratio="10" align="top-left"/>
-<attribute name="VALUE" x="-18.01" y="12.72" size="0.5" layer="27" font="vector"/>
+<element name="D2" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="LED-0603" package3d_urn="urn:adsk.eagle:package:14850721/2" value="" x="7" y="0.75" smashed="yes">
+<attribute name="NAME" x="5.5" y="2" size="0.5" layer="25" font="vector" ratio="10" align="top-left"/>
+<attribute name="VALUE" x="5.5" y="-0.5" size="0.5" layer="27" font="vector"/>
 </element>
-<element name="J1" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="1X02" package3d_urn="urn:adsk.eagle:package:38039/1" value="I_sense" x="-17.78" y="2.54" smashed="yes">
-<attribute name="NAME" x="-19.05" y="3.937" size="0.6096" layer="25" font="vector" ratio="20"/>
-<attribute name="VALUE" x="-19.05" y="0.508" size="0.6096" layer="27" font="vector" ratio="20"/>
+<element name="J1" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="1X02" package3d_urn="urn:adsk.eagle:package:38039/1" value="I_sense" x="3.5" y="3.5" smashed="yes" rot="R180">
+<attribute name="NAME" x="4.77" y="2.103" size="0.6096" layer="25" font="vector" ratio="20" rot="R180"/>
+<attribute name="VALUE" x="4.77" y="5.532" size="0.6096" layer="27" font="vector" ratio="20" rot="R180"/>
 </element>
-<element name="R1" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="0603-RES" package3d_urn="urn:adsk.eagle:package:14850803/1" value="1.6R" x="-20.32" y="7.62" smashed="yes">
-<attribute name="NAME" x="-21.59" y="8.382" size="0.508" layer="25" font="vector" ratio="10"/>
-<attribute name="VALUE" x="-21.59" y="6.223" size="0.508" layer="27" font="vector"/>
+<element name="R1" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="0603-RES" package3d_urn="urn:adsk.eagle:package:14850803/1" value="1.6R" x="8.07" y="8.63" smashed="yes" rot="R180">
+<attribute name="NAME" x="9.34" y="7.868" size="0.508" layer="25" font="vector" ratio="10" rot="R180"/>
+<attribute name="VALUE" x="9.34" y="10.027" size="0.508" layer="27" font="vector" rot="R180"/>
 </element>
-<element name="R2" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="0603-RES" package3d_urn="urn:adsk.eagle:package:14850803/1" value="52.5k" x="-15.24" y="11.43" smashed="yes">
-<attribute name="NAME" x="-16.51" y="12.192" size="0.508" layer="25" font="vector" ratio="10"/>
-<attribute name="VALUE" x="-16.51" y="10.033" size="0.508" layer="27" font="vector"/>
+<element name="R2" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="0603-RES" package3d_urn="urn:adsk.eagle:package:14850803/1" value="52.5k" x="3.5" y="8" smashed="yes" rot="R90">
+<attribute name="NAME" x="2.738" y="6.73" size="0.508" layer="25" font="vector" ratio="10" rot="R90"/>
+<attribute name="VALUE" x="4.897" y="6.73" size="0.508" layer="27" font="vector" rot="R90"/>
 </element>
-<element name="U1" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="SOT26" value="AL5801W6-7" x="-21.59" y="2.54" smashed="yes">
-<attribute name="BUILT_BY" value="EMA_UL_Team" x="0" y="0" size="1.778" layer="27" display="off"/>
-<attribute name="MANUFACTURER_PART_NUMBER" value="AL5801W6-7" x="0" y="0" size="1.778" layer="27" display="off"/>
-<attribute name="NAME" x="-23.09" y="5.04" size="0.7" layer="25" ratio="6" rot="SR0" align="top-left"/>
-<attribute name="VENDOR" value="Diodes Inc" x="0" y="0" size="1.778" layer="27" display="off"/>
+<element name="U1" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="SOT26" value="AL5801W6-7" x="8" y="4.5" smashed="yes">
+<attribute name="BUILT_BY" value="EMA_UL_Team" x="29.59" y="1.96" size="1.778" layer="27" display="off"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="AL5801W6-7" x="29.59" y="1.96" size="1.778" layer="27" display="off"/>
+<attribute name="NAME" x="6.5" y="7" size="0.7" layer="25" ratio="6" rot="SR0" align="top-left"/>
+<attribute name="VENDOR" value="Diodes Inc" x="29.59" y="1.96" size="1.778" layer="27" display="off"/>
 </element>
-<element name="Q1" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="SOT23-3" package3d_urn="urn:adsk.eagle:package:14850579/1" value="N-CHANNEL-MOSFETSOT23-3" x="-29.25" y="3.75" smashed="yes">
-<attribute name="NAME" x="-30.52" y="5.655" size="1.27" layer="25" font="vector" ratio="10"/>
-<attribute name="VALUE" x="-30.52" y="0.575" size="1.27" layer="25" font="vector" ratio="10"/>
+<element name="Q1" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="SOT23-3" package3d_urn="urn:adsk.eagle:package:14850579/1" value="N-CHANNEL-MOSFETSOT23-3" x="7" y="12" smashed="yes" rot="R180">
+<attribute name="NAME" x="10.02" y="13.845" size="0.7" layer="25" font="vector" ratio="10" rot="R180"/>
 </element>
-<element name="J3" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="1X03" package3d_urn="urn:adsk.eagle:package:38063/1" value="" x="-29.25" y="-6.25" smashed="yes">
-<attribute name="NAME" x="-30.52" y="-4.853" size="0.6096" layer="25" font="vector" ratio="20"/>
-<attribute name="VALUE" x="-30.52" y="-8.282" size="0.6096" layer="27" font="vector" ratio="20"/>
+<element name="J3" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="1X03" package3d_urn="urn:adsk.eagle:package:38063/1" value="" x="12" y="7" smashed="yes" rot="R90">
+<attribute name="NAME" x="10.603" y="5.73" size="0.6096" layer="25" font="vector" ratio="20" rot="R90"/>
+<attribute name="VALUE" x="14.032" y="5.73" size="0.6096" layer="27" font="vector" ratio="20" rot="R90"/>
 </element>
-<element name="J2" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="1X02" package3d_urn="urn:adsk.eagle:package:38039/1" value="VCC" x="-29.25" y="-10" smashed="yes">
-<attribute name="NAME" x="-30.52" y="-8.603" size="0.6096" layer="25" font="vector" ratio="20"/>
-<attribute name="VALUE" x="-30.52" y="-12.032" size="0.6096" layer="27" font="vector" ratio="20"/>
+<element name="J2" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="1X02" package3d_urn="urn:adsk.eagle:package:38039/1" value="VCC" x="3.5" y="12" smashed="yes" rot="R180">
+<attribute name="NAME" x="4.77" y="10.603" size="0.6096" layer="25" font="vector" ratio="20" rot="R180"/>
+<attribute name="VALUE" x="4.77" y="14.032" size="0.6096" layer="27" font="vector" ratio="20" rot="R180"/>
 </element>
-<element name="J4" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="1X02" package3d_urn="urn:adsk.eagle:package:38039/1" value="GND" x="-29.25" y="-13.75" smashed="yes">
-<attribute name="NAME" x="-30.52" y="-12.353" size="0.6096" layer="25" font="vector" ratio="20"/>
-<attribute name="VALUE" x="-30.52" y="-15.782" size="0.6096" layer="27" font="vector" ratio="20"/>
+<element name="J4" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="1X02" package3d_urn="urn:adsk.eagle:package:38039/1" value="GND" x="12" y="4" smashed="yes" rot="R270">
+<attribute name="NAME" x="13.397" y="5.27" size="0.6096" layer="25" font="vector" ratio="20" rot="R270"/>
+<attribute name="VALUE" x="9.968" y="5.27" size="0.6096" layer="27" font="vector" ratio="20" rot="R270"/>
 </element>
 </elements>
 <signals>
@@ -650,11 +660,22 @@ design rules under a new name.
 <contactref element="Q1" pad="2"/>
 <contactref element="J4" pad="1"/>
 <contactref element="J4" pad="2"/>
-<wire x1="-26.71" y1="-13.75" x2="-29.25" y2="-13.75" width="0" layer="19" extent="1-1"/>
-<wire x1="-28.3" y1="2.75" x2="-29.25" y2="-13.75" width="0" layer="19" extent="1-1"/>
-<wire x1="-20.39" y1="3.49" x2="-28.3" y2="2.75" width="0" layer="19" extent="1-1"/>
-<wire x1="-21.17" y1="7.62" x2="-20.39" y2="3.49" width="0" layer="19" extent="1-1"/>
-<wire x1="-16.09" y1="7.62" x2="-21.17" y2="7.62" width="0" layer="19" extent="1-1"/>
+<polygon width="0" layer="16">
+<vertex x="-1.5" y="15"/>
+<vertex x="15" y="15"/>
+<vertex x="15" y="-1"/>
+<vertex x="-1.5" y="-1"/>
+</polygon>
+<wire x1="6.05" y1="13" x2="6.6558" y2="13.6058" width="0.1524" layer="1"/>
+<wire x1="6.6558" y1="13.6058" x2="7" y2="13.6058" width="0.1524" layer="1"/>
+<via x="7" y="13.6058" extent="1-16" drill="0.35"/>
+<wire x1="0.25" y1="7.15" x2="0.25" y2="5.75" width="0.1524" layer="1"/>
+<via x="0.25" y="5.75" extent="1-16" drill="0.35"/>
+<wire x1="9.2" y1="5.45" x2="9.2" y2="6.7" width="0.25" layer="1"/>
+<wire x1="9.2" y1="6.7" x2="9.25" y2="6.75" width="0.25" layer="1"/>
+<via x="9.25" y="6.75" extent="1-16" drill="0.35"/>
+<wire x1="8.92" y1="8.63" x2="9.25" y2="8.3" width="0.25" layer="1"/>
+<wire x1="9.25" y1="8.3" x2="9.25" y2="6.75" width="0.25" layer="1"/>
 </signal>
 <signal name="VCC">
 <contactref element="C1" pad="2"/>
@@ -662,48 +683,68 @@ design rules under a new name.
 <contactref element="D2" pad="A"/>
 <contactref element="J2" pad="1"/>
 <contactref element="J2" pad="2"/>
-<wire x1="-26.71" y1="-10" x2="-29.25" y2="-10" width="0" layer="19" extent="1-1"/>
-<wire x1="-14.39" y1="7.62" x2="-26.71" y2="-10" width="0" layer="19" extent="1-1"/>
-<wire x1="-14.39" y1="11.43" x2="-14.39" y2="7.62" width="0" layer="19" extent="1-1"/>
-<wire x1="-15.633" y1="13.97" x2="-14.39" y2="11.43" width="0" layer="19" extent="1-1"/>
+<polygon width="0" layer="1">
+<vertex x="-1.5" y="15"/>
+<vertex x="15" y="15"/>
+<vertex x="15" y="-1"/>
+<vertex x="-1.5" y="-1"/>
+</polygon>
 </signal>
 <signal name="BIAS">
 <contactref element="R2" pad="1"/>
 <contactref element="U1" pad="1"/>
 <contactref element="Q1" pad="3"/>
 <contactref element="J3" pad="2"/>
-<wire x1="-22.79" y1="3.49" x2="-26.71" y2="-6.25" width="0" layer="19" extent="1-1"/>
-<wire x1="-29.25" y1="4.85" x2="-22.79" y2="3.49" width="0" layer="19" extent="1-1"/>
-<wire x1="-16.09" y1="11.43" x2="-22.79" y2="3.49" width="0" layer="19" extent="1-1"/>
+<wire x1="3.5" y1="7.15" x2="3.7" y2="6.95" width="0.1524" layer="1"/>
+<wire x1="3.7" y1="6.95" x2="5.2" y2="5.45" width="0.1524" layer="1"/>
+<wire x1="5.2" y1="5.45" x2="6.8" y2="5.45" width="0.1524" layer="1"/>
+<wire x1="7" y1="10.9" x2="3.7" y2="7.6" width="0.1524" layer="1"/>
+<wire x1="3.7" y1="7.6" x2="3.7" y2="6.95" width="0.1524" layer="1"/>
+<wire x1="7" y1="10.9" x2="10.64" y2="10.9" width="0.1" layer="1"/>
+<wire x1="10.64" y1="10.9" x2="12" y2="9.54" width="0.1" layer="1"/>
 </signal>
 <signal name="FB">
 <contactref element="U1" pad="2"/>
 <contactref element="U1" pad="4"/>
 <contactref element="R1" pad="2"/>
 <contactref element="J3" pad="1"/>
-<wire x1="-22.79" y1="2.54" x2="-29.25" y2="-6.25" width="0" layer="19" extent="1-1"/>
-<wire x1="-20.39" y1="1.59" x2="-22.79" y2="2.54" width="0" layer="19" extent="1-1"/>
-<wire x1="-19.47" y1="7.62" x2="-22.79" y2="2.54" width="0" layer="19" extent="1-1"/>
+<wire x1="7.22" y1="8.63" x2="6" y2="7.41" width="0.1524" layer="1"/>
+<wire x1="6" y1="7.41" x2="6" y2="7.25" width="0.1524" layer="1"/>
+<via x="6" y="7.25" extent="1-16" drill="0.35"/>
+<wire x1="6" y1="7.25" x2="6" y2="5.25" width="0.1524" layer="16"/>
+<wire x1="6" y1="5.25" x2="5.25" y2="4.5" width="0.1524" layer="16"/>
+<via x="5.25" y="4.5" extent="1-16" drill="0.35"/>
+<wire x1="5.25" y1="4.5" x2="6.8" y2="4.5" width="0.1524" layer="1"/>
+<wire x1="6.8" y1="4.5" x2="7.25" y2="4.5" width="0.1524" layer="1"/>
+<wire x1="8.2" y1="3.55" x2="9.2" y2="3.55" width="0.1524" layer="1"/>
+<wire x1="7.25" y1="4.5" x2="8.2" y2="3.55" width="0.1524" layer="1"/>
+<wire x1="9.2" y1="3.55" x2="9.8" y2="3.55" width="0.1" layer="1"/>
+<wire x1="10.5" y1="5.5" x2="12" y2="7" width="0.1" layer="1"/>
+<wire x1="9.8" y1="3.55" x2="10.5" y2="4.25" width="0.1" layer="1"/>
+<wire x1="10.5" y1="4.25" x2="10.5" y2="5.5" width="0.1" layer="1"/>
 </signal>
 <signal name="N$3">
 <contactref element="U1" pad="3"/>
 <contactref element="J1" pad="1"/>
-<wire x1="-17.78" y1="2.54" x2="-22.79" y2="1.59" width="0" layer="19" extent="1-1"/>
+<wire x1="6.8" y1="3.55" x2="3.55" y2="3.55" width="0.25" layer="1"/>
+<wire x1="3.55" y1="3.55" x2="3.5" y2="3.5" width="0.25" layer="1"/>
 </signal>
 <signal name="N$4">
 <contactref element="J1" pad="2"/>
 <contactref element="D1" pad="C"/>
-<wire x1="-21.197" y1="10.16" x2="-15.24" y2="2.54" width="0" layer="19" extent="1-1"/>
+<wire x1="0.96" y1="3.5" x2="1.373" y2="3.087" width="0.25" layer="1"/>
+<wire x1="1.373" y1="3.087" x2="1.373" y2="0.75" width="0.25" layer="1"/>
 </signal>
 <signal name="N$2">
 <contactref element="D2" pad="C"/>
 <contactref element="D1" pad="A"/>
-<wire x1="-17.387" y1="13.97" x2="-19.443" y2="10.16" width="0" layer="19" extent="1-1"/>
+<wire x1="3.127" y1="0.75" x2="6.123" y2="0.75" width="0.25" layer="1"/>
 </signal>
 <signal name="PWM">
 <contactref element="Q1" pad="1"/>
 <contactref element="J3" pad="3"/>
-<wire x1="-30.2" y1="2.75" x2="-24.17" y2="-6.25" width="0" layer="19" extent="1-1"/>
+<wire x1="12" y1="12.08" x2="8.87" y2="12.08" width="0.1" layer="1"/>
+<wire x1="8.87" y1="12.08" x2="7.95" y2="13" width="0.1" layer="1"/>
 </signal>
 </signals>
 <mfgpreviewcolors>
