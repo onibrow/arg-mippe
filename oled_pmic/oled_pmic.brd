@@ -662,7 +662,7 @@ Combination of BAC and AC</description>
 <contactref element="Q1" pad="2"/>
 <contactref element="J4" pad="1"/>
 <contactref element="J4" pad="2"/>
-<polygon width="0" layer="16">
+<polygon width="0.1" layer="16">
 <vertex x="0" y="16"/>
 <vertex x="16.5" y="16"/>
 <vertex x="16.5" y="0"/>
@@ -685,7 +685,7 @@ Combination of BAC and AC</description>
 <contactref element="D2" pad="A"/>
 <contactref element="J2" pad="1"/>
 <contactref element="J2" pad="2"/>
-<polygon width="0" layer="1">
+<polygon width="0.1" layer="1">
 <vertex x="0" y="16"/>
 <vertex x="16.5" y="16"/>
 <vertex x="16.5" y="0"/>
