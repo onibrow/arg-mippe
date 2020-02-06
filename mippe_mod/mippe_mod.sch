@@ -5358,7 +5358,7 @@ Standard 8.5x11 US Letter frame</description>
 <part name="SUPPLY14" library="scono" deviceset="GND" device=""/>
 <part name="U2" library="scono" deviceset="ATMEGA328P-AUR" device=""/>
 <part name="SUPPLY15" library="scono" deviceset="GND" device=""/>
-<part name="C7" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="CAP" device="0402-CAP" package3d_urn="urn:adsk.eagle:package:14850678/2" value="0.1uF"/>
+<part name="C7" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="CAP" device="0402-CAP" package3d_urn="urn:adsk.eagle:package:14850678/2" value="100nF"/>
 <part name="U$2" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="5V" device=""/>
 <part name="U$5" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="5V" device=""/>
 <part name="U$7" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="5V" device=""/>
