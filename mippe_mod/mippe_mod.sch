@@ -1745,6 +1745,17 @@ Source: http://www.vishay.com .. dcrcw.pdf</description>
 <text x="-2.75" y="2" size="0.5" layer="25" font="vector">&gt;NAME</text>
 <rectangle x1="-3" y1="-1.75" x2="3" y2="1.75" layer="39"/>
 </package>
+<package name="TEST_POINT-1206" urn="urn:adsk.eagle:footprint:14850378/1" library_version="5" library_locally_modified="yes">
+<description>Footprint for 1206 Test point
+
+A106146CT-ND or similar.</description>
+<smd name="1" x="0" y="0" dx="2.5" dy="1.625" layer="1"/>
+<text x="2.37" y="1.84" size="0.8128" layer="25" font="vector" rot="R180">&gt;NAME</text>
+</package>
+<package name="TEST_POINT" urn="urn:adsk.eagle:footprint:14850476/1" library_version="5" library_locally_modified="yes">
+<pad name="1" x="0" y="0" drill="1.016" diameter="1.6764"/>
+<text x="-1.5" y="1.5" size="0.7" layer="21">&gt;NAME</text>
+</package>
 </packages>
 <packages3d>
 <package3d name="SOT230P700X180-4N" urn="urn:adsk.eagle:package:14850800/1" type="box" library_version="5" library_locally_modified="yes">
@@ -2452,6 +2463,19 @@ Source: http://www.vishay.com .. dcrcw.pdf</description>
 <packageinstance name="BTN_PTS810"/>
 </packageinstances>
 </package3d>
+<package3d name="TEST_POINT-1206" urn="urn:adsk.eagle:package:14850702/1" type="box" library_version="5" library_locally_modified="yes">
+<description>Footprint for 1206 Test point
+
+A106146CT-ND or similar.</description>
+<packageinstances>
+<packageinstance name="TEST_POINT-1206"/>
+</packageinstances>
+</package3d>
+<package3d name="TEST_POINT" urn="urn:adsk.eagle:package:14850798/1" type="box" library_version="5" library_locally_modified="yes">
+<packageinstances>
+<packageinstance name="TEST_POINT"/>
+</packageinstances>
+</package3d>
 </packages3d>
 <symbols>
 <symbol name="LM340" urn="urn:adsk.eagle:symbol:14993472/1" library_version="5" library_locally_modified="yes">
@@ -2580,6 +2604,15 @@ Source: http://www.vishay.com .. dcrcw.pdf</description>
 <wire x1="-2.54" y1="2.54" x2="-2.54" y2="0" width="0.254" layer="94"/>
 <pin name="A" x="-7.62" y="-2.54" visible="pin" length="short"/>
 <pin name="B" x="7.62" y="-2.54" visible="pin" length="short" rot="R180"/>
+</symbol>
+<symbol name="TEST_POINT" urn="urn:adsk.eagle:symbol:14850099/1" library_version="5" library_locally_modified="yes">
+<description>Test point for O-Scope Probes.</description>
+<pin name="P$1" x="0" y="0" visible="off" length="short"/>
+<text x="0" y="2.54" size="1.778" layer="95">&gt;NAME</text>
+<wire x1="2.54" y1="-1.27" x2="5.08" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="5.08" y1="-1.27" x2="5.08" y2="1.27" width="0.254" layer="94"/>
+<wire x1="5.08" y1="1.27" x2="2.54" y2="1.27" width="0.254" layer="94"/>
+<wire x1="2.54" y1="1.27" x2="2.54" y2="-1.27" width="0.254" layer="94"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -3801,6 +3834,38 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 </connects>
 <package3dinstances>
 <package3dinstance package3d_urn="urn:adsk.eagle:package:14850707/2"/>
+</package3dinstances>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="TEST_POINT" urn="urn:adsk.eagle:component:14850916/1" prefix="TP" library_version="5" library_locally_modified="yes">
+<description>1206 Test point for O-scope probes.
+
+For A106146CT-ND or similar</description>
+<gates>
+<gate name="G$1" symbol="TEST_POINT" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="TEST_POINT-1206">
+<connects>
+<connect gate="G$1" pin="P$1" pad="1"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:14850702/1"/>
+</package3dinstances>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="THRU" package="TEST_POINT">
+<connects>
+<connect gate="G$1" pin="P$1" pad="1"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:14850798/1"/>
 </package3dinstances>
 <technologies>
 <technology name=""/>
@@ -5255,7 +5320,7 @@ Standard 8.5x11 US Letter frame</description>
 <parts>
 <part name="U1" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="LM340MPX-5.0" device="230" package3d_urn="urn:adsk.eagle:package:14850800/1"/>
 <part name="J1" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="CONN_02" device="" package3d_urn="urn:adsk.eagle:package:38039/1" value="VCC"/>
-<part name="J2" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="CONN_02" device="" package3d_urn="urn:adsk.eagle:package:38039/1"/>
+<part name="J2" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="CONN_02" device="" package3d_urn="urn:adsk.eagle:package:38039/1" value="GND"/>
 <part name="J3" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="CONN_02" device="" package3d_urn="urn:adsk.eagle:package:38039/1" value="UART"/>
 <part name="SUPPLY1" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="VCC" device=""/>
 <part name="SUPPLY2" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="GND" device=""/>
@@ -5270,8 +5335,8 @@ Standard 8.5x11 US Letter frame</description>
 <attribute name="REV" value="A"/>
 <attribute name="SUBSYSTEM_NAME" value="mippe_module"/>
 </part>
-<part name="R1" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="R-US_" device="R0402" package3d_urn="urn:adsk.eagle:package:14850590/2"/>
-<part name="R2" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="R-US_" device="R0402" package3d_urn="urn:adsk.eagle:package:14850590/2" value="330R"/>
+<part name="R1" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="R-US_" device="R0402" package3d_urn="urn:adsk.eagle:package:14850590/2" value="10k"/>
+<part name="R2" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="R-US_" device="R0402" package3d_urn="urn:adsk.eagle:package:14850590/2" value="500R"/>
 <part name="D1" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="LED" device="0603" package3d_urn="urn:adsk.eagle:package:14850721/2"/>
 <part name="SUPPLY6" library="scono" deviceset="GND" device=""/>
 <part name="C3" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="CAP" device="0402-CAP" package3d_urn="urn:adsk.eagle:package:14850678/2" value="100nF"/>
@@ -5286,7 +5351,7 @@ Standard 8.5x11 US Letter frame</description>
 <part name="SUPPLY10" library="scono" deviceset="GND" device=""/>
 <part name="SUPPLY11" library="scono" deviceset="GND" device=""/>
 <part name="J4" library="scono" deviceset="CONN_06" device="NO_SILK_FEMALE_PTH" value="FTDI"/>
-<part name="R3" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="R-US_" device="R0402" package3d_urn="urn:adsk.eagle:package:14850590/2" value="330R"/>
+<part name="R3" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="R-US_" device="R0402" package3d_urn="urn:adsk.eagle:package:14850590/2" value="500R"/>
 <part name="D2" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="LED" device="0603" package3d_urn="urn:adsk.eagle:package:14850721/2" value="RED"/>
 <part name="SUPPLY13" library="scono" deviceset="GND" device=""/>
 <part name="J12" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="BURNIN" device="" package3d_urn="urn:adsk.eagle:package:14850856/2"/>
@@ -5301,6 +5366,11 @@ Standard 8.5x11 US Letter frame</description>
 <part name="U$6" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="5V" device=""/>
 <part name="U$3" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="5V" device=""/>
 <part name="U$4" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="5V" device=""/>
+<part name="J5" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="CONN_02" device="" package3d_urn="urn:adsk.eagle:package:38039/1" value="VCC"/>
+<part name="SUPPLY12" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="VCC" device=""/>
+<part name="J6" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="CONN_02" device="" package3d_urn="urn:adsk.eagle:package:38039/1" value="GND"/>
+<part name="SUPPLY16" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="GND" device=""/>
+<part name="TP1" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="TEST_POINT" device="THRU" package3d_urn="urn:adsk.eagle:package:14850798/1"/>
 </parts>
 <sheets>
 <sheet>
@@ -5425,9 +5495,9 @@ Standard 8.5x11 US Letter frame</description>
 <attribute name="VALUE" x="231.14" y="159.766" size="1.778" layer="96" font="vector" rot="R180"/>
 <attribute name="NAME" x="231.14" y="149.352" size="1.778" layer="95" font="vector" rot="R180"/>
 </instance>
-<instance part="J3" gate="G$1" x="228.6" y="167.64" smashed="yes" rot="R180">
-<attribute name="VALUE" x="231.14" y="172.466" size="1.778" layer="96" font="vector" rot="R180"/>
-<attribute name="NAME" x="231.14" y="162.052" size="1.778" layer="95" font="vector" rot="R180"/>
+<instance part="J3" gate="G$1" x="177.8" y="167.64" smashed="yes" rot="R180">
+<attribute name="VALUE" x="180.34" y="172.466" size="1.778" layer="96" font="vector" rot="R180"/>
+<attribute name="NAME" x="180.34" y="162.052" size="1.778" layer="95" font="vector" rot="R180"/>
 </instance>
 <instance part="SUPPLY1" gate="G$1" x="190.5" y="165.1" smashed="yes" rot="R90">
 <attribute name="VALUE" x="187.706" y="165.1" size="1.778" layer="96" rot="R90" align="bottom-center"/>
@@ -5460,6 +5530,23 @@ Standard 8.5x11 US Letter frame</description>
 </instance>
 <instance part="U$4" gate="G$1" x="33.02" y="86.36" smashed="yes">
 <attribute name="VALUE" x="31.75" y="90.17" size="1.778" layer="96"/>
+</instance>
+<instance part="J5" gate="G$1" x="200.66" y="154.94" smashed="yes" rot="R180">
+<attribute name="VALUE" x="203.2" y="159.766" size="1.778" layer="96" font="vector" rot="R180"/>
+<attribute name="NAME" x="203.2" y="149.352" size="1.778" layer="95" font="vector" rot="R180"/>
+</instance>
+<instance part="SUPPLY12" gate="G$1" x="190.5" y="152.4" smashed="yes" rot="R90">
+<attribute name="VALUE" x="187.706" y="152.4" size="1.778" layer="96" rot="R90" align="bottom-center"/>
+</instance>
+<instance part="J6" gate="G$1" x="228.6" y="167.64" smashed="yes" rot="R180">
+<attribute name="VALUE" x="231.14" y="172.466" size="1.778" layer="96" font="vector" rot="R180"/>
+<attribute name="NAME" x="231.14" y="162.052" size="1.778" layer="95" font="vector" rot="R180"/>
+</instance>
+<instance part="SUPPLY16" gate="GND" x="215.9" y="165.1" smashed="yes" rot="R270">
+<attribute name="VALUE" x="213.36" y="166.37" size="1.016" layer="96" rot="R270"/>
+</instance>
+<instance part="TP1" gate="G$1" x="60.96" y="167.64" smashed="yes" rot="R90">
+<attribute name="NAME" x="58.42" y="167.64" size="1.778" layer="95" rot="R90"/>
 </instance>
 </instances>
 <busses>
@@ -5546,6 +5633,14 @@ Standard 8.5x11 US Letter frame</description>
 <wire x1="60.96" y1="160.02" x2="60.96" y2="157.48" width="0.1524" layer="91"/>
 <pinref part="SUPPLY5" gate="GND" pin="GND"/>
 </segment>
+<segment>
+<pinref part="J6" gate="G$1" pin="1"/>
+<pinref part="J6" gate="G$1" pin="2"/>
+<wire x1="220.98" y1="167.64" x2="220.98" y2="165.1" width="0.1524" layer="91"/>
+<wire x1="220.98" y1="165.1" x2="218.44" y2="165.1" width="0.1524" layer="91"/>
+<junction x="220.98" y="165.1"/>
+<pinref part="SUPPLY16" gate="GND" pin="GND"/>
+</segment>
 </net>
 <net name="SCL" class="0">
 <segment>
@@ -5602,8 +5697,8 @@ Standard 8.5x11 US Letter frame</description>
 </segment>
 <segment>
 <pinref part="J3" gate="G$1" pin="1"/>
-<wire x1="220.98" y1="167.64" x2="218.44" y2="167.64" width="0.1524" layer="91"/>
-<label x="218.44" y="167.64" size="1.778" layer="95" rot="R180"/>
+<wire x1="170.18" y1="167.64" x2="167.64" y2="167.64" width="0.1524" layer="91"/>
+<label x="167.64" y="167.64" size="1.778" layer="95" rot="R180"/>
 </segment>
 </net>
 <net name="TX" class="0">
@@ -5619,8 +5714,8 @@ Standard 8.5x11 US Letter frame</description>
 </segment>
 <segment>
 <pinref part="J3" gate="G$1" pin="2"/>
-<wire x1="220.98" y1="165.1" x2="218.44" y2="165.1" width="0.1524" layer="91"/>
-<label x="218.44" y="165.1" size="1.778" layer="95" rot="R180"/>
+<wire x1="170.18" y1="165.1" x2="167.64" y2="165.1" width="0.1524" layer="91"/>
+<label x="167.64" y="165.1" size="1.778" layer="95" rot="R180"/>
 </segment>
 </net>
 <net name="GPIO1" class="0">
@@ -5812,9 +5907,6 @@ Standard 8.5x11 US Letter frame</description>
 <pinref part="U2" gate="G$1" pin="AVCC"/>
 <wire x1="134.62" y1="111.76" x2="134.62" y2="109.22" width="0.1524" layer="91"/>
 <junction x="134.62" y="111.76"/>
-<pinref part="U2" gate="G$1" pin="AREF"/>
-<wire x1="134.62" y1="109.22" x2="134.62" y2="106.68" width="0.1524" layer="91"/>
-<junction x="134.62" y="109.22"/>
 </segment>
 <segment>
 <pinref part="U$6" gate="G$1" pin="5V"/>
@@ -5829,6 +5921,7 @@ Standard 8.5x11 US Letter frame</description>
 <wire x1="60.96" y1="167.64" x2="66.04" y2="167.64" width="0.1524" layer="91"/>
 <wire x1="60.96" y1="167.64" x2="60.96" y2="165.1" width="0.1524" layer="91"/>
 <junction x="60.96" y="167.64"/>
+<pinref part="TP1" gate="G$1" pin="P$1"/>
 </segment>
 <segment>
 <pinref part="C4" gate="G$1" pin="2"/>
@@ -5856,6 +5949,14 @@ Standard 8.5x11 US Letter frame</description>
 <pinref part="C1" gate="G$1" pin="2"/>
 <wire x1="25.4" y1="167.64" x2="25.4" y2="165.1" width="0.1524" layer="91"/>
 <junction x="25.4" y="167.64"/>
+</segment>
+<segment>
+<pinref part="J5" gate="G$1" pin="2"/>
+<pinref part="J5" gate="G$1" pin="1"/>
+<wire x1="193.04" y1="152.4" x2="193.04" y2="154.94" width="0.1524" layer="91"/>
+<wire x1="193.04" y1="152.4" x2="190.5" y2="152.4" width="0.1524" layer="91"/>
+<junction x="193.04" y="152.4"/>
+<pinref part="SUPPLY12" gate="G$1" pin="VCC"/>
 </segment>
 </net>
 </nets>
