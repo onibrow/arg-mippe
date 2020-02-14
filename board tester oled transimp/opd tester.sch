@@ -1004,17 +1004,6 @@ part number 2062-2P from STA</description>
 <circle x="-3.56" y="-0.02" radius="0.143178125" width="0.2" layer="51"/>
 <wire x1="1.63" y1="1.16" x2="1.64" y2="-1.15" width="0.127" layer="51" curve="289.5"/>
 <wire x1="1.63" y1="1.16" x2="1.63" y2="-1.16" width="0.127" layer="51"/>
-<polygon width="0.001" layer="1">
-<vertex x="0.27" y="0.06"/>
-<vertex x="0.27" y="1.79" curve="-43"/>
-<vertex x="1.87" y="2.4"/>
-<vertex x="1.895" y="2.4" curve="-89"/>
-<vertex x="4.27" y="0" curve="-89"/>
-<vertex x="1.895" y="-2.4"/>
-<vertex x="1.795" y="-2.4"/>
-<vertex x="1.87" y="-2.4" curve="-43"/>
-<vertex x="0.27" y="-1.79"/>
-</polygon>
 <circle x="1.27" y="0" radius="0.5" width="1" layer="29"/>
 <circle x="-1.27" y="0" radius="0.5" width="1" layer="29"/>
 <wire x1="-2.55" y1="2.65" x2="4.5" y2="2.65" width="0.05" layer="39"/>
@@ -4166,11 +4155,14 @@ For A106146CT-ND or similar</description>
 <part name="SUPPLY9" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="GND" device=""/>
 <part name="J3" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="CONN_02" device="" package3d_urn="urn:adsk.eagle:package:38039/1"/>
 <part name="TP1" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="TEST_POINT" device="THRU" package3d_urn="urn:adsk.eagle:package:14850798/1"/>
-<part name="TP2" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="TEST_POINT" device="THRU" package3d_urn="urn:adsk.eagle:package:14850798/1"/>
 <part name="TP3" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="TEST_POINT" device="THRU" package3d_urn="urn:adsk.eagle:package:14850798/1"/>
 <part name="TP4" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="TEST_POINT" device="THRU" package3d_urn="urn:adsk.eagle:package:14850798/1"/>
 <part name="TP5" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="TEST_POINT" device="THRU" package3d_urn="urn:adsk.eagle:package:14850798/1"/>
 <part name="U$5" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="5V" device=""/>
+<part name="R4" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="R-US_" device="0603" package3d_urn="urn:adsk.eagle:package:14850803/1" value="10k"/>
+<part name="R5" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="R-US_" device="0603" package3d_urn="urn:adsk.eagle:package:14850803/1" value="10k"/>
+<part name="U$6" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="5V" device=""/>
+<part name="U$7" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="5V" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -4257,9 +4249,6 @@ For A106146CT-ND or similar</description>
 <instance part="TP1" gate="G$1" x="83.82" y="83.82" smashed="yes" rot="R270">
 <attribute name="NAME" x="86.36" y="83.82" size="1.778" layer="95" rot="R270"/>
 </instance>
-<instance part="TP2" gate="G$1" x="200.66" y="114.3" smashed="yes" rot="R90">
-<attribute name="NAME" x="198.12" y="114.3" size="1.778" layer="95" rot="R90"/>
-</instance>
 <instance part="TP3" gate="G$1" x="215.9" y="111.76" smashed="yes" rot="R270">
 <attribute name="NAME" x="218.44" y="111.76" size="1.778" layer="95" rot="R270"/>
 </instance>
@@ -4271,6 +4260,20 @@ For A106146CT-ND or similar</description>
 </instance>
 <instance part="U$5" gate="G$1" x="83.82" y="160.02" smashed="yes">
 <attribute name="VALUE" x="82.55" y="163.83" size="1.778" layer="96"/>
+</instance>
+<instance part="R4" gate="G$1" x="27.94" y="149.86" smashed="yes" rot="R90">
+<attribute name="NAME" x="26.67" y="144.78" size="1.016" layer="95" rot="R90"/>
+<attribute name="VALUE" x="29.21" y="144.78" size="1.016" layer="96" rot="R90" align="top-left"/>
+</instance>
+<instance part="R5" gate="G$1" x="33.02" y="139.7" smashed="yes" rot="R90">
+<attribute name="NAME" x="31.75" y="134.62" size="1.016" layer="95" rot="R90"/>
+<attribute name="VALUE" x="34.29" y="134.62" size="1.016" layer="96" rot="R90" align="top-left"/>
+</instance>
+<instance part="U$6" gate="G$1" x="27.94" y="152.4" smashed="yes">
+<attribute name="VALUE" x="26.67" y="156.21" size="1.778" layer="96"/>
+</instance>
+<instance part="U$7" gate="G$1" x="33.02" y="134.62" smashed="yes" rot="R180">
+<attribute name="VALUE" x="34.29" y="130.81" size="1.778" layer="96" rot="R180"/>
 </instance>
 </instances>
 <busses>
@@ -4317,17 +4320,23 @@ For A106146CT-ND or similar</description>
 <segment>
 <pinref part="J1" gate="G$1" pin="2"/>
 <pinref part="U1" gate="G$1" pin="SCL"/>
-<wire x1="25.4" y1="144.78" x2="48.26" y2="144.78" width="0.1524" layer="91"/>
+<wire x1="25.4" y1="144.78" x2="27.94" y2="144.78" width="0.1524" layer="91"/>
 <label x="35.56" y="144.78" size="1.778" layer="95"/>
+<pinref part="R4" gate="G$1" pin="1"/>
+<wire x1="27.94" y1="144.78" x2="48.26" y2="144.78" width="0.1524" layer="91"/>
+<junction x="27.94" y="144.78"/>
 </segment>
 </net>
 <net name="SDA" class="0">
 <segment>
 <pinref part="J1" gate="G$1" pin="1"/>
 <pinref part="U1" gate="G$1" pin="SDA"/>
-<wire x1="25.4" y1="142.24" x2="48.26" y2="142.24" width="0.1524" layer="91"/>
+<wire x1="25.4" y1="142.24" x2="33.02" y2="142.24" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="142.24" x2="48.26" y2="142.24" width="0.1524" layer="91"/>
 <wire x1="48.26" y1="142.24" x2="48.26" y2="139.7" width="0.1524" layer="91"/>
 <label x="35.56" y="139.7" size="1.778" layer="95"/>
+<pinref part="R5" gate="G$1" pin="2"/>
+<junction x="33.02" y="142.24"/>
 </segment>
 </net>
 <net name="N$1" class="0">
@@ -4393,6 +4402,14 @@ For A106146CT-ND or similar</description>
 <pinref part="U1" gate="G$1" pin="VDD"/>
 <wire x1="83.82" y1="160.02" x2="83.82" y2="154.94" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="R4" gate="G$1" pin="2"/>
+<pinref part="U$6" gate="G$1" pin="5V"/>
+</segment>
+<segment>
+<pinref part="R5" gate="G$1" pin="1"/>
+<pinref part="U$7" gate="G$1" pin="5V"/>
+</segment>
 </net>
 <net name="N$3" class="0">
 <segment>
@@ -4449,7 +4466,6 @@ For A106146CT-ND or similar</description>
 <pinref part="C3" gate="G$1" pin="2"/>
 <junction x="200.66" y="101.6"/>
 <label x="210.82" y="101.6" size="1.778" layer="95"/>
-<pinref part="TP2" gate="G$1" pin="P$1"/>
 </segment>
 <segment>
 <pinref part="J3" gate="G$1" pin="1"/>

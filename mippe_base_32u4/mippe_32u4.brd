@@ -1157,21 +1157,6 @@ Combination of BAC and AC</description>
 <wire x1="22.25" y1="7.9" x2="22.4" y2="7.75" width="0.254" layer="1"/>
 <wire x1="27" y1="7.75" x2="27.66" y2="7.09" width="0.254" layer="1"/>
 <wire x1="22.4" y1="7.75" x2="27" y2="7.75" width="0.254" layer="1"/>
-<wire x1="24" y1="22.85" x2="23.85" y2="26.75" width="0" layer="19" extent="1-16"/>
-<wire x1="21.75" y1="22.85" x2="24" y2="22.85" width="0" layer="19" extent="1-1"/>
-<wire x1="18.025" y1="21" x2="21.75" y2="22.85" width="0" layer="19" extent="1-1"/>
-<wire x1="8.75" y1="22.85" x2="11.475" y2="24" width="0" layer="19" extent="1-1"/>
-<wire x1="7.25" y1="22.85" x2="8.75" y2="22.85" width="0" layer="19" extent="1-1"/>
-<wire x1="7.25" y1="25.4" x2="7.25" y2="22.85" width="0" layer="19" extent="1-1"/>
-<wire x1="14.25" y1="18.725" x2="14.75" y2="22" width="0" layer="19" extent="1-1"/>
-<wire x1="27.66" y1="9.63" x2="27.66" y2="7.09" width="0" layer="19" extent="1-1"/>
-<wire x1="16.25" y1="12.75" x2="14.9059" y2="15.3" width="0" layer="19" extent="1-1"/>
-<wire x1="16.825" y1="30.925" x2="19" y2="26.75" width="0" layer="19" extent="1-1"/>
-<wire x1="13.42" y1="32" x2="16.825" y2="30.925" width="0" layer="19" extent="1-16"/>
-<wire x1="10.75" y1="11.6" x2="14.9059" y2="15.3" width="0" layer="19" extent="1-1"/>
-<wire x1="8.75" y1="9.9" x2="10.75" y2="11.6" width="0" layer="19" extent="1-1"/>
-<wire x1="8.5" y1="13.3484" x2="10.75" y2="11.6" width="0" layer="19" extent="1-1"/>
-<wire x1="24.1" y1="17" x2="24" y2="22.85" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="N$3">
 <contactref element="R6" pad="1"/>
@@ -1743,21 +1728,6 @@ Combination of BAC and AC</description>
 <via x="7.25" y="19.75" extent="1-16" drill="0.499"/>
 <wire x1="16.75" y1="25.275" x2="16.75" y2="27.25" width="0.254" layer="1"/>
 <via x="16.75" y="27.25" extent="1-16" drill="0.499"/>
-<wire x1="18.5" y1="32" x2="22.3" y2="31.323" width="0" layer="19" extent="1-16"/>
-<wire x1="16.75" y1="27.25" x2="18.5" y2="32" width="0" layer="19" extent="16-16"/>
-<wire x1="18.025" y1="20.5" x2="16.75" y2="25.275" width="0" layer="19" extent="1-1"/>
-<wire x1="15.25" y1="18.725" x2="18.025" y2="20.5" width="0" layer="19" extent="1-1"/>
-<wire x1="12.75" y1="18.725" x2="15.25" y2="18.725" width="0" layer="19" extent="1-1"/>
-<wire x1="11.475" y1="19.5" x2="12.75" y2="18.725" width="0" layer="19" extent="1-1"/>
-<wire x1="8.75" y1="21.15" x2="11.475" y2="19.5" width="0" layer="19" extent="1-1"/>
-<wire x1="21.75" y1="16.9" x2="21.75" y2="21.15" width="0" layer="19" extent="1-1"/>
-<wire x1="11.475" y1="24.5" x2="8.75" y2="21.15" width="0" layer="19" extent="1-1"/>
-<wire x1="8.08" y1="29.21" x2="10.75" y2="26" width="0" layer="19" extent="1-1"/>
-<wire x1="20.5" y1="9.75" x2="21.75" y2="15.25" width="0" layer="19" extent="1-1"/>
-<wire x1="21" y1="2.75" x2="20.5" y2="9.75" width="0" layer="19" extent="1-1"/>
-<wire x1="4.8" y1="9.63" x2="12.25" y2="14.75" width="0" layer="19" extent="1-1"/>
-<wire x1="4.8" y1="7.09" x2="4.8" y2="9.63" width="0" layer="19" extent="1-1"/>
-<wire x1="8.5" y1="4.6" x2="4.8" y2="7.09" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="USBID">
 <contactref element="J2" pad="4"/>

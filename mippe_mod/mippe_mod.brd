@@ -204,6 +204,7 @@
 <dimension x1="3.5" y1="29.5" x2="3.5" y2="46.5" x3="40.75" y3="38" textsize="2" layer="47"/>
 <text x="14.75" y="22.5" size="1.778" layer="25">U2</text>
 <text x="6.25" y="4.75" size="0.7" layer="25" rot="SR180">5V</text>
+<dimension x1="7" y1="0" x2="25.5" y2="0" x3="16.25" y3="-8.25" textsize="1.778" layer="47"/>
 </plain>
 <libraries>
 <library name="scono" urn="urn:adsk.eagle:library:14850048">

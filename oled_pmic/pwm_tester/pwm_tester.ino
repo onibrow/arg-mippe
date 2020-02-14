@@ -14,13 +14,19 @@
 */
 
 int led = 9;           // the PWM pin the LED is attached to
-int adc = A0;
-int brightness = 0;    // how bright the LED is
-int fadeAmount = 5;    // how many points to fade the LED by
-float led_v = 0.000;
-int num_samples = 250;
+int adc = A0;          // Reading in LED Voltage / 2
+int brightness = 255;    // how bright the LED is
+
+float led_v = 0.000;   // Voltage on the LED
+float target = 0.000;  // Target LED voltage
+int num_samples = 250; // Number of averages
 float bit_depth = 1023.000;
+float fudge = 0.05;
+
 int vcc = 5;
+String buff = String("deadbuffdead");
+long sum = 0;
+uint8_t fudge_judge;
 
 // the setup routine runs once when you press reset:
 void setup() {
@@ -30,29 +36,49 @@ void setup() {
   pinMode(adc, INPUT);
 }
 
+uint8_t fudge_zone() {
+  if (target > (led_v + fudge)) {
+    return 0;
+  } else if (target < (led_v - fudge)) {
+    return 1;
+  } else {
+    return 2;
+  }
+}
+
 // the loop routine runs over and over again forever:
 void loop() {
-  // set the brightness of pin 9:
-  analogWrite(led, brightness);
-
-  // change the brightness for next time through the loop:
-  brightness = brightness + fadeAmount;
-
-  // reverse the direction of the fading at the ends of the fade:
-  if (brightness <= 0 || brightness >= 255) {
-    fadeAmount = -fadeAmount;
-    brightness = brightness + fadeAmount;
-  }
-
-  long sum = 0;
+  sum = 0;
   for (int i = 0; i < num_samples; i++) {
     sum += analogRead(adc);
   }
   led_v = vcc - (vcc * sum / num_samples / bit_depth * 2);
 
-  // wait for 30 milliseconds to see the dimming effect
-  Serial.print("Brightness: ");
-  Serial.print(brightness / 255.0);
-  Serial.print(" Voltage: ");
-  Serial.println(led_v);
+  fudge_judge = fudge_zone();
+
+  if (fudge_judge == 2) {
+    ;
+  } else if (fudge_judge == 1 && brightness < 255) {
+    brightness += 1;
+  } else if (fudge_judge == 0 && brightness > 0) {
+    brightness -= 1;
+  }
+
+  analogWrite(led, brightness);
+
+  if (Serial.available()) {
+    buff = Serial.readStringUntil('\n');
+//    Serial.println(buff);
+    target = buff.toFloat();
+    Serial.print("\nFudge: ");
+    Serial.println(fudge_judge);
+    Serial.print("Brightness: ");
+    Serial.println(brightness);
+    Serial.print("Voltage: ");
+    Serial.println(led_v);
+    Serial.print("Target: ");
+    Serial.println(target);
+  }
+
+  delay(1);
 }
