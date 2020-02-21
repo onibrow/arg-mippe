@@ -7,7 +7,7 @@ float target = 0.000;  // Target LED voltage
 int num_samples = 250; // Number of averages
 float bit_depth = 1023.000;
 
-int vcc = 5;
+int vcc = 9;
 String buff = "";
 
 float pwm_voltages[256];
@@ -32,6 +32,9 @@ void calibrate_led() {
     delay(0.5);
     pwm_voltages[i] = read_voltage();
     if (i % 10 == 0) {
+//      Serial.print(i);
+//      Serial.print(" = ");
+//      Serial.println(pwm_voltages[i]);
       Serial.print(".");
     }
   }
