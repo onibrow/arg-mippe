@@ -26,7 +26,7 @@ void setup() {
 }
 
 void calibrate_led() {
-  Serial.print("Calibrating");
+  Serial.print("\nCalibrating");
   for (int i = 0; i < 256; i++) {
     analogWrite(led, i);
     delay(0.5);
