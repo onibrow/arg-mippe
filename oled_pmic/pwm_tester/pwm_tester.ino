@@ -31,10 +31,10 @@ void calibrate_led() {
     analogWrite(led, i);
     delay(1);
     pwm_voltages[i] = read_voltage();
+    Serial.print(i);
+    Serial.print(" = ");
+    Serial.println(pwm_voltages[i]);
     if (i % 10 == 0) {
-      Serial.print(i);
-      Serial.print(" = ");
-      Serial.println(pwm_voltages[i]);
       Serial.print(".");
     }
   }
@@ -56,9 +56,9 @@ void write_voltage(float t) {
   } else if (target > pwm_voltages[0]) {
     brightness = 0;
   } else {
-    for (int i = 0; i < 255; i++) {
+    for (int i = 0; i <= 255; i++) {
       if (pwm_voltages[i] < target) {
-        brightness = i+1;
+        brightness = i;
         break;
       }
     }
