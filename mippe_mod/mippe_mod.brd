@@ -54,7 +54,7 @@
 <layer number="44" name="Drills" color="11" fill="1" visible="no" active="yes"/>
 <layer number="45" name="Holes" color="3" fill="1" visible="no" active="yes"/>
 <layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
-<layer number="47" name="Measures" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="47" name="Measures" color="15" fill="1" visible="no" active="yes"/>
 <layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="49" name="Reference" color="7" fill="1" visible="no" active="yes"/>
 <layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
@@ -202,7 +202,7 @@
 <dimension x1="0" y1="0" x2="0" y2="50" x3="-3.25" y3="25" textsize="2" layer="47"/>
 <dimension x1="3.5" y1="29.5" x2="29" y2="29.5" x3="16.25" y3="53.75" textsize="2" layer="47"/>
 <dimension x1="3.5" y1="29.5" x2="3.5" y2="46.5" x3="40.75" y3="38" textsize="2" layer="47"/>
-<text x="14.75" y="22.5" size="1.778" layer="25">U2</text>
+<text x="16.5" y="23" size="1.778" layer="25">U2</text>
 <text x="6.25" y="4.75" size="0.7" layer="25" rot="SR180">5V</text>
 <dimension x1="7" y1="0" x2="25.5" y2="0" x3="16.25" y3="-8.25" textsize="1.778" layer="47"/>
 </plain>
