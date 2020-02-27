@@ -904,15 +904,15 @@ chip</description>
 <text x="3.8064" y="-2.5334" size="1.27" layer="27" font="vector" rot="R90">&gt;VALUE</text>
 <rectangle x1="-2.032" y1="-2.794" x2="2.032" y2="2.794" layer="39"/>
 </package>
-<package name="BURNIN" urn="urn:adsk.eagle:footprint:14850534/2" library_version="5" library_locally_modified="yes">
+<package name="BURNIN" urn="urn:adsk.eagle:footprint:14850534/2" locally_modified="yes" library_version="7" library_locally_modified="yes">
 <smd name="3.3V" x="0" y="0" dx="1.27" dy="1.27" layer="16" roundness="100" rot="R180"/>
 <smd name="MOSI" x="-2.54" y="0" dx="1.27" dy="1.27" layer="16" roundness="100" rot="R180"/>
 <smd name="GND" x="-5.08" y="0" dx="1.27" dy="1.27" layer="16" roundness="100" rot="R180"/>
 <smd name="RST" x="-5.08" y="2.54" dx="1.27" dy="1.27" layer="16" roundness="100" rot="R180"/>
 <smd name="SCK" x="-2.54" y="2.54" dx="1.27" dy="1.27" layer="16" roundness="100" rot="R180"/>
 <smd name="MISO" x="0" y="2.54" dx="1.27" dy="1.27" layer="16" roundness="100" rot="R180"/>
-<pad name="P$7" x="-7.62" y="2.54" drill="0.8" rot="R90"/>
-<pad name="P$8" x="-7.62" y="0" drill="0.8" rot="R90"/>
+<pad name="P$7" x="-7.62" y="2.54" drill="1" rot="R90"/>
+<pad name="P$8" x="-7.62" y="0" drill="1" rot="R90"/>
 <text x="-3.75" y="1.25" size="0.5" layer="51" align="center">BURNIN</text>
 <rectangle x1="-8.25" y1="-0.75" x2="-6.875" y2="3.25" layer="39"/>
 <rectangle x1="-8.25" y1="-0.75" x2="0.75" y2="3.25" layer="40"/>
@@ -2107,7 +2107,7 @@ A106146CT-ND or similar.</description>
 <text x="-2.5654" y="1.6002" size="1.27" layer="51" ratio="6" rot="SR0">*</text>
 <text x="-3.2766" y="-0.635" size="1.27" layer="25" ratio="6" rot="SR0">&gt;Name</text>
 </package>
-<package name="RU_24" library_version="6" library_locally_modified="yes">
+<package name="RU_24" urn="urn:adsk.eagle:footprint:17602529/1" library_version="7" library_locally_modified="yes">
 <smd name="1" x="-2.8194" y="3.575" dx="1.4732" dy="0.3556" layer="1"/>
 <smd name="2" x="-2.8194" y="2.925" dx="1.4732" dy="0.3556" layer="1"/>
 <smd name="3" x="-2.8194" y="2.275003125" dx="1.4732" dy="0.3556" layer="1"/>
@@ -2134,20 +2134,6 @@ A106146CT-ND or similar.</description>
 <smd name="24" x="2.8194" y="3.575" dx="1.4732" dy="0.3556" layer="1"/>
 <wire x1="-2.0066" y1="-4.064" x2="2.0066" y2="-4.064" width="0.1524" layer="21"/>
 <wire x1="2.0066" y1="4.064" x2="-2.0066" y2="4.064" width="0.1524" layer="21"/>
-<polygon width="0.0254" layer="21">
-<vertex x="-4.064" y="-2.0845"/>
-<vertex x="-4.064" y="-2.4655"/>
-<vertex x="-3.81" y="-2.4655"/>
-<vertex x="-3.81" y="-2.0845"/>
-</polygon>
-<polygon width="0.0254" layer="21">
-<vertex x="4.064" y="1.1655"/>
-<vertex x="4.064" y="0.7845"/>
-<vertex x="3.81" y="0.7845"/>
-<vertex x="3.81" y="1.1655"/>
-</polygon>
-<text x="-2.4384" y="2.5908" size="1.27" layer="21" ratio="6" rot="SR0">*</text>
-<text x="-1.7272" y="-0.635" size="1.27" layer="21" ratio="6" rot="SR0">&gt;Value</text>
 <wire x1="-2.2352" y1="3.429" x2="-2.2352" y2="3.7338" width="0.1524" layer="51"/>
 <wire x1="-2.2352" y1="3.7338" x2="-3.2004" y2="3.7338" width="0.1524" layer="51"/>
 <wire x1="-3.2004" y1="3.7338" x2="-3.2004" y2="3.429" width="0.1524" layer="51"/>
@@ -2249,6 +2235,20 @@ A106146CT-ND or similar.</description>
 <wire x1="2.2352" y1="3.9624" x2="-2.2352" y2="3.9624" width="0.1524" layer="51"/>
 <wire x1="-2.2352" y1="3.9624" x2="-2.2352" y2="-3.9624" width="0.1524" layer="51"/>
 <wire x1="0.3048" y1="3.9624" x2="-0.3048" y2="3.9624" width="0.1524" layer="51" curve="-180"/>
+<polygon width="0.0254" layer="21">
+<vertex x="-4.064" y="-2.0845"/>
+<vertex x="-4.064" y="-2.4655"/>
+<vertex x="-3.81" y="-2.4655"/>
+<vertex x="-3.81" y="-2.0845"/>
+</polygon>
+<polygon width="0.0254" layer="21">
+<vertex x="4.064" y="1.1655"/>
+<vertex x="4.064" y="0.7845"/>
+<vertex x="3.81" y="0.7845"/>
+<vertex x="3.81" y="1.1655"/>
+</polygon>
+<text x="-2.4384" y="2.5908" size="1.27" layer="21" ratio="6" rot="SR0">*</text>
+<text x="-1.7272" y="-0.635" size="1.27" layer="21" ratio="6" rot="SR0">&gt;Value</text>
 <text x="-2.4384" y="2.5908" size="1.27" layer="51" ratio="6" rot="SR0">*</text>
 <text x="-3.2766" y="-0.635" size="1.27" layer="25" ratio="6" rot="SR0">&gt;Name</text>
 </package>
@@ -3144,7 +3144,7 @@ chip</description>
 <packageinstance name="CTZ3"/>
 </packageinstances>
 </package3d>
-<package3d name="BURNIN" urn="urn:adsk.eagle:package:14850856/2" type="box" library_version="5" library_locally_modified="yes">
+<package3d name="BURNIN" urn="urn:adsk.eagle:package:14850856/2" type="box" library_version="7" library_locally_modified="yes">
 <packageinstances>
 <packageinstance name="BURNIN"/>
 </packageinstances>
@@ -3758,6 +3758,11 @@ CONN_04
 <packageinstance name="1X04_SMD_RA_FEMALE"/>
 </packageinstances>
 </package3d>
+<package3d name="RU_24" urn="urn:adsk.eagle:package:17602555/1" type="box" library_version="7" library_locally_modified="yes">
+<packageinstances>
+<packageinstance name="RU_24"/>
+</packageinstances>
+</package3d>
 </packages3d>
 <symbols>
 <symbol name="LM340" urn="urn:adsk.eagle:symbol:14993472/1" library_version="5" library_locally_modified="yes">
@@ -3791,7 +3796,7 @@ CONN_04
 <pin name="VCC" x="0" y="0" visible="off" length="short" direction="sup" rot="R90"/>
 <text x="0" y="2.794" size="1.778" layer="96" align="bottom-center">&gt;VALUE</text>
 </symbol>
-<symbol name="GND" urn="urn:adsk.eagle:symbol:14850057/1" locally_modified="yes" library_version="6" library_locally_modified="yes">
+<symbol name="GND" urn="urn:adsk.eagle:symbol:14850057/2" library_version="7" library_locally_modified="yes">
 <wire x1="-1.27" y1="0" x2="0" y2="0" width="0.254" layer="94"/>
 <wire x1="0" y1="0" x2="1.27" y2="0" width="0.254" layer="94"/>
 <wire x1="1.27" y1="0" x2="0" y2="-1.27" width="0.254" layer="94"/>
@@ -3956,7 +3961,7 @@ CONN_04
 <text x="-4.7244" y="16.7386" size="2.0828" layer="95" ratio="6" rot="SR0">&gt;Name</text>
 <text x="-5.3594" y="14.1986" size="2.0828" layer="96" ratio="6" rot="SR0">&gt;Value</text>
 </symbol>
-<symbol name="AD8403ARUZ100" library_version="6" library_locally_modified="yes">
+<symbol name="AD8403ARUZ100" urn="urn:adsk.eagle:symbol:17602505/1" library_version="7" library_locally_modified="yes">
 <pin name="AGND2" x="2.54" y="0" length="middle" direction="pas"/>
 <pin name="B2" x="2.54" y="-2.54" length="middle" direction="pas"/>
 <pin name="A2" x="2.54" y="-5.08" length="middle" direction="pas"/>
@@ -4382,7 +4387,7 @@ CONN_04
 </device>
 </devices>
 </deviceset>
-<deviceset name="GND" urn="urn:adsk.eagle:component:14850878/1" prefix="SUPPLY" library_version="6" library_locally_modified="yes">
+<deviceset name="GND" urn="urn:adsk.eagle:component:14850878/2" prefix="SUPPLY" library_version="7" library_locally_modified="yes">
 <description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
 <gates>
 <gate name="GND" symbol="GND" x="0" y="0"/>
@@ -4514,7 +4519,7 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="BURNIN" urn="urn:adsk.eagle:component:14851022/3" prefix="J" library_version="5" library_locally_modified="yes">
+<deviceset name="BURNIN" urn="urn:adsk.eagle:component:14851022/3" prefix="J" library_version="7" library_locally_modified="yes">
 <gates>
 <gate name="G$1" symbol="BURNIN" x="2.54" y="2.54"/>
 </gates>
@@ -5368,7 +5373,7 @@ Standard 8.5x11 US Letter frame</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="AD8403ARUZ100" prefix="U" library_version="6" library_locally_modified="yes">
+<deviceset name="AD8403ARUZ100" urn="urn:adsk.eagle:component:17602571/1" prefix="U" library_version="7" library_locally_modified="yes">
 <gates>
 <gate name="A" symbol="AD8403ARUZ100" x="-33.02" y="9.525"/>
 </gates>
@@ -5400,6 +5405,9 @@ Standard 8.5x11 US Letter frame</description>
 <connect gate="A" pin="W3" pad="18"/>
 <connect gate="A" pin="W4" pad="8"/>
 </connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:17602555/1"/>
+</package3dinstances>
 <technologies>
 <technology name="">
 <attribute name="BUILT_BY" value="EMA_UL_Team" constant="no"/>
@@ -7243,7 +7251,7 @@ Standard 8.5x11 US Letter frame</description>
 <part name="SUPPLY22" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="GND" device=""/>
 <part name="SUPPLY23" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="GND" device=""/>
 <part name="SUPPLY24" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="GND" device=""/>
-<part name="U4" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="AD8403ARUZ100" device=""/>
+<part name="U4" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="AD8403ARUZ100" device="" package3d_urn="urn:adsk.eagle:package:17602555/1"/>
 <part name="U$9" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="5V" device=""/>
 <part name="U$14" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="5V" device=""/>
 <part name="U$15" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="5V" device=""/>

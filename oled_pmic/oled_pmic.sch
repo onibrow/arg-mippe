@@ -1815,15 +1815,15 @@ chip</description>
 <smd name="3" x="-3.075" y="-2.3" dx="1.86" dy="0.9" layer="1" rot="R180"/>
 <smd name="4" x="3.075" y="0" dx="1.86" dy="3.19" layer="1"/>
 </package>
-<package name="BURNIN" urn="urn:adsk.eagle:footprint:14850534/2" library_version="5" library_locally_modified="yes">
+<package name="BURNIN" urn="urn:adsk.eagle:footprint:14850534/2" locally_modified="yes" library_version="7" library_locally_modified="yes">
 <smd name="3.3V" x="0" y="0" dx="1.27" dy="1.27" layer="16" roundness="100" rot="R180"/>
 <smd name="MOSI" x="-2.54" y="0" dx="1.27" dy="1.27" layer="16" roundness="100" rot="R180"/>
 <smd name="GND" x="-5.08" y="0" dx="1.27" dy="1.27" layer="16" roundness="100" rot="R180"/>
 <smd name="RST" x="-5.08" y="2.54" dx="1.27" dy="1.27" layer="16" roundness="100" rot="R180"/>
 <smd name="SCK" x="-2.54" y="2.54" dx="1.27" dy="1.27" layer="16" roundness="100" rot="R180"/>
 <smd name="MISO" x="0" y="2.54" dx="1.27" dy="1.27" layer="16" roundness="100" rot="R180"/>
-<pad name="P$7" x="-7.62" y="2.54" drill="0.8" rot="R90"/>
-<pad name="P$8" x="-7.62" y="0" drill="0.8" rot="R90"/>
+<pad name="P$7" x="-7.62" y="2.54" drill="1" rot="R90"/>
+<pad name="P$8" x="-7.62" y="0" drill="1" rot="R90"/>
 <text x="-3.75" y="1.25" size="0.5" layer="51" align="center">BURNIN</text>
 <rectangle x1="-8.25" y1="-0.75" x2="-6.875" y2="3.25" layer="39"/>
 <rectangle x1="-8.25" y1="-0.75" x2="0.75" y2="3.25" layer="40"/>
@@ -3155,7 +3155,7 @@ chip</description>
 <packageinstance name="SOT230P700X180-4N"/>
 </packageinstances>
 </package3d>
-<package3d name="BURNIN" urn="urn:adsk.eagle:package:14850856/2" type="box" library_version="5" library_locally_modified="yes">
+<package3d name="BURNIN" urn="urn:adsk.eagle:package:14850856/2" type="box" library_version="7" library_locally_modified="yes">
 <packageinstances>
 <packageinstance name="BURNIN"/>
 </packageinstances>
@@ -3444,7 +3444,7 @@ CONN_08
 <pin name="VCC" x="0" y="0" visible="off" length="short" direction="sup" rot="R90"/>
 <text x="0" y="2.794" size="1.778" layer="96" align="bottom-center">&gt;VALUE</text>
 </symbol>
-<symbol name="GND" urn="urn:adsk.eagle:symbol:14850057/1" locally_modified="yes" library_version="6" library_locally_modified="yes">
+<symbol name="GND" urn="urn:adsk.eagle:symbol:14850057/2" library_version="7" library_locally_modified="yes">
 <wire x1="-1.27" y1="0" x2="0" y2="0" width="0.254" layer="94"/>
 <wire x1="0" y1="0" x2="1.27" y2="0" width="0.254" layer="94"/>
 <wire x1="1.27" y1="0" x2="0" y2="-1.27" width="0.254" layer="94"/>
@@ -4325,7 +4325,7 @@ Standard 8.5x11 US Letter frame</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="GND" urn="urn:adsk.eagle:component:14850878/1" prefix="SUPPLY" library_version="6" library_locally_modified="yes">
+<deviceset name="GND" urn="urn:adsk.eagle:component:14850878/2" prefix="SUPPLY" library_version="7" library_locally_modified="yes">
 <description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
 <gates>
 <gate name="GND" symbol="GND" x="0" y="0"/>
@@ -4907,7 +4907,7 @@ SOT669:  http://www.nxp.com/documents/data_sheet/PH7030L.pdf &lt;/p&gt;
 </device>
 </devices>
 </deviceset>
-<deviceset name="BURNIN" urn="urn:adsk.eagle:component:14851022/3" prefix="J" library_version="5" library_locally_modified="yes">
+<deviceset name="BURNIN" urn="urn:adsk.eagle:component:14851022/3" prefix="J" library_version="7" library_locally_modified="yes">
 <gates>
 <gate name="G$1" symbol="BURNIN" x="2.54" y="2.54"/>
 </gates>

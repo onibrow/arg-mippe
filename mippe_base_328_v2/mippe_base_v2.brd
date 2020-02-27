@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.5.0">
+<eagle version="9.5.2">
 <drawing>
 <settings>
-<setting alwaysvectorfont="no"/>
+<setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
 <grid distance="0.25" unitdist="mm" unit="mm" style="lines" multiple="2" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
@@ -134,6 +134,8 @@
 <layer number="153" name="FabDoc1" color="7" fill="1" visible="no" active="yes"/>
 <layer number="154" name="FabDoc2" color="7" fill="1" visible="no" active="yes"/>
 <layer number="155" name="FabDoc3" color="7" fill="1" visible="no" active="yes"/>
+<layer number="166" name="AntennaArea" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="168" name="4mmHeightArea" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="191" name="mNets" color="7" fill="1" visible="no" active="yes"/>
 <layer number="192" name="mBusses" color="7" fill="1" visible="no" active="yes"/>
 <layer number="193" name="mPins" color="7" fill="1" visible="no" active="yes"/>
@@ -203,9 +205,9 @@ S. Ono</text>
 <text x="9.75" y="9.75" size="1" layer="21" font="vector">LED1</text>
 </plain>
 <libraries>
-<library name="scono">
+<library name="scono" urn="urn:adsk.eagle:library:14850048">
 <packages>
-<package name="0603-CAP">
+<package name="0603-CAP" urn="urn:adsk.eagle:footprint:14850353/1" library_version="7" library_locally_modified="yes">
 <wire x1="-0.356" y1="0.432" x2="0.356" y2="0.432" width="0.1016" layer="51"/>
 <wire x1="-0.356" y1="-0.419" x2="0.356" y2="-0.419" width="0.1016" layer="51"/>
 <wire x1="0" y1="0.0305" x2="0" y2="-0.0305" width="0.254" layer="21"/>
@@ -218,7 +220,7 @@ S. Ono</text>
 <rectangle x1="-0.1999" y1="-0.3" x2="0.1999" y2="0.3" layer="35"/>
 <rectangle x1="-2.032" y1="-0.635" x2="2.032" y2="0.635" layer="39"/>
 </package>
-<package name="LED-0603">
+<package name="LED-0603" urn="urn:adsk.eagle:footprint:14850397/3" library_version="7" library_locally_modified="yes">
 <description>&lt;B&gt;LED 0603 SMT&lt;/B&gt;&lt;p&gt;
 0603, surface mount.
 &lt;p&gt;Specifications:
@@ -228,18 +230,20 @@ S. Ono</text>
 &lt;/ul&gt;&lt;/p&gt;
 &lt;p&gt;Example device(s):
 &lt;ul&gt;&lt;li&gt;LED - BLUE&lt;/li&gt;</description>
-<smd name="C" x="0.877" y="0" dx="1" dy="1" layer="1" roundness="30" rot="R270"/>
-<smd name="A" x="-0.877" y="0" dx="1" dy="1" layer="1" roundness="30" rot="R270"/>
-<text x="0" y="0.635" size="0.508" layer="25" font="vector" ratio="10" align="bottom-center">&gt;NAME</text>
-<wire x1="1.5875" y1="0.47625" x2="1.5875" y2="-0.47625" width="0.127" layer="21"/>
-<wire x1="0.15875" y1="0.47625" x2="0.15875" y2="0" width="0.127" layer="51"/>
-<wire x1="0.15875" y1="0" x2="0.15875" y2="-0.47625" width="0.127" layer="51"/>
-<wire x1="0.15875" y1="0" x2="-0.15875" y2="0.3175" width="0.127" layer="51"/>
-<wire x1="0.15875" y1="0" x2="-0.15875" y2="-0.3175" width="0.127" layer="51"/>
-<text x="-2" y="-1.3" size="1.27" layer="21" font="vector">+</text>
-<text x="-1.1" y="-1.1" size="0.508" layer="27" font="vector">&gt;VALUE</text>
+<smd name="C" x="-0.877" y="0" dx="1" dy="1" layer="1" roundness="30" rot="R90"/>
+<smd name="A" x="0.877" y="0" dx="1" dy="1" layer="1" roundness="30" rot="R90"/>
+<text x="-1.5" y="1.25" size="0.5" layer="25" font="vector" ratio="10" align="top-left">&gt;NAME</text>
+<text x="2.25" y="1.3" size="1.27" layer="21" font="vector" rot="R180">+</text>
+<text x="-1.5" y="-1.25" size="0.5" layer="27" font="vector">&gt;VALUE</text>
+<wire x1="-1.5875" y1="-0.47625" x2="-1.5875" y2="0.47625" width="0.127" layer="21"/>
+<wire x1="-0.25" y1="-0.5" x2="-0.25" y2="0" width="0.127" layer="112"/>
+<wire x1="-0.25" y1="0" x2="-0.25" y2="0.5" width="0.127" layer="112"/>
+<wire x1="-0.25" y1="0" x2="0.25" y2="-0.375" width="0.127" layer="112"/>
+<wire x1="-0.25" y1="0" x2="0.25" y2="0.375" width="0.127" layer="112"/>
+<wire x1="0.25" y1="0.375" x2="0.25" y2="-0.375" width="0.127" layer="112"/>
+<rectangle x1="-1.6" y1="-0.7" x2="1.6" y2="0.7" layer="39"/>
 </package>
-<package name="1X06_NO_SILK">
+<package name="1X06_NO_SILK" urn="urn:adsk.eagle:footprint:14850492/1" library_version="7" library_locally_modified="yes">
 <description>&lt;h3&gt;Plated Through Hole - 6 Pin No Silk Outline&lt;/h3&gt;
 &lt;p&gt;Specifications:
 &lt;ul&gt;&lt;li&gt;Pin count:6&lt;/li&gt;
@@ -299,55 +303,20 @@ S. Ono</text>
 <text x="-1.27" y="1.397" size="0.6096" layer="25" font="vector" ratio="20">&gt;NAME</text>
 <text x="-1.27" y="-2.032" size="0.6096" layer="27" font="vector" ratio="20">&gt;VALUE</text>
 </package>
-<package name="BURNIN">
+<package name="BURNIN" urn="urn:adsk.eagle:footprint:14850534/2" locally_modified="yes" library_version="7" library_locally_modified="yes">
 <smd name="3.3V" x="0" y="0" dx="1.27" dy="1.27" layer="16" roundness="100" rot="R180"/>
 <smd name="MOSI" x="-2.54" y="0" dx="1.27" dy="1.27" layer="16" roundness="100" rot="R180"/>
 <smd name="GND" x="-5.08" y="0" dx="1.27" dy="1.27" layer="16" roundness="100" rot="R180"/>
 <smd name="RST" x="-5.08" y="2.54" dx="1.27" dy="1.27" layer="16" roundness="100" rot="R180"/>
 <smd name="SCK" x="-2.54" y="2.54" dx="1.27" dy="1.27" layer="16" roundness="100" rot="R180"/>
 <smd name="MISO" x="0" y="2.54" dx="1.27" dy="1.27" layer="16" roundness="100" rot="R180"/>
-<pad name="P$7" x="-7.62" y="2.54" drill="0.9" rot="R90"/>
-<pad name="P$8" x="-7.62" y="0" drill="0.9" rot="R90"/>
-<wire x1="-8.255" y1="3.81" x2="-6.985" y2="3.81" width="0.127" layer="21"/>
-<wire x1="-6.985" y1="3.81" x2="-6.35" y2="3.175" width="0.127" layer="21"/>
-<wire x1="-6.35" y1="-0.635" x2="-6.985" y2="-1.27" width="0.127" layer="21"/>
-<wire x1="-6.985" y1="-1.27" x2="-8.255" y2="-1.27" width="0.127" layer="21"/>
-<wire x1="-8.73" y1="4" x2="0.365" y2="4" width="0.127" layer="51"/>
-<wire x1="-9.23" y1="4" x2="-8.73" y2="4" width="0.127" layer="51"/>
-<wire x1="0.365" y1="4" x2="0.865" y2="4" width="0.127" layer="51"/>
-<text x="-4" y="5" size="0.7" layer="51" font="vector" align="top-center">Edge of Board</text>
-<wire x1="-8.255" y1="-1.27" x2="-8.89" y2="-0.635" width="0.127" layer="21"/>
-<wire x1="-8.89" y1="-0.635" x2="-8.89" y2="0.635" width="0.127" layer="21"/>
-<wire x1="-8.89" y1="0.635" x2="-8.255" y2="1.27" width="0.127" layer="21"/>
-<wire x1="-8.255" y1="1.27" x2="-8.89" y2="1.905" width="0.127" layer="21"/>
-<wire x1="-8.89" y1="1.905" x2="-8.89" y2="3.175" width="0.127" layer="21"/>
-<wire x1="-8.89" y1="3.175" x2="-8.255" y2="3.81" width="0.127" layer="21"/>
-<wire x1="-6.35" y1="3.175" x2="-5.715" y2="3.81" width="0.127" layer="21"/>
-<wire x1="-5.715" y1="3.81" x2="-5.08" y2="3.81" width="0.127" layer="21"/>
-<wire x1="-5.08" y1="3.81" x2="-4.445" y2="3.81" width="0.127" layer="21"/>
-<wire x1="-4.445" y1="3.81" x2="-3.81" y2="3.175" width="0.127" layer="21"/>
-<wire x1="-3.81" y1="3.175" x2="-3.175" y2="3.81" width="0.127" layer="21"/>
-<wire x1="-3.175" y1="3.81" x2="-1.905" y2="3.81" width="0.127" layer="21"/>
-<wire x1="-1.905" y1="3.81" x2="-1.27" y2="3.175" width="0.127" layer="21"/>
-<wire x1="-1.27" y1="3.175" x2="-0.635" y2="3.81" width="0.127" layer="21"/>
-<wire x1="-0.635" y1="3.81" x2="0.635" y2="3.81" width="0.127" layer="21"/>
-<wire x1="0.635" y1="3.81" x2="1.27" y2="3.175" width="0.127" layer="21"/>
-<wire x1="1.27" y1="3.175" x2="1.27" y2="1.905" width="0.127" layer="21"/>
-<wire x1="1.27" y1="1.905" x2="0.635" y2="1.27" width="0.127" layer="21"/>
-<wire x1="0.635" y1="1.27" x2="1.27" y2="0.635" width="0.127" layer="21"/>
-<wire x1="1.27" y1="0.635" x2="1.27" y2="-0.635" width="0.127" layer="21"/>
-<wire x1="1.27" y1="-0.635" x2="0.635" y2="-1.27" width="0.127" layer="21"/>
-<wire x1="0.635" y1="-1.27" x2="-0.635" y2="-1.27" width="0.127" layer="21"/>
-<wire x1="-0.635" y1="-1.27" x2="-1.27" y2="-0.635" width="0.127" layer="21"/>
-<wire x1="-1.27" y1="-0.635" x2="-1.905" y2="-1.27" width="0.127" layer="21"/>
-<wire x1="-1.905" y1="-1.27" x2="-3.175" y2="-1.27" width="0.127" layer="21"/>
-<wire x1="-3.175" y1="-1.27" x2="-3.81" y2="-0.635" width="0.127" layer="21"/>
-<wire x1="-3.81" y1="-0.635" x2="-4.445" y2="-1.27" width="0.127" layer="21"/>
-<wire x1="-4.445" y1="-1.27" x2="-5.715" y2="-1.27" width="0.127" layer="21"/>
-<wire x1="-5.715" y1="-1.27" x2="-6.35" y2="-0.635" width="0.127" layer="21"/>
-<text x="-2.54" y="1.27" size="2.54" layer="21" font="vector" align="center">ISP</text>
+<pad name="P$7" x="-7.62" y="2.54" drill="1" rot="R90"/>
+<pad name="P$8" x="-7.62" y="0" drill="1" rot="R90"/>
+<text x="-3.75" y="1.25" size="0.5" layer="51" align="center">BURNIN</text>
+<rectangle x1="-8.25" y1="-0.75" x2="-6.875" y2="3.25" layer="39"/>
+<rectangle x1="-8.25" y1="-0.75" x2="0.75" y2="3.25" layer="40"/>
 </package>
-<package name="R0603">
+<package name="R0603" urn="urn:adsk.eagle:footprint:14850266/1" library_version="7" library_locally_modified="yes">
 <description>GoTo &lt;b&gt;Resistor&lt;/b&gt;
 
 &lt;p&gt;0603 SMD package&lt;/p&gt;
@@ -364,22 +333,22 @@ S. Ono</text>
 <rectangle x1="-0.1999" y1="-0.4001" x2="0.1999" y2="0.4001" layer="35"/>
 <rectangle x1="-1.905" y1="-0.762" x2="1.905" y2="0.762" layer="39"/>
 </package>
-<package name="BTN_PTS810">
+<package name="BTN_PTS810" urn="urn:adsk.eagle:footprint:14850383/2" library_version="7" library_locally_modified="yes">
 <smd name="1" x="-2.075" y="1.075" dx="1.05" dy="0.65" layer="1"/>
 <smd name="3" x="-2.075" y="-1.075" dx="1.05" dy="0.65" layer="1"/>
 <smd name="4" x="2.075" y="-1.075" dx="1.05" dy="0.65" layer="1"/>
 <smd name="2" x="2.075" y="1.075" dx="1.05" dy="0.65" layer="1"/>
-<wire x1="-3" y1="1.75" x2="-3" y2="-1.75" width="0.127" layer="21"/>
-<wire x1="-3" y1="-1.75" x2="3" y2="-1.75" width="0.127" layer="21"/>
-<wire x1="3" y1="-1.75" x2="3" y2="1.75" width="0.127" layer="21"/>
-<wire x1="3" y1="1.75" x2="-3" y2="1.75" width="0.127" layer="21"/>
-<circle x="0" y="0" radius="1" width="0.127" layer="21"/>
-<text x="-2.75" y="2" size="1.27" layer="21" font="vector">&gt;NAME</text>
+<wire x1="-3" y1="1.75" x2="-3" y2="-1.75" width="0.127" layer="51"/>
+<wire x1="-3" y1="-1.75" x2="3" y2="-1.75" width="0.127" layer="51"/>
+<wire x1="3" y1="-1.75" x2="3" y2="1.75" width="0.127" layer="51"/>
+<wire x1="3" y1="1.75" x2="-3" y2="1.75" width="0.127" layer="51"/>
+<circle x="0" y="0" radius="1" width="0.127" layer="51"/>
+<text x="-2.75" y="2" size="0.5" layer="25" font="vector">&gt;NAME</text>
+<rectangle x1="-3" y1="-1.75" x2="3" y2="1.75" layer="39"/>
 </package>
-<package name="QFP80P900X900X120-32N">
+<package name="QFP80P900X900X120-32N" urn="urn:adsk.eagle:footprint:14850445/1" library_version="7" library_locally_modified="yes">
 <wire x1="-3.55" y1="3.4" x2="-3.55" y2="3.55" width="0.127" layer="21"/>
 <wire x1="-3.55" y1="3.55" x2="-3.4" y2="3.55" width="0.127" layer="21"/>
-<circle x="-5.85288125" y="2.797359375" radius="0.1" width="0.24" layer="21"/>
 <wire x1="-3.55" y1="3.55" x2="3.55" y2="3.55" width="0.127" layer="51"/>
 <wire x1="3.55" y1="3.55" x2="3.55" y2="-3.55" width="0.127" layer="51"/>
 <wire x1="3.55" y1="-3.55" x2="-3.55" y2="-3.55" width="0.127" layer="51"/>
@@ -388,15 +357,16 @@ S. Ono</text>
 <wire x1="5.23" y1="5.23" x2="5.23" y2="-5.23" width="0.05" layer="39"/>
 <wire x1="5.23" y1="-5.23" x2="-5.23" y2="-5.23" width="0.05" layer="39"/>
 <wire x1="-5.23" y1="-5.23" x2="-5.23" y2="5.23" width="0.05" layer="39"/>
-<text x="-4.46111875" y="5.73573125" size="1.274609375" layer="25">&gt;NAME</text>
-<text x="-4.45955" y="-7.00786875" size="1.274159375" layer="27">&gt;VALUE</text>
-<circle x="-5.857959375" y="2.797359375" radius="0.1" width="0.24" layer="51"/>
 <wire x1="-3.4" y1="-3.55" x2="-3.55" y2="-3.55" width="0.127" layer="21"/>
 <wire x1="-3.55" y1="-3.55" x2="-3.55" y2="-3.4" width="0.127" layer="21"/>
 <wire x1="3.55" y1="-3.4" x2="3.55" y2="-3.55" width="0.127" layer="21"/>
 <wire x1="3.55" y1="-3.55" x2="3.4" y2="-3.55" width="0.127" layer="21"/>
 <wire x1="3.4" y1="3.55" x2="3.55" y2="3.55" width="0.127" layer="21"/>
 <wire x1="3.55" y1="3.55" x2="3.55" y2="3.4" width="0.127" layer="21"/>
+<circle x="-5.85288125" y="2.797359375" radius="0.1" width="0.24" layer="21"/>
+<circle x="-5.857959375" y="2.797359375" radius="0.1" width="0.24" layer="51"/>
+<text x="-4.46111875" y="5.73573125" size="1.274609375" layer="25">&gt;NAME</text>
+<text x="-4.45955" y="-7.00786875" size="1.274159375" layer="27">&gt;VALUE</text>
 <smd name="1" x="-4.18" y="2.8" dx="1.6" dy="0.55" layer="1" roundness="53"/>
 <smd name="2" x="-4.18" y="2" dx="1.6" dy="0.55" layer="1" roundness="53"/>
 <smd name="3" x="-4.18" y="1.2" dx="1.6" dy="0.55" layer="1" roundness="53"/>
@@ -430,7 +400,7 @@ S. Ono</text>
 <smd name="31" x="-2" y="4.18" dx="1.6" dy="0.55" layer="1" roundness="53" rot="R270"/>
 <smd name="32" x="-2.8" y="4.18" dx="1.6" dy="0.55" layer="1" roundness="53" rot="R270"/>
 </package>
-<package name="XTAL500X320X130N">
+<package name="XTAL500X320X130N" urn="urn:adsk.eagle:footprint:14850448/2" library_version="7" library_locally_modified="yes">
 <wire x1="-2.5" y1="1.7" x2="2.5" y2="1.7" width="0.127" layer="21"/>
 <wire x1="2.5" y1="1.7" x2="2.5" y2="-1.7" width="0.127" layer="51"/>
 <wire x1="2.5" y1="-1.7" x2="-2.5" y2="-1.7" width="0.127" layer="21"/>
@@ -439,8 +409,8 @@ S. Ono</text>
 <wire x1="3.4" y1="1.95" x2="3.4" y2="-1.95" width="0.05" layer="39"/>
 <wire x1="3.4" y1="-1.95" x2="-3.4" y2="-1.95" width="0.05" layer="39"/>
 <wire x1="-3.4" y1="-1.95" x2="-3.4" y2="1.95" width="0.05" layer="39"/>
-<text x="-3.209040625" y="2.10593125" size="1.27358125" layer="25">&gt;NAME</text>
-<text x="-3.708509375" y="-3.45793125" size="1.27291875" layer="27">&gt;VALUE</text>
+<text x="-3.5" y="2.25" size="0.7" layer="25">&gt;NAME</text>
+<text x="-3.5" y="-3" size="0.7" layer="27">&gt;VALUE</text>
 <smd name="1" x="-2.15" y="0" dx="1.95" dy="2.95" layer="1"/>
 <smd name="2" x="2.15" y="0" dx="1.95" dy="2.95" layer="1"/>
 </package>
@@ -470,6 +440,68 @@ CONN_02
 </description>
 <packageinstances>
 <packageinstance name="1X02_NO_SILK"/>
+</packageinstances>
+</package3d>
+<package3d name="R0603" urn="urn:adsk.eagle:package:14850591/1" type="box" library_version="7" library_locally_modified="yes">
+<description>GoTo &lt;b&gt;Resistor&lt;/b&gt;
+
+&lt;p&gt;0603 SMD package&lt;/p&gt;
+
+&lt;p&gt;Typically default surface mount resistor used in PiE&lt;/p&gt;</description>
+<packageinstances>
+<packageinstance name="R0603"/>
+</packageinstances>
+</package3d>
+<package3d name="LED-0603" urn="urn:adsk.eagle:package:14850721/3" type="box" library_version="7" library_locally_modified="yes">
+<description>&lt;B&gt;LED 0603 SMT&lt;/B&gt;&lt;p&gt;
+0603, surface mount.
+&lt;p&gt;Specifications:
+&lt;ul&gt;&lt;li&gt;Pin count: 2&lt;/li&gt;
+&lt;li&gt;Pin pitch:0.075inch &lt;/li&gt;
+&lt;li&gt;Area: 0.06" x 0.03"&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;
+&lt;p&gt;Example device(s):
+&lt;ul&gt;&lt;li&gt;LED - BLUE&lt;/li&gt;</description>
+<packageinstances>
+<packageinstance name="LED-0603"/>
+</packageinstances>
+</package3d>
+<package3d name="0603-CAP" urn="urn:adsk.eagle:package:14850677/1" type="box" library_version="7" library_locally_modified="yes">
+<packageinstances>
+<packageinstance name="0603-CAP"/>
+</packageinstances>
+</package3d>
+<package3d name="BTN_PTS810" urn="urn:adsk.eagle:package:14850707/2" type="box" library_version="7" library_locally_modified="yes">
+<packageinstances>
+<packageinstance name="BTN_PTS810"/>
+</packageinstances>
+</package3d>
+<package3d name="XTAL500X320X130N" urn="urn:adsk.eagle:package:14850770/2" type="box" library_version="7" library_locally_modified="yes">
+<packageinstances>
+<packageinstance name="XTAL500X320X130N"/>
+</packageinstances>
+</package3d>
+<package3d name="1X06_NO_SILK" urn="urn:adsk.eagle:package:14850814/1" type="box" library_version="7" library_locally_modified="yes">
+<description>&lt;h3&gt;Plated Through Hole - 6 Pin No Silk Outline&lt;/h3&gt;
+&lt;p&gt;Specifications:
+&lt;ul&gt;&lt;li&gt;Pin count:6&lt;/li&gt;
+&lt;li&gt;Pin pitch:0.1"&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;
+&lt;p&gt;Example device(s):
+&lt;ul&gt;&lt;li&gt;CONN_06&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;</description>
+<packageinstances>
+<packageinstance name="1X06_NO_SILK"/>
+</packageinstances>
+</package3d>
+<package3d name="BURNIN" urn="urn:adsk.eagle:package:14850856/2" type="box" library_version="7" library_locally_modified="yes">
+<packageinstances>
+<packageinstance name="BURNIN"/>
+</packageinstances>
+</package3d>
+<package3d name="QFP80P900X900X120-32N" urn="urn:adsk.eagle:package:14850767/1" type="box" library_version="7" library_locally_modified="yes">
+<packageinstances>
+<packageinstance name="QFP80P900X900X120-32N"/>
 </packageinstances>
 </package3d>
 </packages3d>
@@ -663,56 +695,56 @@ Combination of BAC and AC</description>
 </pass>
 </autorouter>
 <elements>
-<element name="C1" library="scono" package="0603-CAP" value="" x="18.25" y="22.25" smashed="yes" rot="R90">
+<element name="C1" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="0603-CAP" package3d_urn="urn:adsk.eagle:package:14850677/1" value="" x="18.25" y="22.25" smashed="yes" rot="R90">
 <attribute name="PIE-INT-REF-NUM" value="CAPACITOR-GENERIC" x="62.7" y="47.65" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="VALUE" x="19.647" y="20.98" size="0.508" layer="27" font="vector" rot="R90"/>
 </element>
-<element name="C2" library="scono" package="0603-CAP" value="" x="5.25" y="22.25" smashed="yes" rot="R90">
+<element name="C2" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="0603-CAP" package3d_urn="urn:adsk.eagle:package:14850677/1" value="" x="5.25" y="22.25" smashed="yes" rot="R90">
 <attribute name="PIE-INT-REF-NUM" value="CAPACITOR-GENERIC" x="49.7" y="52.73" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="VALUE" x="6.647" y="20.98" size="0.508" layer="27" font="vector" rot="R90"/>
 </element>
-<element name="C3" library="scono" package="0603-CAP" value="18pF" x="21.25" y="20.25" smashed="yes">
+<element name="C3" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="0603-CAP" package3d_urn="urn:adsk.eagle:package:14850677/1" value="18pF" x="21.25" y="20.25" smashed="yes">
 <attribute name="PIE-INT-REF-NUM" value="CAPACITOR-GENERIC" x="44.11" y="-6.42" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" x="19.98" y="18.853" size="0.508" layer="27" font="vector"/>
 </element>
-<element name="C4" library="scono" package="0603-CAP" value="18pF" x="21.25" y="28.75" smashed="yes">
+<element name="C4" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="0603-CAP" package3d_urn="urn:adsk.eagle:package:14850677/1" value="18pF" x="21.25" y="28.75" smashed="yes">
 <attribute name="PIE-INT-REF-NUM" value="CAPACITOR-GENERIC" x="49.19" y="2.08" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" x="19.98" y="27.353" size="0.508" layer="27" font="vector"/>
 </element>
-<element name="D1" library="scono" package="LED-0603" value="" x="10.25" y="13" smashed="yes" rot="R90">
-<attribute name="VALUE" x="11.35" y="11.9" size="0.508" layer="27" font="vector" rot="R90"/>
+<element name="D1" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="LED-0603" package3d_urn="urn:adsk.eagle:package:14850721/3" value="" x="10.25" y="13" smashed="yes" rot="R270">
+<attribute name="VALUE" x="9.15" y="14.1" size="0.508" layer="27" font="vector" rot="R270"/>
 </element>
-<element name="D2" library="scono" package="LED-0603" value="RED" x="4.75" y="13" smashed="yes" rot="R90"/>
-<element name="J1" library="scono" package="1X06_NO_SILK" value="" x="5.33" y="7.5" smashed="yes">
+<element name="D2" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="LED-0603" package3d_urn="urn:adsk.eagle:package:14850721/3" value="RED" x="4.75" y="13" smashed="yes" rot="R270"/>
+<element name="J1" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="1X06_NO_SILK" package3d_urn="urn:adsk.eagle:package:14850814/1" value="" x="5.33" y="7.5" smashed="yes">
 <attribute name="PROD_ID" value="CONN-08437" x="32" y="-24.25" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" x="4.06" y="5.468" size="0.6096" layer="27" font="vector" ratio="20"/>
 </element>
-<element name="J2" library="scono" package="1X04_NO_SILK" package3d_urn="urn:adsk.eagle:package:38094/1" value="" x="2.04" y="28.44" smashed="yes" rot="R270">
+<element name="J2" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="1X04_NO_SILK" package3d_urn="urn:adsk.eagle:package:38094/1" value="" x="2.04" y="28.44" smashed="yes" rot="R270">
 <attribute name="PROD_ID" value="CONN-09696" x="-29.71" y="-9.66" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" x="0.008" y="29.71" size="0.6096" layer="27" font="vector" ratio="20" rot="R270"/>
 </element>
-<element name="J3" library="scono" package="1X02_NO_SILK" package3d_urn="urn:adsk.eagle:package:38051/1" value="" x="2.04" y="5.58" smashed="yes" rot="R90">
+<element name="J3" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="1X02_NO_SILK" package3d_urn="urn:adsk.eagle:package:38051/1" value="" x="2.04" y="5.58" smashed="yes" rot="R90">
 <attribute name="VALUE" x="4.072" y="4.31" size="0.6096" layer="27" font="vector" ratio="20" rot="R90"/>
 </element>
-<element name="J4" library="scono" package="1X02_NO_SILK" package3d_urn="urn:adsk.eagle:package:38051/1" value="" x="24.9" y="5.58" smashed="yes" rot="R90">
+<element name="J4" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="1X02_NO_SILK" package3d_urn="urn:adsk.eagle:package:38051/1" value="" x="24.9" y="5.58" smashed="yes" rot="R90">
 <attribute name="VALUE" x="26.932" y="4.31" size="0.6096" layer="27" font="vector" ratio="20" rot="R90"/>
 </element>
-<element name="J5" library="scono" package="1X02_NO_SILK" package3d_urn="urn:adsk.eagle:package:38051/1" value="" x="24.9" y="13.2" smashed="yes" rot="R270">
+<element name="J5" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="1X02_NO_SILK" package3d_urn="urn:adsk.eagle:package:38051/1" value="" x="24.9" y="13.2" smashed="yes" rot="R270">
 <attribute name="VALUE" x="22.868" y="14.47" size="0.6096" layer="27" font="vector" ratio="20" rot="R270"/>
 </element>
-<element name="J6" library="scono" package="1X04_NO_SILK" package3d_urn="urn:adsk.eagle:package:38094/1" value="" x="2.04" y="10.66" smashed="yes" rot="R90">
+<element name="J6" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="1X04_NO_SILK" package3d_urn="urn:adsk.eagle:package:38094/1" value="" x="2.04" y="10.66" smashed="yes" rot="R90">
 <attribute name="PROD_ID" value="CONN-09696" x="37.6" y="32.25" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="VALUE" x="4.072" y="9.39" size="0.6096" layer="27" font="vector" ratio="20" rot="R90"/>
 </element>
-<element name="J7" library="scono" package="1X02_NO_SILK" package3d_urn="urn:adsk.eagle:package:38051/1" value="" x="24.9" y="15.74" smashed="yes" rot="R90">
+<element name="J7" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="1X02_NO_SILK" package3d_urn="urn:adsk.eagle:package:38051/1" value="" x="24.9" y="15.74" smashed="yes" rot="R90">
 <attribute name="VALUE" x="26.932" y="14.47" size="0.6096" layer="27" font="vector" ratio="20" rot="R90"/>
 </element>
-<element name="J8" library="scono" package="1X04_NO_SILK" package3d_urn="urn:adsk.eagle:package:38094/1" value="" x="24.9" y="20.82" smashed="yes" rot="R90">
+<element name="J8" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="1X04_NO_SILK" package3d_urn="urn:adsk.eagle:package:38094/1" value="" x="24.9" y="20.82" smashed="yes" rot="R90">
 <attribute name="PROD_ID" value="CONN-09696" x="60.46" y="53.84" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="VALUE" x="26.932" y="19.55" size="0.6096" layer="27" font="vector" ratio="20" rot="R90"/>
 </element>
-<element name="J9" library="scono" package="BURNIN" value="BURNIN" x="12.98" y="4.97" smashed="yes" rot="R180"/>
-<element name="R1" library="scono" package="R0603" value="" x="15.75" y="13" smashed="yes" rot="R270">
+<element name="J9" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="BURNIN" package3d_urn="urn:adsk.eagle:package:14850856/2" value="BURNIN" x="12.98" y="4.97" smashed="yes" rot="R180"/>
+<element name="R1" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="R0603" package3d_urn="urn:adsk.eagle:package:14850591/1" value="" x="15.75" y="13" smashed="yes" rot="R270">
 <attribute name="DESCRIPTION" value="RESISTOR, American symbol" x="-28.7" y="-7.32" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="DISTRIBUTOR" value="DigiKey" x="-28.7" y="-7.32" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="DISTRIBUTOR_PART_NUMBER" value="" x="-28.7" y="-7.32" size="1.778" layer="27" rot="R270" display="off"/>
@@ -723,7 +755,7 @@ Combination of BAC and AC</description>
 <attribute name="PACKAGE" value="R0603" x="-28.7" y="-7.32" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" x="14.734" y="14.27" size="0.508" layer="27" font="vector" rot="R270" align="top-left"/>
 </element>
-<element name="R2" library="scono" package="R0603" value="330R" x="11.86" y="12.98" smashed="yes" rot="R90">
+<element name="R2" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="R0603" package3d_urn="urn:adsk.eagle:package:14850591/1" value="330R" x="11.86" y="12.98" smashed="yes" rot="R90">
 <attribute name="DESCRIPTION" value="RESISTOR, American symbol" x="52.5" y="46" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="DISTRIBUTOR" value="DigiKey" x="52.5" y="46" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="DISTRIBUTOR_PART_NUMBER" value="" x="52.5" y="46" size="1.778" layer="27" rot="R90" display="off"/>
@@ -733,7 +765,7 @@ Combination of BAC and AC</description>
 <attribute name="PACKAGE" value="R0603" x="52.5" y="46" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="VALUE" x="12.876" y="11.71" size="0.508" layer="27" font="vector" rot="R90" align="top-left"/>
 </element>
-<element name="R3" library="scono" package="R0603" value="330R" x="6.5" y="13" smashed="yes" rot="R270">
+<element name="R3" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="R0603" package3d_urn="urn:adsk.eagle:package:14850591/1" value="330R" x="6.5" y="13" smashed="yes" rot="R270">
 <attribute name="DESCRIPTION" value="RESISTOR, American symbol" x="-34.14" y="-23.83" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="DISTRIBUTOR" value="DigiKey" x="-34.14" y="-23.83" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="DISTRIBUTOR_PART_NUMBER" value="" x="-34.14" y="-23.83" size="1.778" layer="27" rot="R270" display="off"/>
@@ -742,8 +774,8 @@ Combination of BAC and AC</description>
 <attribute name="NOTES" value="Cut Tape" x="-34.14" y="-23.83" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="PACKAGE" value="R0603" x="-34.14" y="-23.83" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
-<element name="SW1" library="scono" package="BTN_PTS810" value="BTN-PTS810" x="19.17" y="12.76" smashed="yes" rot="R270"/>
-<element name="U1" library="scono" package="QFP80P900X900X120-32N" value="ATMEGA328P-AUR" x="11.75" y="22.25" smashed="yes" rot="R180">
+<element name="SW1" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="BTN_PTS810" package3d_urn="urn:adsk.eagle:package:14850707/2" value="BTN-PTS810" x="19.17" y="12.76" smashed="yes" rot="R270"/>
+<element name="U1" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="QFP80P900X900X120-32N" package3d_urn="urn:adsk.eagle:package:14850767/1" value="ATMEGA328P-AUR" x="11.75" y="22.25" smashed="yes" rot="R180">
 <attribute name="DESCRIPTION" value=" ATmega328P Series 8 Bit 2 kB RAM 32 kB Flash SMT Microcontroller - TQFP-32 " x="-13.65" y="29.87" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="DIGI-KEY_PART_NUMBER" value="ATMEGA328P-AURCT-ND" x="-13.65" y="29.87" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="DIGI-KEY_PURCHASE_URL" value="https://www.digikey.com/product-detail/en/microchip-technology/ATMEGA328P-AUR/ATMEGA328P-AURCT-ND/3789455?utm_source=snapeda&amp;utm_medium=aggregator&amp;utm_campaign=symbol" x="-13.65" y="29.87" size="1.778" layer="27" rot="R180" display="off"/>
@@ -752,11 +784,11 @@ Combination of BAC and AC</description>
 <attribute name="NAME" x="12.71111875" y="23.01426875" size="1.274609375" layer="25" font="vector" rot="R180"/>
 <attribute name="PACKAGE" value="TQFP-32 Microchip" x="-13.65" y="29.87" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="Y1" library="scono" package="XTAL500X320X130N" value="16MHz" x="21.25" y="24.5" smashed="yes" rot="R270">
+<element name="Y1" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="XTAL500X320X130N" package3d_urn="urn:adsk.eagle:package:14850770/2" value="16MHz" x="21.25" y="24.5" smashed="yes" rot="R270">
 <attribute name="NAME" x="20.55" y="23.85" size="1.2" layer="25" font="vector"/>
 <attribute name="VALUE" x="17.45" y="30.2" size="1.2" layer="27" font="vector" rot="R270"/>
 </element>
-<element name="C5" library="scono" package="0603-CAP" value="0.1uF" x="15.25" y="10.25" smashed="yes" rot="R180">
+<element name="C5" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="0603-CAP" package3d_urn="urn:adsk.eagle:package:14850677/1" value="0.1uF" x="15.25" y="10.25" smashed="yes" rot="R180">
 <attribute name="NAME" x="16.52" y="9.488" size="0.508" layer="25" font="vector" ratio="10" rot="R180"/>
 <attribute name="PIE-INT-REF-NUM" value="CAPACITOR-GENERIC" x="15.25" y="10.25" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="VALUE" x="16.52" y="11.647" size="0.508" layer="27" font="vector" rot="R180"/>
@@ -766,8 +798,9 @@ Combination of BAC and AC</description>
 <signal name="N$1">
 <contactref element="R2" pad="1"/>
 <contactref element="D1" pad="A"/>
-<wire x1="10.25" y1="12.123" x2="11.853" y2="12.123" width="0.2" layer="1"/>
 <wire x1="11.853" y1="12.123" x2="11.86" y2="12.13" width="0.2" layer="1"/>
+<wire x1="11.86" y1="12.13" x2="10.257" y2="12.13" width="0.1524" layer="1"/>
+<wire x1="10.257" y1="12.13" x2="10.25" y2="12.123" width="0.1524" layer="1"/>
 </signal>
 <signal name="GPIO0">
 <contactref element="R2" pad="2"/>
@@ -835,10 +868,7 @@ Combination of BAC and AC</description>
 <vertex x="22" y="0.5"/>
 <vertex x="5" y="0.5"/>
 </polygon>
-<wire x1="10.25" y1="13.877" x2="9.623" y2="13.877" width="0.2" layer="1"/>
-<wire x1="9.623" y1="13.877" x2="9" y2="14.5" width="0.2" layer="1"/>
 <via x="9" y="14.5" extent="1-16" drill="0.4"/>
-<wire x1="4.75" y1="13.877" x2="4.75" y2="15" width="0.2" layer="1"/>
 <wire x1="4.75" y1="15" x2="5.5" y2="15.75" width="0.2" layer="1"/>
 <via x="5.5" y="15.75" extent="1-16" drill="0.4"/>
 <wire x1="5.25" y1="21.4" x2="3.6" y2="21.4" width="0.2" layer="1"/>
@@ -848,6 +878,9 @@ Combination of BAC and AC</description>
 <wire x1="9" y1="14.5" x2="8.25" y2="14.5" width="0.2" layer="1"/>
 <wire x1="7" y1="15.75" x2="5.5" y2="15.75" width="0.2" layer="1"/>
 <wire x1="8.25" y1="14.5" x2="7" y2="15.75" width="0.2" layer="1"/>
+<wire x1="10.25" y1="13.877" x2="9.623" y2="13.877" width="0.1524" layer="1"/>
+<wire x1="9.623" y1="13.877" x2="9" y2="14.5" width="0.1524" layer="1"/>
+<wire x1="4.75" y1="13.877" x2="4.75" y2="15" width="0.1524" layer="1"/>
 </signal>
 <signal name="3.3V">
 <contactref element="C1" pad="2"/>
@@ -1144,8 +1177,8 @@ Combination of BAC and AC</description>
 <signal name="N$2">
 <contactref element="R3" pad="2"/>
 <contactref element="D2" pad="A"/>
-<wire x1="4.75" y1="12.123" x2="4.777" y2="12.15" width="0.2" layer="1"/>
-<wire x1="4.777" y1="12.15" x2="6.5" y2="12.15" width="0.2" layer="1"/>
+<wire x1="6.5" y1="12.15" x2="4.777" y2="12.15" width="0.1524" layer="1"/>
+<wire x1="4.777" y1="12.15" x2="4.75" y2="12.123" width="0.1524" layer="1"/>
 </signal>
 <signal name="XTAL1">
 <contactref element="U1" pad="7"/>
@@ -1190,6 +1223,11 @@ Combination of BAC and AC</description>
 <note version="6.3" minversion="6.2.2" severity="warning">
 Since Version 6.2.2 text objects can contain more than one line,
 which will not be processed correctly with this version.
+</note>
+<note version="8.2" severity="warning">
+Since Version 8.2, EAGLE supports online libraries. The ids
+of those online libraries will not be understood (or retained)
+with this version.
 </note>
 <note version="8.3" severity="warning">
 Since Version 8.3, EAGLE supports URNs for individual library

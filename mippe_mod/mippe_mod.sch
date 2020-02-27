@@ -840,7 +840,7 @@ part number 2062-2P from STA</description>
 <rectangle x1="-0.1999" y1="-0.3" x2="0.1999" y2="0.3" layer="35"/>
 <rectangle x1="-2.032" y1="-0.635" x2="2.032" y2="0.635" layer="39"/>
 </package>
-<package name="0402-CAP" urn="urn:adsk.eagle:footprint:14850354/2" locally_modified="yes" library_version="5" library_locally_modified="yes">
+<package name="0402-CAP" urn="urn:adsk.eagle:footprint:14850354/3" library_version="7" library_locally_modified="yes">
 <description>&lt;b&gt;CAPACITOR&lt;/b&gt;&lt;p&gt;
 chip</description>
 <smd name="1" x="-0.65" y="0" dx="0.7" dy="0.9" layer="1"/>
@@ -904,20 +904,20 @@ chip</description>
 <text x="3.8064" y="-2.5334" size="1.27" layer="27" font="vector" rot="R90">&gt;VALUE</text>
 <rectangle x1="-2.032" y1="-2.794" x2="2.032" y2="2.794" layer="39"/>
 </package>
-<package name="BURNIN" urn="urn:adsk.eagle:footprint:14850534/2" library_version="5" library_locally_modified="yes">
+<package name="BURNIN" urn="urn:adsk.eagle:footprint:14850534/2" locally_modified="yes" library_version="7" library_locally_modified="yes">
 <smd name="3.3V" x="0" y="0" dx="1.27" dy="1.27" layer="16" roundness="100" rot="R180"/>
 <smd name="MOSI" x="-2.54" y="0" dx="1.27" dy="1.27" layer="16" roundness="100" rot="R180"/>
 <smd name="GND" x="-5.08" y="0" dx="1.27" dy="1.27" layer="16" roundness="100" rot="R180"/>
 <smd name="RST" x="-5.08" y="2.54" dx="1.27" dy="1.27" layer="16" roundness="100" rot="R180"/>
 <smd name="SCK" x="-2.54" y="2.54" dx="1.27" dy="1.27" layer="16" roundness="100" rot="R180"/>
 <smd name="MISO" x="0" y="2.54" dx="1.27" dy="1.27" layer="16" roundness="100" rot="R180"/>
-<pad name="P$7" x="-7.62" y="2.54" drill="0.8" rot="R90"/>
-<pad name="P$8" x="-7.62" y="0" drill="0.8" rot="R90"/>
+<pad name="P$7" x="-7.62" y="2.54" drill="1" rot="R90"/>
+<pad name="P$8" x="-7.62" y="0" drill="1" rot="R90"/>
 <text x="-3.75" y="1.25" size="0.5" layer="51" align="center">BURNIN</text>
 <rectangle x1="-8.25" y1="-0.75" x2="-6.875" y2="3.25" layer="39"/>
 <rectangle x1="-8.25" y1="-0.75" x2="0.75" y2="3.25" layer="40"/>
 </package>
-<package name="R0402" urn="urn:adsk.eagle:footprint:14850265/2" locally_modified="yes" library_version="5" library_locally_modified="yes">
+<package name="R0402" urn="urn:adsk.eagle:footprint:14850265/3" library_version="7" library_locally_modified="yes">
 <description>&lt;b&gt;RESISTOR&lt;/b&gt;</description>
 <smd name="1" x="-0.65" y="0" dx="0.7" dy="0.9" layer="1"/>
 <smd name="2" x="0.65" y="0" dx="0.7" dy="0.9" layer="1"/>
@@ -1688,7 +1688,7 @@ Source: http://www.vishay.com .. dcrcw.pdf</description>
 <rectangle x1="-0.1999" y1="-0.3" x2="0.1999" y2="0.3" layer="35"/>
 <rectangle x1="-2.032" y1="-0.635" x2="2.032" y2="0.635" layer="39"/>
 </package>
-<package name="LED-0603" urn="urn:adsk.eagle:footprint:14850397/2" locally_modified="yes" library_version="5" library_locally_modified="yes">
+<package name="LED-0603" urn="urn:adsk.eagle:footprint:14850397/3" library_version="7" library_locally_modified="yes">
 <description>&lt;B&gt;LED 0603 SMT&lt;/B&gt;&lt;p&gt;
 0603, surface mount.
 &lt;p&gt;Specifications:
@@ -2089,7 +2089,7 @@ part number 2062-2P from STA</description>
 <packageinstance name="0603-CAP"/>
 </packageinstances>
 </package3d>
-<package3d name="0402-CAP" urn="urn:adsk.eagle:package:14850678/2" type="box" library_version="5" library_locally_modified="yes">
+<package3d name="0402-CAP" urn="urn:adsk.eagle:package:14850678/3" type="box" library_version="7" library_locally_modified="yes">
 <description>&lt;b&gt;CAPACITOR&lt;/b&gt;&lt;p&gt;
 chip</description>
 <packageinstances>
@@ -2112,12 +2112,12 @@ chip</description>
 <packageinstance name="CTZ3"/>
 </packageinstances>
 </package3d>
-<package3d name="BURNIN" urn="urn:adsk.eagle:package:14850856/2" type="box" library_version="5" library_locally_modified="yes">
+<package3d name="BURNIN" urn="urn:adsk.eagle:package:14850856/2" type="box" library_version="7" library_locally_modified="yes">
 <packageinstances>
 <packageinstance name="BURNIN"/>
 </packageinstances>
 </package3d>
-<package3d name="R0402" urn="urn:adsk.eagle:package:14850590/2" type="box" library_version="5" library_locally_modified="yes">
+<package3d name="R0402" urn="urn:adsk.eagle:package:14850590/3" type="box" library_version="7" library_locally_modified="yes">
 <description>&lt;b&gt;RESISTOR&lt;/b&gt;</description>
 <packageinstances>
 <packageinstance name="R0402"/>
@@ -2428,7 +2428,7 @@ Source: http://www.vishay.com .. dcrcw.pdf</description>
 <packageinstance name="0603-RES"/>
 </packageinstances>
 </package3d>
-<package3d name="LED-0603" urn="urn:adsk.eagle:package:14850721/2" type="box" library_version="5" library_locally_modified="yes">
+<package3d name="LED-0603" urn="urn:adsk.eagle:package:14850721/3" type="box" library_version="7" library_locally_modified="yes">
 <description>&lt;B&gt;LED 0603 SMT&lt;/B&gt;&lt;p&gt;
 0603, surface mount.
 &lt;p&gt;Specifications:
@@ -2509,13 +2509,12 @@ A106146CT-ND or similar.</description>
 <pin name="VCC" x="0" y="0" visible="off" length="short" direction="sup" rot="R90"/>
 <text x="0" y="2.794" size="1.778" layer="96" align="bottom-center">&gt;VALUE</text>
 </symbol>
-<symbol name="GND" urn="urn:adsk.eagle:symbol:14850057/1" library_version="5" library_locally_modified="yes">
+<symbol name="GND" urn="urn:adsk.eagle:symbol:14850057/2" library_version="7" library_locally_modified="yes">
 <wire x1="-1.27" y1="0" x2="0" y2="0" width="0.254" layer="94"/>
 <wire x1="0" y1="0" x2="1.27" y2="0" width="0.254" layer="94"/>
 <wire x1="1.27" y1="0" x2="0" y2="-1.27" width="0.254" layer="94"/>
 <wire x1="0" y1="-1.27" x2="-1.27" y2="0" width="0.254" layer="94"/>
 <wire x1="0" y1="0" x2="0" y2="2.54" width="0.254" layer="94"/>
-<text x="-1.27" y="-2.54" size="1.016" layer="96">&gt;VALUE</text>
 <pin name="GND" x="0" y="2.54" visible="off" length="short" direction="sup" rot="R270"/>
 </symbol>
 <symbol name="CAP" urn="urn:adsk.eagle:symbol:14850086/1" library_version="5" library_locally_modified="yes">
@@ -2530,7 +2529,7 @@ A106146CT-ND or similar.</description>
 <wire x1="0.635" y1="1.27" x2="0.635" y2="0" width="0.254" layer="94"/>
 <wire x1="0.635" y1="0" x2="0.635" y2="-1.27" width="0.254" layer="94"/>
 </symbol>
-<symbol name="5V" urn="urn:adsk.eagle:symbol:14850055/1" locally_modified="yes" library_version="5" library_locally_modified="yes">
+<symbol name="5V" urn="urn:adsk.eagle:symbol:14850055/2" library_version="7" library_locally_modified="yes">
 <wire x1="0.762" y1="1.27" x2="0" y2="2.54" width="0.254" layer="94"/>
 <wire x1="0" y1="2.54" x2="-0.762" y2="1.27" width="0.254" layer="94"/>
 <text x="-1.27" y="3.81" size="1.778" layer="96">&gt;VALUE</text>
@@ -2991,7 +2990,7 @@ A106146CT-ND or similar.</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="GND" urn="urn:adsk.eagle:component:14850878/1" prefix="SUPPLY" library_version="5" library_locally_modified="yes">
+<deviceset name="GND" urn="urn:adsk.eagle:component:14850878/2" prefix="SUPPLY" library_version="7" library_locally_modified="yes">
 <description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
 <gates>
 <gate name="GND" symbol="GND" x="0" y="0"/>
@@ -3004,7 +3003,7 @@ A106146CT-ND or similar.</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="CAP" urn="urn:adsk.eagle:component:14850903/2" prefix="C" uservalue="yes" library_version="5" library_locally_modified="yes">
+<deviceset name="CAP" urn="urn:adsk.eagle:component:14850903/3" prefix="C" uservalue="yes" library_version="7" library_locally_modified="yes">
 <description>&lt;b&gt;Capacitor&lt;/b&gt;
 Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <gates>
@@ -3059,7 +3058,7 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <connect gate="G$1" pin="2" pad="2"/>
 </connects>
 <package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:14850678/2"/>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:14850678/3"/>
 </package3dinstances>
 <technologies>
 <technology name="">
@@ -3111,7 +3110,7 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="5V" urn="urn:adsk.eagle:component:14850876/1" library_version="5" library_locally_modified="yes">
+<deviceset name="5V" urn="urn:adsk.eagle:component:14850876/2" library_version="7" library_locally_modified="yes">
 <gates>
 <gate name="G$1" symbol="5V" x="0" y="0"/>
 </gates>
@@ -3123,7 +3122,7 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="BURNIN" urn="urn:adsk.eagle:component:14851022/3" prefix="J" library_version="5" library_locally_modified="yes">
+<deviceset name="BURNIN" urn="urn:adsk.eagle:component:14851022/3" prefix="J" library_version="7" library_locally_modified="yes">
 <gates>
 <gate name="G$1" symbol="BURNIN" x="2.54" y="2.54"/>
 </gates>
@@ -3146,7 +3145,7 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="R-US_" urn="urn:adsk.eagle:component:14850902/2" prefix="R" uservalue="yes" library_version="5" library_locally_modified="yes">
+<deviceset name="R-US_" urn="urn:adsk.eagle:component:14850902/3" prefix="R" uservalue="yes" library_version="7" library_locally_modified="yes">
 <description>&lt;B&gt;RESISTOR&lt;/B&gt;, American symbol</description>
 <gates>
 <gate name="G$1" symbol="R-US" x="0" y="0"/>
@@ -3158,7 +3157,7 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <connect gate="G$1" pin="2" pad="2"/>
 </connects>
 <package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:14850590/2"/>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:14850590/3"/>
 </package3dinstances>
 <technologies>
 <technology name=""/>
@@ -3786,7 +3785,7 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="LED" urn="urn:adsk.eagle:component:14850961/2" prefix="D" uservalue="yes" library_version="5" library_locally_modified="yes">
+<deviceset name="LED" urn="urn:adsk.eagle:component:14850961/3" prefix="D" uservalue="yes" library_version="7" library_locally_modified="yes">
 <description>https://www.digikey.com/products/en/optoelectronics/led-indication-discrete/105?k=&amp;pkeyword=&amp;pv7=2&amp;pv1989=0&amp;pv16=5&amp;FV=ffe00069&amp;quantity=0&amp;ColumnSort=0&amp;page=1&amp;pageSize=25</description>
 <gates>
 <gate name="G$1" symbol="LED" x="0" y="0"/>
@@ -3798,7 +3797,7 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <connect gate="G$1" pin="C" pad="C"/>
 </connects>
 <package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:14850721/2"/>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:14850721/3"/>
 </package3dinstances>
 <technologies>
 <technology name=""/>
@@ -5325,40 +5324,40 @@ Standard 8.5x11 US Letter frame</description>
 <part name="SUPPLY1" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="VCC" device=""/>
 <part name="SUPPLY2" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="GND" device=""/>
 <part name="SUPPLY3" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="VCC" device=""/>
-<part name="C1" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="CAP" device="0402-CAP" package3d_urn="urn:adsk.eagle:package:14850678/2" value="100nF"/>
+<part name="C1" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="CAP" device="0402-CAP" package3d_urn="urn:adsk.eagle:package:14850678/3" value="100nF"/>
 <part name="SUPPLY4" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="GND" device=""/>
 <part name="U$1" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="5V" device=""/>
-<part name="C2" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="CAP" device="0402-CAP" package3d_urn="urn:adsk.eagle:package:14850678/2" value="100nF"/>
+<part name="C2" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="CAP" device="0402-CAP" package3d_urn="urn:adsk.eagle:package:14850678/3" value="100nF"/>
 <part name="SUPPLY5" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="GND" device=""/>
 <part name="FRAME2" library="scono" deviceset="FRAME_SCHEMATIC" device="">
 <attribute name="AUTHOR" value="S. Ono"/>
 <attribute name="REV" value="A"/>
 <attribute name="SUBSYSTEM_NAME" value="mippe_module"/>
 </part>
-<part name="R1" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="R-US_" device="R0402" package3d_urn="urn:adsk.eagle:package:14850590/2" value="10k"/>
-<part name="R2" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="R-US_" device="R0402" package3d_urn="urn:adsk.eagle:package:14850590/2" value="500R"/>
-<part name="D1" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="LED" device="0603" package3d_urn="urn:adsk.eagle:package:14850721/2"/>
+<part name="R1" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="R-US_" device="R0402" package3d_urn="urn:adsk.eagle:package:14850590/3" value="10k"/>
+<part name="R2" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="R-US_" device="R0402" package3d_urn="urn:adsk.eagle:package:14850590/3" value="500R"/>
+<part name="D1" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="LED" device="0603" package3d_urn="urn:adsk.eagle:package:14850721/3"/>
 <part name="SUPPLY6" library="scono" deviceset="GND" device=""/>
-<part name="C3" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="CAP" device="0402-CAP" package3d_urn="urn:adsk.eagle:package:14850678/2" value="100nF"/>
-<part name="C4" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="CAP" device="0402-CAP" package3d_urn="urn:adsk.eagle:package:14850678/2" value="100nF"/>
+<part name="C3" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="CAP" device="0402-CAP" package3d_urn="urn:adsk.eagle:package:14850678/3" value="100nF"/>
+<part name="C4" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="CAP" device="0402-CAP" package3d_urn="urn:adsk.eagle:package:14850678/3" value="100nF"/>
 <part name="SUPPLY7" library="scono" deviceset="GND" device=""/>
 <part name="SUPPLY8" library="scono" deviceset="GND" device=""/>
 <part name="SW1" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="BTN-PTS810" device="" package3d_urn="urn:adsk.eagle:package:14850707/2"/>
 <part name="SUPPLY9" library="scono" deviceset="GND" device=""/>
 <part name="Y1" library="scono" deviceset="CRYSTAL" device="_SMOL" value="16MHz"/>
-<part name="C5" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="CAP" device="0402-CAP" package3d_urn="urn:adsk.eagle:package:14850678/2" value="18pF"/>
-<part name="C6" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="CAP" device="0402-CAP" package3d_urn="urn:adsk.eagle:package:14850678/2" value="18pF"/>
+<part name="C5" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="CAP" device="0402-CAP" package3d_urn="urn:adsk.eagle:package:14850678/3" value="18pF"/>
+<part name="C6" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="CAP" device="0402-CAP" package3d_urn="urn:adsk.eagle:package:14850678/3" value="18pF"/>
 <part name="SUPPLY10" library="scono" deviceset="GND" device=""/>
 <part name="SUPPLY11" library="scono" deviceset="GND" device=""/>
 <part name="J4" library="scono" deviceset="CONN_06" device="NO_SILK_FEMALE_PTH" value="FTDI"/>
-<part name="R3" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="R-US_" device="R0402" package3d_urn="urn:adsk.eagle:package:14850590/2" value="500R"/>
-<part name="D2" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="LED" device="0603" package3d_urn="urn:adsk.eagle:package:14850721/2" value="RED"/>
+<part name="R3" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="R-US_" device="R0402" package3d_urn="urn:adsk.eagle:package:14850590/3" value="500R"/>
+<part name="D2" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="LED" device="0603" package3d_urn="urn:adsk.eagle:package:14850721/3" value="RED"/>
 <part name="SUPPLY13" library="scono" deviceset="GND" device=""/>
 <part name="J12" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="BURNIN" device="" package3d_urn="urn:adsk.eagle:package:14850856/2"/>
 <part name="SUPPLY14" library="scono" deviceset="GND" device=""/>
 <part name="U2" library="scono" deviceset="ATMEGA328P-AUR" device=""/>
 <part name="SUPPLY15" library="scono" deviceset="GND" device=""/>
-<part name="C7" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="CAP" device="0402-CAP" package3d_urn="urn:adsk.eagle:package:14850678/2" value="100nF"/>
+<part name="C7" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="CAP" device="0402-CAP" package3d_urn="urn:adsk.eagle:package:14850678/3" value="100nF"/>
 <part name="U$2" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="5V" device=""/>
 <part name="U$5" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="5V" device=""/>
 <part name="U$7" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="5V" device=""/>

@@ -209,7 +209,7 @@
 <libraries>
 <library name="scono" urn="urn:adsk.eagle:library:14850048">
 <packages>
-<package name="0402-CAP" urn="urn:adsk.eagle:footprint:14850354/2" locally_modified="yes" library_version="5" library_locally_modified="yes">
+<package name="0402-CAP" urn="urn:adsk.eagle:footprint:14850354/3" library_version="7" library_locally_modified="yes">
 <description>&lt;b&gt;CAPACITOR&lt;/b&gt;&lt;p&gt;
 chip</description>
 <smd name="1" x="-0.65" y="0" dx="0.7" dy="0.9" layer="1"/>
@@ -255,15 +255,15 @@ chip</description>
 <text x="-1.27" y="1.397" size="0.6096" layer="25" font="vector" ratio="20">&gt;NAME</text>
 <text x="-1.27" y="-2.032" size="0.6096" layer="27" font="vector" ratio="20">&gt;VALUE</text>
 </package>
-<package name="BURNIN" urn="urn:adsk.eagle:footprint:14850534/2" library_version="5" library_locally_modified="yes">
+<package name="BURNIN" urn="urn:adsk.eagle:footprint:14850534/2" locally_modified="yes" library_version="7" library_locally_modified="yes">
 <smd name="3.3V" x="0" y="0" dx="1.27" dy="1.27" layer="16" roundness="100" rot="R180"/>
 <smd name="MOSI" x="-2.54" y="0" dx="1.27" dy="1.27" layer="16" roundness="100" rot="R180"/>
 <smd name="GND" x="-5.08" y="0" dx="1.27" dy="1.27" layer="16" roundness="100" rot="R180"/>
 <smd name="RST" x="-5.08" y="2.54" dx="1.27" dy="1.27" layer="16" roundness="100" rot="R180"/>
 <smd name="SCK" x="-2.54" y="2.54" dx="1.27" dy="1.27" layer="16" roundness="100" rot="R180"/>
 <smd name="MISO" x="0" y="2.54" dx="1.27" dy="1.27" layer="16" roundness="100" rot="R180"/>
-<pad name="P$7" x="-7.62" y="2.54" drill="0.8" rot="R90"/>
-<pad name="P$8" x="-7.62" y="0" drill="0.8" rot="R90"/>
+<pad name="P$7" x="-7.62" y="2.54" drill="1" rot="R90"/>
+<pad name="P$8" x="-7.62" y="0" drill="1" rot="R90"/>
 <text x="-3.75" y="1.25" size="0.5" layer="51" align="center">BURNIN</text>
 <rectangle x1="-8.25" y1="-0.75" x2="-6.875" y2="3.25" layer="39"/>
 <rectangle x1="-8.25" y1="-0.75" x2="0.75" y2="3.25" layer="40"/>
@@ -300,7 +300,7 @@ chip</description>
 <smd name="3" x="-3.075" y="-2.3" dx="1.86" dy="0.9" layer="1" rot="R180"/>
 <smd name="4" x="3.075" y="0" dx="1.86" dy="3.19" layer="1"/>
 </package>
-<package name="R0402" urn="urn:adsk.eagle:footprint:14850265/2" locally_modified="yes" library_version="5" library_locally_modified="yes">
+<package name="R0402" urn="urn:adsk.eagle:footprint:14850265/3" library_version="7" library_locally_modified="yes">
 <description>&lt;b&gt;RESISTOR&lt;/b&gt;</description>
 <smd name="1" x="-0.65" y="0" dx="0.7" dy="0.9" layer="1"/>
 <smd name="2" x="0.65" y="0" dx="0.7" dy="0.9" layer="1"/>
@@ -321,7 +321,7 @@ chip</description>
 <wire x1="-0.2" y1="0" x2="0.1" y2="0" width="0.127" layer="51"/>
 <wire x1="0.1" y1="0" x2="0.2" y2="0" width="0.127" layer="51"/>
 </package>
-<package name="LED-0603" urn="urn:adsk.eagle:footprint:14850397/2" locally_modified="yes" library_version="5" library_locally_modified="yes">
+<package name="LED-0603" urn="urn:adsk.eagle:footprint:14850397/3" library_version="7" library_locally_modified="yes">
 <description>&lt;B&gt;LED 0603 SMT&lt;/B&gt;&lt;p&gt;
 0603, surface mount.
 &lt;p&gt;Specifications:
@@ -363,7 +363,7 @@ chip</description>
 </package>
 </packages>
 <packages3d>
-<package3d name="0402-CAP" urn="urn:adsk.eagle:package:14850678/2" type="box" library_version="5" library_locally_modified="yes">
+<package3d name="0402-CAP" urn="urn:adsk.eagle:package:14850678/3" type="box" library_version="7" library_locally_modified="yes">
 <description>&lt;b&gt;CAPACITOR&lt;/b&gt;&lt;p&gt;
 chip</description>
 <packageinstances>
@@ -383,7 +383,7 @@ CONN_02
 <packageinstance name="1X02"/>
 </packageinstances>
 </package3d>
-<package3d name="BURNIN" urn="urn:adsk.eagle:package:14850856/2" type="box" library_version="5" library_locally_modified="yes">
+<package3d name="BURNIN" urn="urn:adsk.eagle:package:14850856/2" type="box" library_version="7" library_locally_modified="yes">
 <packageinstances>
 <packageinstance name="BURNIN"/>
 </packageinstances>
@@ -393,13 +393,13 @@ CONN_02
 <packageinstance name="SOT230P700X180-4N"/>
 </packageinstances>
 </package3d>
-<package3d name="R0402" urn="urn:adsk.eagle:package:14850590/2" type="box" library_version="5" library_locally_modified="yes">
+<package3d name="R0402" urn="urn:adsk.eagle:package:14850590/3" type="box" library_version="7" library_locally_modified="yes">
 <description>&lt;b&gt;RESISTOR&lt;/b&gt;</description>
 <packageinstances>
 <packageinstance name="R0402"/>
 </packageinstances>
 </package3d>
-<package3d name="LED-0603" urn="urn:adsk.eagle:package:14850721/2" type="box" library_version="5" library_locally_modified="yes">
+<package3d name="LED-0603" urn="urn:adsk.eagle:package:14850721/3" type="box" library_version="7" library_locally_modified="yes">
 <description>&lt;B&gt;LED 0603 SMT&lt;/B&gt;&lt;p&gt;
 0603, surface mount.
 &lt;p&gt;Specifications:
@@ -711,35 +711,35 @@ design rules under a new name.
 <board_group name="XTAL"/>
 </groups>
 <elements>
-<element name="C1" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="0402-CAP" package3d_urn="urn:adsk.eagle:package:14850678/2" value="100nF" x="8.25" y="19" smashed="yes">
+<element name="C1" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="0402-CAP" package3d_urn="urn:adsk.eagle:package:14850678/3" value="100nF" x="8.25" y="19" smashed="yes">
 <attribute name="PIE-INT-REF-NUM" value="CAPACITOR-GENERIC" x="46.35" y="-21.64" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" x="6.98" y="17.73" size="0.508" layer="27" font="vector"/>
 </element>
-<element name="C2" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="0402-CAP" package3d_urn="urn:adsk.eagle:package:14850678/2" value="100nF" x="5.25" y="19" smashed="yes" rot="R180">
+<element name="C2" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="0402-CAP" package3d_urn="urn:adsk.eagle:package:14850678/3" value="100nF" x="5.25" y="19" smashed="yes" rot="R180">
 <attribute name="PIE-INT-REF-NUM" value="CAPACITOR-GENERIC" x="-36.66" y="59.64" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="VALUE" x="6.52" y="20.27" size="0.508" layer="27" font="vector" rot="R180"/>
 </element>
-<element name="C3" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="0402-CAP" package3d_urn="urn:adsk.eagle:package:14850678/2" value="100nF" x="10" y="22.25" smashed="yes" rot="R90">
+<element name="C3" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="0402-CAP" package3d_urn="urn:adsk.eagle:package:14850678/3" value="100nF" x="10" y="22.25" smashed="yes" rot="R90">
 <attribute name="PIE-INT-REF-NUM" value="CAPACITOR-GENERIC" x="41.75" y="65.43" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="VALUE" x="11.397" y="20.98" size="0.508" layer="27" font="vector" rot="R90"/>
 </element>
-<element name="C4" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="0402-CAP" package3d_urn="urn:adsk.eagle:package:14850678/2" value="100nF" x="22.5" y="22.25" smashed="yes" rot="R90">
+<element name="C4" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="0402-CAP" package3d_urn="urn:adsk.eagle:package:14850678/3" value="100nF" x="22.5" y="22.25" smashed="yes" rot="R90">
 <attribute name="PIE-INT-REF-NUM" value="CAPACITOR-GENERIC" x="59.33" y="37.49" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="C5" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="0402-CAP" package3d_urn="urn:adsk.eagle:package:14850678/2" value="18pF" x="26" y="17.75" smashed="yes" grouprefs="XTAL">
+<element name="C5" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="0402-CAP" package3d_urn="urn:adsk.eagle:package:14850678/3" value="18pF" x="26" y="17.75" smashed="yes" grouprefs="XTAL">
 <attribute name="PIE-INT-REF-NUM" value="CAPACITOR-GENERIC" x="46.32" y="-19.08" size="1.778" layer="27" display="off"/>
 </element>
-<element name="C6" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="0402-CAP" package3d_urn="urn:adsk.eagle:package:14850678/2" value="18pF" x="26" y="26.25" smashed="yes" grouprefs="XTAL">
+<element name="C6" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="0402-CAP" package3d_urn="urn:adsk.eagle:package:14850678/3" value="18pF" x="26" y="26.25" smashed="yes" grouprefs="XTAL">
 <attribute name="PIE-INT-REF-NUM" value="CAPACITOR-GENERIC" x="51.4" y="-10.58" size="1.778" layer="27" display="off"/>
 </element>
-<element name="C7" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="0402-CAP" package3d_urn="urn:adsk.eagle:package:14850678/2" value="100nF" x="25.75" y="7.5" smashed="yes" rot="R180">
+<element name="C7" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="0402-CAP" package3d_urn="urn:adsk.eagle:package:14850678/3" value="100nF" x="25.75" y="7.5" smashed="yes" rot="R180">
 <attribute name="PIE-INT-REF-NUM" value="CAPACITOR-GENERIC" x="-4.73" y="44.33" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="VALUE" x="27.02" y="8.897" size="0.508" layer="27" font="vector" rot="R180"/>
 </element>
-<element name="D1" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="LED-0603" package3d_urn="urn:adsk.eagle:package:14850721/2" value="" x="19.75" y="11" smashed="yes" rot="R90">
+<element name="D1" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="LED-0603" package3d_urn="urn:adsk.eagle:package:14850721/3" value="" x="19.75" y="11" smashed="yes" rot="R90">
 <attribute name="VALUE" x="20.85" y="9.9" size="0.508" layer="27" font="vector" rot="R90"/>
 </element>
-<element name="D2" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="LED-0603" package3d_urn="urn:adsk.eagle:package:14850721/2" value="RED" x="12.75" y="11" smashed="yes" rot="R90">
+<element name="D2" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="LED-0603" package3d_urn="urn:adsk.eagle:package:14850721/3" value="RED" x="12.75" y="11" smashed="yes" rot="R90">
 <attribute name="VALUE" x="13.85" y="9.9" size="0.508" layer="27" font="vector" rot="R90"/>
 </element>
 <element name="J1" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="1X02" package3d_urn="urn:adsk.eagle:package:38039/1" value="VCC" x="2.25" y="22" smashed="yes" rot="R270">
@@ -756,13 +756,13 @@ design rules under a new name.
 <attribute name="PROD_ID" value="CONN-08437" x="36.67" y="-31.87" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" x="8.73" y="5.468" size="0.6096" layer="27" font="vector" ratio="20"/>
 </element>
-<element name="R1" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="R0402" package3d_urn="urn:adsk.eagle:package:14850590/2" value="10k" x="22.5" y="14.25" smashed="yes" rot="R270">
+<element name="R1" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="R0402" package3d_urn="urn:adsk.eagle:package:14850590/3" value="10k" x="22.5" y="14.25" smashed="yes" rot="R270">
 <attribute name="VALUE" x="21.484" y="15.52" size="0.508" layer="27" font="vector" rot="R270" align="top-left"/>
 </element>
-<element name="R2" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="R0402" package3d_urn="urn:adsk.eagle:package:14850590/2" value="500R" x="21.25" y="11" smashed="yes" rot="R90">
+<element name="R2" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="R0402" package3d_urn="urn:adsk.eagle:package:14850590/3" value="500R" x="21.25" y="11" smashed="yes" rot="R90">
 <attribute name="VALUE" x="22.266" y="9.73" size="0.508" layer="27" font="vector" rot="R90" align="top-left"/>
 </element>
-<element name="R3" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="R0402" package3d_urn="urn:adsk.eagle:package:14850590/2" value="500R" x="11.25" y="11" smashed="yes" rot="R270">
+<element name="R3" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="R0402" package3d_urn="urn:adsk.eagle:package:14850590/3" value="500R" x="11.25" y="11" smashed="yes" rot="R270">
 <attribute name="VALUE" x="10.234" y="12.27" size="0.508" layer="27" font="vector" rot="R270" align="top-left"/>
 </element>
 <element name="SW1" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="BTN_PTS810" package3d_urn="urn:adsk.eagle:package:14850707/2" value="BTN-PTS810" x="25.28" y="12.66" smashed="yes" rot="R270"/>
