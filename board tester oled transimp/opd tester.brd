@@ -699,6 +699,11 @@ Combination of BAC and AC</description>
 <attribute name="NAME" x="12.238" y="12.73" size="0.508" layer="25" font="vector" ratio="10" rot="R90"/>
 <attribute name="VALUE" x="14.397" y="12.73" size="0.508" layer="27" font="vector" rot="R90"/>
 </element>
+<element name="C4" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="0603-CAP" package3d_urn="urn:adsk.eagle:package:14850677/1" value="0.1uF" x="-2.25" y="26" smashed="yes" rot="R90">
+<attribute name="NAME" x="-3.012" y="24.73" size="0.508" layer="25" font="vector" ratio="10" rot="R90"/>
+<attribute name="PIE-INT-REF-NUM" value="CAPACITOR-GENERIC" x="-2.25" y="26" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="VALUE" x="-0.853" y="24.73" size="0.508" layer="27" font="vector" rot="R90"/>
+</element>
 </elements>
 <signals>
 <signal name="GND">
@@ -836,6 +841,9 @@ Combination of BAC and AC</description>
 <wire x1="0" y1="22" x2="0.25" y2="22.25" width="0.1524" layer="1"/>
 <wire x1="0" y1="25.15" x2="0.015" y2="25.135" width="0.1" layer="1"/>
 <wire x1="0.015" y1="25.135" x2="3.0362" y2="25.135" width="0.1" layer="1"/>
+<contactref element="C4" pad="1"/>
+<wire x1="-2.25" y1="25.15" x2="-0.15" y2="25.15" width="0.1" layer="1"/>
+<wire x1="-0.15" y1="25.15" x2="0" y2="25" width="0.1" layer="1"/>
 </signal>
 <signal name="N$4">
 <contactref element="R1" pad="2"/>
@@ -849,6 +857,8 @@ Combination of BAC and AC</description>
 <wire x1="0.445" y1="26.405" x2="3.0362" y2="26.405" width="0.1" layer="1"/>
 <wire x1="3.0362" y1="26.405" x2="4.4" y2="27.7688" width="0.1" layer="1"/>
 <wire x1="4.4" y1="27.7688" x2="4.4" y2="29.25" width="0.1" layer="1"/>
+<contactref element="C4" pad="2"/>
+<wire x1="0" y1="26.85" x2="-2.25" y2="26.85" width="0.1" layer="1"/>
 </signal>
 <signal name="N$5">
 <contactref element="U2" pad="6"/>

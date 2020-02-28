@@ -4163,6 +4163,7 @@ For A106146CT-ND or similar</description>
 <part name="R5" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="R-US_" device="0603" package3d_urn="urn:adsk.eagle:package:14850803/1" value="10k"/>
 <part name="U$6" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="5V" device=""/>
 <part name="U$7" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="5V" device=""/>
+<part name="C4" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="CAP" device="0603-CAP" package3d_urn="urn:adsk.eagle:package:14850677/1" value="0.1uF"/>
 </parts>
 <sheets>
 <sheet>
@@ -4274,6 +4275,10 @@ For A106146CT-ND or similar</description>
 </instance>
 <instance part="U$7" gate="G$1" x="33.02" y="134.62" smashed="yes" rot="R180">
 <attribute name="VALUE" x="34.29" y="130.81" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="C4" gate="G$1" x="104.14" y="119.38" smashed="yes" rot="R90">
+<attribute name="NAME" x="102.616" y="118.11" size="1.016" layer="95" rot="R90"/>
+<attribute name="VALUE" x="106.68" y="118.11" size="1.016" layer="96" rot="R90"/>
 </instance>
 </instances>
 <busses>
@@ -4422,6 +4427,9 @@ For A106146CT-ND or similar</description>
 <junction x="109.22" y="114.3"/>
 <pinref part="TP5" gate="G$1" pin="P$1"/>
 <junction x="116.84" y="114.3"/>
+<pinref part="C4" gate="G$1" pin="1"/>
+<wire x1="104.14" y1="116.84" x2="104.14" y2="114.3" width="0.1524" layer="91"/>
+<wire x1="104.14" y1="114.3" x2="109.22" y2="114.3" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$4" class="0">
@@ -4439,6 +4447,9 @@ For A106146CT-ND or similar</description>
 <wire x1="220.98" y1="129.54" x2="220.98" y2="119.38" width="0.1524" layer="91"/>
 <pinref part="R2" gate="G$1" pin="2"/>
 <pinref part="TP4" gate="G$1" pin="P$1"/>
+<pinref part="C4" gate="G$1" pin="2"/>
+<wire x1="104.14" y1="121.92" x2="109.22" y2="121.92" width="0.1524" layer="91"/>
+<junction x="109.22" y="121.92"/>
 </segment>
 </net>
 <net name="N$5" class="0">
