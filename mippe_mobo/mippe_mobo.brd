@@ -6105,7 +6105,7 @@ Combination of BAC and AC</description>
 <attribute name="PACKAGE" value="None" x="60" y="112" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="VALUE" x="50.638490625" y="122.5129" size="1.271559375" layer="27" rot="R270"/>
 </element>
-<element name="L1" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="UCB_CAL_500MIL" value="UCB_CAL500MIL" x="99.75" y="95.75" smashed="yes"/>
+<element name="L1" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="UCB_CAL_500MIL" value="UCB_CAL500MIL" x="12.25" y="78.25" smashed="yes"/>
 <element name="J4" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="CUI_PJ-102AH" value="PJ-102AH" x="44" y="115" smashed="yes" rot="R90">
 <attribute name="AVAILABILITY" value="Unavailable" x="44" y="115" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="CUI_PURCHASE_URL" value="https://www.cuidevices.com/product/interconnect/connectors/dc-power-connectors/jacks/pj-102ah?utm_source=snapeda.com&amp;utm_medium=referral&amp;utm_campaign=snapedaBOM" x="44" y="115" size="1.778" layer="27" rot="R90" display="off"/>
@@ -6116,7 +6116,7 @@ Combination of BAC and AC</description>
 <attribute name="PRICE" value="None" x="44" y="115" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="VALUE" x="50.41615" y="107.8031" size="1.27121875" layer="27" rot="R90"/>
 </element>
-<element name="U$17" library="pie" package="OSHW-LOGO-L" value="" x="110.5" y="114.25" smashed="yes"/>
+<element name="U$17" library="pie" package="OSHW-LOGO-L" value="" x="107.75" y="106" smashed="yes"/>
 <element name="J6" library="scono" library_urn="urn:adsk.eagle:library:14850048" package="1X04" package3d_urn="urn:adsk.eagle:package:38085/1" value="" x="56.25" y="26.25" smashed="yes">
 <attribute name="PROD_ID" value="CONN-09696" x="56.25" y="26.25" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" x="54.98" y="24.218" size="0.6096" layer="27" font="vector" ratio="20"/>
