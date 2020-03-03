@@ -5,6 +5,7 @@ echo "Select Board to burn in"
 echo "[1] Pro Mni (5V 16MHz)"
 echo "[2] Leonardo (5V)"
 echo "[3] Uno"
+echo "[4] 328PB"
 read -p 'Board: ' board
 
 if [ $board -eq 1 ]
@@ -19,4 +20,8 @@ elif [ $board -eq 3 ]
 then
   /home/onibrow/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C/home/onibrow/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -cstk500v1 -P/dev/ttyACM0 -b19200 -e -Ulock:w:0x3F:m -Uefuse:w:0xFD:m -Uhfuse:w:0xDE:m -Ulfuse:w:0xFF:m 
   /home/onibrow/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C/home/onibrow/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -cstk500v1 -P/dev/ttyACM0 -b19200 -Uflash:w:/home/onibrow/.arduino15/packages/arduino/hardware/avr/1.8.2/bootloaders/optiboot/optiboot_atmega328.hex:i -Ulock:w:0x0F:m
+elif [ $board -eq 4 ]
+then
+  /home/onibrow/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C/home/onibrow/.arduino15/packages/MiniCore/hardware/avr/2.0.3/avrdude.conf -v -patmega328pb -cstk500v1 -P/dev/ttyACM0 -b19200 -e -Ulock:w:0x3f:m -Uefuse:w:0b11110101:m -Uhfuse:w:0xd6:m -Ulfuse:w:0b11111111:m
+  /home/onibrow/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C/home/onibrow/.arduino15/packages/MiniCore/hardware/avr/2.0.3/avrdude.conf -v -patmega328pb -cstk500v1 -P/dev/ttyACM0 -b19200 -Uflash:w:/home/onibrow/.arduino15/packages/MiniCore/hardware/avr/2.0.3/bootloaders/optiboot_flash/bootloaders/atmega328pb/16000000L/optiboot_flash_atmega328pb_UART0_115200_16000000L.hex:i -Ulock:w:0x0f:m
 fi
