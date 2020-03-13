@@ -1,5 +1,5 @@
-int led = 10;           // the PWM pin the LED is attached to
-int adc = A0;          // Reading in LED Voltage / 2
+int led = 3;           // the PWM pin the LED is attached to
+int adc = A3;          // Reading in LED Voltage / 2
 int brightness = 255;    // how bright the LED is
 
 float led_v = 0.000;
