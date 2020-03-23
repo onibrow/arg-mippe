@@ -9066,8 +9066,6 @@ For A106146CT-ND or similar</description>
 <part name="U$16" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="5V" device=""/>
 <part name="L1" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="UCB_CAL" device="500MIL" value="UCB_CAL500MIL"/>
 <part name="J4" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="PJ-102AH" device=""/>
-<part name="SUPPLY7" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="GND" device=""/>
-<part name="SUPPLY8" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="VCC" device=""/>
 <part name="J6" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="CONN_04" device="" package3d_urn="urn:adsk.eagle:package:38085/1"/>
 <part name="SUPPLY9" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="GND" device=""/>
 <part name="J7" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="CONN_04" device="" package3d_urn="urn:adsk.eagle:package:38085/1"/>
@@ -9091,6 +9089,8 @@ For A106146CT-ND or similar</description>
 <part name="U$3" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="5V" device=""/>
 <part name="C2" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="CAP" device="0603-CAP" package3d_urn="urn:adsk.eagle:package:14850677/1" value="0.1uF"/>
 <part name="SUPPLY17" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="GND" device=""/>
+<part name="SUPPLY7" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="VCC" device=""/>
+<part name="SUPPLY8" library="scono" library_urn="urn:adsk.eagle:library:14850048" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -9193,10 +9193,6 @@ For A106146CT-ND or similar</description>
 <attribute name="NAME" x="99.054240625" y="170.183840625" size="1.779340625" layer="95"/>
 <attribute name="VALUE" x="99.05045" y="160.01363125" size="1.78023125" layer="96"/>
 </instance>
-<instance part="SUPPLY7" gate="GND" x="127" y="167.64" smashed="yes" rot="R90"/>
-<instance part="SUPPLY8" gate="G$1" x="124.46" y="162.56" smashed="yes" rot="R270">
-<attribute name="VALUE" x="127.254" y="162.56" size="1.778" layer="96" rot="R270" align="bottom-center"/>
-</instance>
 <instance part="C8" gate="G$1" x="139.7" y="165.1" smashed="yes">
 <attribute name="NAME" x="140.716" y="165.735" size="1.778" layer="95"/>
 <attribute name="VALUE" x="140.716" y="160.909" size="1.778" layer="96"/>
@@ -9214,8 +9210,8 @@ For A106146CT-ND or similar</description>
 <instance part="TP3" gate="G$1" x="48.26" y="53.34" smashed="yes" rot="R180">
 <attribute name="NAME" x="48.26" y="50.8" size="1.778" layer="95" rot="R180"/>
 </instance>
-<instance part="TP4" gate="G$1" x="121.92" y="162.56" smashed="yes" rot="R270">
-<attribute name="NAME" x="124.46" y="162.56" size="1.778" layer="95" rot="R270"/>
+<instance part="TP4" gate="G$1" x="119.38" y="167.64" smashed="yes" rot="R90">
+<attribute name="NAME" x="116.84" y="167.64" size="1.778" layer="95" rot="R90"/>
 </instance>
 <instance part="R13" gate="G$1" x="177.8" y="53.34" smashed="yes" rot="R270">
 <attribute name="NAME" x="179.07" y="58.42" size="1.016" layer="95" rot="R270"/>
@@ -9246,6 +9242,10 @@ For A106146CT-ND or similar</description>
 <attribute name="VALUE" x="193.04" y="158.75" size="1.016" layer="96" rot="R90"/>
 </instance>
 <instance part="SUPPLY17" gate="GND" x="190.5" y="154.94" smashed="yes"/>
+<instance part="SUPPLY7" gate="G$1" x="124.46" y="167.64" smashed="yes" rot="R270">
+<attribute name="VALUE" x="127.254" y="167.64" size="1.778" layer="96" rot="R270" align="bottom-center"/>
+</instance>
+<instance part="SUPPLY8" gate="GND" x="114.3" y="162.56" smashed="yes" rot="R90"/>
 </instances>
 <busses>
 </busses>
@@ -9267,20 +9267,20 @@ For A106146CT-ND or similar</description>
 <wire x1="167.64" y1="121.92" x2="170.18" y2="121.92" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="SUPPLY8" gate="G$1" pin="VCC"/>
-<pinref part="J4" gate="G$1" pin="2"/>
-<wire x1="124.46" y1="162.56" x2="121.92" y2="162.56" width="0.1524" layer="91"/>
-<pinref part="TP4" gate="G$1" pin="P$1"/>
-<wire x1="121.92" y1="162.56" x2="111.76" y2="162.56" width="0.1524" layer="91"/>
-<junction x="121.92" y="162.56"/>
-</segment>
-<segment>
 <pinref part="C8" gate="G$1" pin="POS"/>
 <pinref part="SUPPLY11" gate="G$1" pin="VCC"/>
 </segment>
 <segment>
 <pinref part="U3" gate="G$1" pin="VIN"/>
 <pinref part="SUPPLY15" gate="G$1" pin="VCC"/>
+</segment>
+<segment>
+<pinref part="J4" gate="G$1" pin="1"/>
+<wire x1="124.46" y1="167.64" x2="119.38" y2="167.64" width="0.1524" layer="91"/>
+<pinref part="TP4" gate="G$1" pin="P$1"/>
+<wire x1="119.38" y1="167.64" x2="111.76" y2="167.64" width="0.1524" layer="91"/>
+<junction x="119.38" y="167.64"/>
+<pinref part="SUPPLY7" gate="G$1" pin="VCC"/>
 </segment>
 </net>
 <net name="GND" class="0">
@@ -9318,14 +9318,6 @@ For A106146CT-ND or similar</description>
 <pinref part="SUPPLY30" gate="GND" pin="GND"/>
 </segment>
 <segment>
-<pinref part="SUPPLY7" gate="GND" pin="GND"/>
-<pinref part="J4" gate="G$1" pin="1"/>
-<wire x1="124.46" y1="167.64" x2="111.76" y2="167.64" width="0.1524" layer="91"/>
-<pinref part="J4" gate="G$1" pin="3"/>
-<wire x1="111.76" y1="167.64" x2="111.76" y2="165.1" width="0.1524" layer="91"/>
-<junction x="111.76" y="167.64"/>
-</segment>
-<segment>
 <pinref part="C8" gate="G$1" pin="NEG"/>
 <pinref part="SUPPLY12" gate="GND" pin="GND"/>
 </segment>
@@ -9336,6 +9328,13 @@ For A106146CT-ND or similar</description>
 <segment>
 <pinref part="C2" gate="G$1" pin="1"/>
 <pinref part="SUPPLY17" gate="GND" pin="GND"/>
+</segment>
+<segment>
+<pinref part="J4" gate="G$1" pin="2"/>
+<pinref part="J4" gate="G$1" pin="3"/>
+<wire x1="111.76" y1="165.1" x2="111.76" y2="162.56" width="0.1524" layer="91"/>
+<pinref part="SUPPLY8" gate="GND" pin="GND"/>
+<junction x="111.76" y="162.56"/>
 </segment>
 </net>
 <net name="TX1" class="0">
