@@ -15,11 +15,10 @@ unsigned long elapsed;
 
 int test_led = 0;
 
-// the setup routine runs once when you press reset:
+
 void setup() {
-  // declare pin 9 to be an output:
   Serial.begin(115200);
-  buff.reserve(200);
+  buff.reserve(50);
   for (int led_num = 0; led_num < 4; led_num++) {
     pinMode(leds[led_num], OUTPUT);
     pinMode(adcs[led_num], INPUT);
