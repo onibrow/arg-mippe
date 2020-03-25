@@ -31,6 +31,11 @@ void setup() {
   default_dig_pot();
 }
 
+void info() {
+//  Serial.print("Quad Channel Adjustable Reference Passive Resistive Sensor Module");
+  Serial.print("paspot\n");
+}
+
 void default_dig_pot() {
   for (int i = 0; i < 4; i++) {
     write_pot(i, 128);
@@ -76,7 +81,7 @@ void loop() {
 }
 
 // Write to AD8403
-void write_pot(int ch, int val) {
+void write_pot(uint8_t ch, uint8_t val) {
   /* Addr: [9:8]
      Data: [7:0]*/
   uint8_t data = val;
