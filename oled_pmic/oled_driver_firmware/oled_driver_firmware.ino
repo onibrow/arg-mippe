@@ -53,6 +53,7 @@ uint16_t read_voltage(int led_num) {
 void print_voltages() {
   digitalWrite(MIPPE_LED, HIGH);
   for (int i = 0; i < 4; i++) {
+    led_vs[i] = read_voltage(i);
     Serial.print(led_vs[i]);
     Serial.print(", ");
   }
@@ -62,8 +63,6 @@ void print_voltages() {
 void write_led(uint8_t led, uint8_t pwm) {
   digitalWrite(MIPPE_LED, HIGH);
   analogWrite(leds[led], pwm);
-  delay(1);
-  led_vs[led] = read_voltage(led);
 }
 
 void loop() {
