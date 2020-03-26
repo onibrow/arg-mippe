@@ -1,9 +1,28 @@
-import serial_select
+import sched
 import time
 
-test_ser = serial_select.Cereal()
+global sch
+sch = sched.scheduler(time.time, time.sleep)
+global start
+start = time.time()
 
-time.sleep(2)
+def test1():
+    print("test 1 : {}".format(time.time() - start))
+    sch.enter(1, 1, test1)
 
-test_ser.write_data("info\n".encode("ascii"))
-print(test_ser.read_line())
+def test2():
+    print("test 2 : {}".format(time.time() - start))
+    sch.enter(0.5, 1, test2)
+
+def test3():
+    print("test 3 : {}".format(time.time() - start))
+    sch.enter(0.25, 1, test3)
+
+def main():
+    sch.enter(1, 1, test1)
+    sch.enter(0.5, 1, test2)
+    sch.enter(0.25, 1, test3)
+    sch.run(blocking=True)
+
+if __name__=='__main__':
+    main()
