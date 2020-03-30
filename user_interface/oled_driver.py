@@ -6,7 +6,7 @@ import readline
 DEBUG = True
 default_r = [[(104, 0.25), (255, 0.75)], [(255, 0.25), (102, 0.25), (255, 0.5)], [(255, 0.5), (106, 0.25), (255, 0.25)], [(255, 0.75), (101, 0.25)]]
 
-class oled_driver():
+class oled_module():
     def __init__(self, cereal, scheduler):
         self.cereal = cereal
         self.sched  = scheduler
@@ -106,7 +106,6 @@ class oled_driver():
     def req_info(self):
         self.cereal.write_data(b'info()')
         serial_data = self.cereal.read_line()
-        print(serial_data)
         return serial_data
 
     def write_led(self, oled_num, voltage):
@@ -115,7 +114,6 @@ class oled_driver():
     def voltage_req(self):
         self.cereal.write_data(b'print_voltages()\n')
         serial_data = self.cereal.read_line()
-        print(serial_data)
         return serial_data
 
 def rlinput(prompt, prefill=''):
@@ -135,10 +133,10 @@ def main():
 
     print("")
 
-    oled_module = oled_driver(serial_port, scheduler)
+    oled = oled_module(serial_port, scheduler)
 
     input("\nPress Enter to start, Control+C to stop\n")
-    oled_module.start_routine()
+    oled.start_routine()
     try:
         scheduler.run(blocking=True)
     except KeyboardInterrupt:

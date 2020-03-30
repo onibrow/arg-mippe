@@ -7,13 +7,13 @@ from pytz import timezone
 import readline
 
 class Diff_ADC():
-    def __init__(self, serial_port):
-        self.ser = serial_port
+    def __init__(self, cereal, scheduler):
+        self.cereal = cereal
+        self.sched  = scheduler
 
-    def serial_request(self):
-        self.serial_write(b'deaddead\n')
+    def data_req(self):
+        self.cereal.write_data(b'req\n')
         serial_data = self.ser.readline().decode("utf-8")
-        print(serial_data)
         return serial_data
 
     def serial_close(self):
