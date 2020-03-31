@@ -1,19 +1,22 @@
-import csv
 import cereal_port
+from live_plotter import live_plotter
+import numpy as np
+
+import csv
 import sched
 import time
-import sys
-import glob
+
 import datetime
 from pytz import timezone
 import readline
 
-MIN_PERIOD = 15
+MIN_PERIOD = 16
 
 class tia_module():
-    def __init__(self, cereal, scheduler, csvfile):
-        print("Setting up TIA Module")
+    def __init__(self, num, cereal, scheduler, csvfile):
+        print("\nSetting up TIA Module")
         time.sleep(1);
+        self.module_num = str(num)
         self.cereal = cereal
         self.sched  = scheduler
         self.csvfile = csvfile
@@ -25,8 +28,8 @@ class tia_module():
         self.setup_module()
 
     def setup_module(self):
-        self.ch1 = rlinput("\nChannel 1 Name: ", self.ch1)
-        self.ch2 =   rlinput("Channel 2 Name: ", self.ch2)
+        self.ch1 = rlinput("Channel 1 Name: ", self.ch1)
+        self.ch2 = rlinput("Channel 2 Name: ", self.ch2)
 
         while (True):
             try:
@@ -58,18 +61,17 @@ class tia_module():
                 print("\nBias must be between 0 and 5.")
 
     def write_voltage_to_dac(self, ch, vol):
-        return self.cereal.write_data("write_dac({},{})\n".format(ch, int(vol/5*4096)).encode("ascii"))
+        return self.cereal.write_data("{}write_dac({},{})\n".format(self.module_num, ch, int(vol/5*4096)).encode("ascii"))
 
     def data_req(self):
-        self.cereal.write_data(b'req\n')
+        self.cereal.write_data('{}req\n'.format(self.module_num).encode("ascii"))
         serial_data = self.cereal.read_line()
         return serial_data
 
     def next_routine(self):
         self.sched.enter(self.period, 1, self.next_routine)
-        data = self.data_req()
-        self.csvfile.write(data+"\n")
-        return data
+        data = self.module_num +  self.data_req() + "\n"
+        self.csvfile.write(data)
 
     def start_routine(self):
         self.sched.enter(self.period, 1, self.next_routine)
@@ -90,8 +92,13 @@ def main():
     pst = datetime.datetime.now(tz=datetime.timezone.utc).astimezone(timezone('US/Pacific')).strftime("%m-%d-%Y %H:%M:%S")
     file_name  = rlinput('\nSave data as: \t', 'Diff_ADC_Data {}.csv'.format(pst))
 
+    # Plotter Stuff
+    size = 100
+    x_vec = np.linspace(0,1,size+1)[0:-1]
+    y_vec = np.zeros(size)
+    line1 = []
     with open(file_name, 'w') as csvfile:
-        tia = tia_module(serial_port, scheduler, csvfile)
+        tia = tia_module(0, serial_port, scheduler, csvfile)
 
         input("\nPress Enter to start, Control+C to stop\n")
         tia.start_routine()

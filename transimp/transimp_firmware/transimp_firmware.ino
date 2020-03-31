@@ -9,7 +9,7 @@ Adafruit_MCP4725 * dacs[2] = {&dac1, &dac2};
 
 uint8_t adc[2] = {A1, A2};
 
-int num_samples = 50;
+int num_samples = 25;
 
 const uint8_t VCC = 5;
 const float adc_resolution = 1024.0;

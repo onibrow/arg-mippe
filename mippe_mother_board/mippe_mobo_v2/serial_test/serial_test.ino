@@ -1,28 +1,53 @@
 const uint8_t mux_a = 10;
 const uint8_t mux_b = 9;
 
+char buff[20];
+
 void setup() {
-  // initialize both serial ports:
   Serial.begin(115200);
   while (!Serial) {
   };
   Serial1.begin(115200);
   pinMode(mux_a, OUTPUT);
   pinMode(mux_b, OUTPUT);
-  digitalWrite(mux_a, LOW);
-  digitalWrite(mux_b, LOW);
+  digitalWrite(mux_a, HIGH);
+  digitalWrite(mux_b, HIGH);
 }
 
 void loop() {
-  // read from port 1, send to port 0:
-  if (Serial1.available()) {
-    int inByte = Serial1.read();
-    Serial.write(inByte);
+  if (Serial.available()) {
+    size_t r = Serial.readBytesUntil('\n', buff, 20);
+    char s = buff[0];
+    switch (s) {
+      case 48:
+        digitalWrite(mux_a, LOW);
+        digitalWrite(mux_b, LOW);
+        break;
+      case 49:
+        digitalWrite(mux_a, HIGH);
+        digitalWrite(mux_b, LOW);
+        break;
+      case 50:
+        digitalWrite(mux_a, LOW);
+        digitalWrite(mux_b, HIGH);
+        break;
+      default:
+        digitalWrite(mux_a, HIGH);
+        digitalWrite(mux_b, HIGH);
+        break;
+    }
+    for (int i = 1; i < r; i++) {
+      Serial1.write(buff[i]);
+    }
+    Serial1.write('\n');
+    //    Serial1.print(buff.substring(1));
   }
 
-  // read from port 0, send to port 1:
-  if (Serial.available()) {
-    int inByte = Serial.read();
-    Serial1.write(inByte);
+  if (Serial1.available()) {
+    size_t r = Serial1.readBytesUntil('\n', buff, 20);
+    for (int i = 0; i < r; i++) {
+      Serial.write(buff[i]);
+    }
+    Serial.print("\n");
   }
 }
