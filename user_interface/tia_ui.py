@@ -10,7 +10,7 @@ import datetime
 from pytz import timezone
 import readline
 
-MIN_PERIOD = 16
+MIN_PERIOD = 1000
 
 class tia_module():
     def __init__(self, num, cereal, scheduler, csvfile):
@@ -26,6 +26,7 @@ class tia_module():
         self.setup_module()
 
     def setup_module(self):
+        """
         while (True):
             try:
                 user_input = int(rlinput('Sampling period in ms (min {}): '.format(MIN_PERIOD), str(int(self.period * 1000))))
@@ -34,6 +35,7 @@ class tia_module():
                 break
             except ValueError:
                 print("\nSampling period must be an integer greater than {}.".format(MIN_PERIOD))
+        """
 
         for i in range(2):
             self.ch_names[i] = rlinput("Channel {} Name: ".format(i+1), self.ch_names[i])
@@ -53,22 +55,25 @@ class tia_module():
             to_write += c + "."
         self.csvfile.write(to_write)
 
-    def data_req(self):
-        self.cereal.write_data('{}req\n'.format(self.module_num).encode("ascii"))
-        serial_data = self.cereal.read_line()
-        return serial_data
-
     def req_info(self):
         self.cereal.write_data('{}info()\n'.format(self.module_num).encode("ascii"))
         serial_data = self.cereal.read_line()
         return serial_data
 
     def next_routine(self):
+        s = time.time()
         self.sched.enter(self.period, 1, self.next_routine)
-        data = self.module_num +  self.data_req() + "\n"
-        self.csvfile.write(data)
+        self.cereal.write_data('{}req\n'.format(self.module_num).encode("ascii"))
+        to_write = ""
+        serial_data = self.cereal.read_line()
+        while (serial_data != 'd'):
+            to_write += self.module_num + serial_data + "\n"
+            serial_data = self.cereal.read_line()
+        self.csvfile.write(to_write)
+        print('Routine time: {}'.format(time.time() - s))
 
     def start_routine(self):
+        self.cereal.write_data('{}start()\n'.format(self.module_num).encode("ascii"))
         self.sched.enter(self.period, 1, self.next_routine)
 
     def write_voltage_to_dac(self, ch, vol):
@@ -88,10 +93,10 @@ def main():
     serial_port = cereal_port.Cereal()
 
     pst = datetime.datetime.now(tz=datetime.timezone.utc).astimezone(timezone('US/Pacific')).strftime("%m-%d-%Y %H:%M:%S")
-    file_name  = rlinput('\nSave data as: \t', 'Diff_ADC_Data {}.csv'.format(pst))
+    file_name  = rlinput('\nSave data as: \t', 'TIA_Data {}.csv'.format(pst))
 
     with open(file_name, 'w') as csvfile:
-        tia = tia_module(2, serial_port, scheduler, csvfile)
+        tia = tia_module(1, serial_port, scheduler, csvfile)
 
         input("\nPress Enter to start, Control+C to stop\n")
         tia.start_routine()

@@ -10,7 +10,7 @@ import datetime
 from pytz import timezone
 import readline
 
-MIN_PERIOD = 100
+MIN_PERIOD = 1000
 
 class pas_pot_module():
     def __init__(self, num, cereal, scheduler, csvfile):
@@ -26,6 +26,7 @@ class pas_pot_module():
     def setup_module(self):
         print("Setting up Passive Sensor Module")
 
+        """
         while (True):
             try:
                 user_input = int(rlinput('Sampling period in ms (min {}): '.format(MIN_PERIOD), str(int(self.period * 1000))))
@@ -34,6 +35,7 @@ class pas_pot_module():
                 break
             except ValueError:
                 print("\nSampling period must be an integer greater than {}.".format(MIN_PERIOD))
+        """
 
         for i in range(4):
             print("Channel {}:".format(i+1))
@@ -54,11 +56,6 @@ class pas_pot_module():
             to_write += c + "."
         self.csvfile.write(to_write)
 
-    def data_req(self):
-        self.cereal.write_data('{}req\n'.format(self.module_num).encode("ascii"))
-        serial_data = self.cereal.read_line()
-        return serial_data
-
     def req_info(self):
         self.cereal.write_data('{}info()\n'.format(self.module_num).encode("ascii"))
         serial_data = self.cereal.read_line()
@@ -66,10 +63,16 @@ class pas_pot_module():
 
     def next_routine(self):
         self.sched.enter(self.period, 1, self.next_routine)
-        data = self.module_num +  self.data_req() + "\n"
-        self.csvfile.write(data)
+        self.cereal.write_data('{}req\n'.format(self.module_num).encode("ascii"))
+        to_write = ""
+        serial_data = self.cereal.read_line()
+        while (serial_data != 'd'):
+            to_write += self.module_num + serial_data + "\n"
+            serial_data = self.cereal.read_line()
+        self.csvfile.write(to_write)
 
     def start_routine(self):
+        self.cereal.write_data('{}start()\n'.format(self.module_num).encode("ascii"))
         self.sched.enter(self.period, 1, self.next_routine)
 
     def write_pot(self, ch, val):

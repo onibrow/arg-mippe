@@ -9,11 +9,11 @@ Adafruit_MCP4725 * dacs[2] = {&dac1, &dac2};
 
 uint8_t adc[2] = {A1, A2};
 
-int num_samples = 25;
+const int MAX_MEAS_BUFF = 250;
+int meas_buff[MAX_MEAS_BUFF][2];
+uint8_t next_meas = MAX_MEAS_BUFF;
 
-const uint8_t VCC = 5;
-const float adc_resolution = 1024.0;
-const float dac_resolution = 4096.0;
+int num_samples = 50;
 
 char buff[50];
 char args[50];
@@ -22,7 +22,7 @@ void setup(void) {
   pinMode(MIPPE_LED, OUTPUT);
   digitalWrite(MIPPE_LED, HIGH);
   Serial.begin(115200);
-  
+
   dac1.begin(0x60);
   dac2.begin(0x63);
   for (int i = 0; i < 2; i++) {
@@ -38,15 +38,12 @@ void info() {
 
 void req() {
   digitalWrite(MIPPE_LED, HIGH);
-  for (int j = 0; j < 2; j++) {
-    double sum  = 0;
-    for (int i = 0; i < num_samples; i++) {
-      sum += analogRead(adc[j]);
-    }
-    Serial.print(sum / num_samples / adc_resolution * VCC, 3);
-    Serial.print(",");
+  for (int i = 0; i < next_meas; i++) {
+    Serial.print(meas_buff[i][0]); Serial.print(",");
+    Serial.print(meas_buff[i][1]); Serial.print(",\n");
   }
-  Serial.print("\n");
+  Serial.print("d\n");
+  next_meas = 0;
 }
 
 void write_dac(uint8_t i, uint16_t val) {
@@ -89,9 +86,25 @@ void serialEvent() {
     write_dac(channel, val);
   } else if (strncmp(buff, "info", func) == 0) {
     info();
-  }
+  } else if (strncmp(buff, "start", func) == 0) {
+    start();
+  } 
+}
+
+void start(){
+  next_meas = 0;
 }
 
 void loop() {
   digitalWrite(MIPPE_LED, LOW);
+  if (next_meas < MAX_MEAS_BUFF) {
+    for (int i = 0; i < 2; i++) {
+      double sum  = 0;
+      for (int j = 0; j < num_samples; j++) {
+        sum += analogRead(adc[i]);
+      }
+      meas_buff[next_meas][i] = (uint16_t) sum / num_samples;
+    }
+    next_meas++;
+  }
 }
