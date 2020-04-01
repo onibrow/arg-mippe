@@ -20,17 +20,12 @@ class tia_module():
         self.cereal = cereal
         self.sched  = scheduler
         self.csvfile = csvfile
-        self.ch1 = 'OPD1'
-        self.ch2 = 'OPD2'
+        self.ch_names = ['OPD1', 'OPD2']
+        self.ch_biases = [0, 0]
         self.period = MIN_PERIOD / 1000.0
-        self.ch1_bias = 0
-        self.ch2_bias = 0
         self.setup_module()
 
     def setup_module(self):
-        self.ch1 = rlinput("Channel 1 Name: ", self.ch1)
-        self.ch2 = rlinput("Channel 2 Name: ", self.ch2)
-
         while (True):
             try:
                 user_input = int(rlinput('Sampling period in ms (min {}): '.format(MIN_PERIOD), str(int(self.period * 1000))))
@@ -40,31 +35,31 @@ class tia_module():
             except ValueError:
                 print("\nSampling period must be an integer greater than {}.".format(MIN_PERIOD))
 
-        while (True):
-            try:
-                user_input = float(rlinput('{} Bias Voltage (max 5): '.format(self.ch1), str(self.ch1_bias)))
-                if (user_input < 0 or user_input > 5): raise ValueError
-                self.ch1_bias = user_input
-                self.write_voltage_to_dac(0, self.ch1_bias)
-                break
-            except ValueError:
-                print("\nBias must be between 0 and 5.")
+        for i in range(2):
+            self.ch_names[i] = rlinput("Channel {} Name: ".format(i+1), self.ch_names[i])
+            while (True):
+                try:
+                    user_input = float(rlinput('{} Bias Voltage (max 5): '.format(self.ch_names[i]), str(self.ch_biases[i])))
+                    if (user_input < 0 or user_input > 5): raise ValueError
+                    self.ch_biases[i] = user_input
+                    self.write_voltage_to_dac(i, self.ch_biases[i])
+                    break
+                except ValueError:
+                    print("\nBias must be between 0 and 5.")
 
-        while (True):
-            try:
-                user_input = float(rlinput('{} Bias Voltage (max 5): '.format(self.ch2), str(self.ch2_bias)))
-                if (user_input < 0 or user_input > 5): raise ValueError
-                self.ch2_bias = user_input
-                self.write_voltage_to_dac(1, self.ch2_bias)
-                break
-            except ValueError:
-                print("\nBias must be between 0 and 5.")
-
-    def write_voltage_to_dac(self, ch, vol):
-        return self.cereal.write_data("{}write_dac({},{})\n".format(self.module_num, ch, int(vol/5*4096)).encode("ascii"))
+    def log_channel_names(self):
+        to_write = self.module_num
+        for c in self.ch_names:
+            to_write += c + "."
+        self.csvfile.write(to_write)
 
     def data_req(self):
         self.cereal.write_data('{}req\n'.format(self.module_num).encode("ascii"))
+        serial_data = self.cereal.read_line()
+        return serial_data
+
+    def req_info(self):
+        self.cereal.write_data('{}info()\n'.format(self.module_num).encode("ascii"))
         serial_data = self.cereal.read_line()
         return serial_data
 
@@ -75,6 +70,9 @@ class tia_module():
 
     def start_routine(self):
         self.sched.enter(self.period, 1, self.next_routine)
+
+    def write_voltage_to_dac(self, ch, vol):
+        return self.cereal.write_data("{}write_dac({},{})\n".format(self.module_num, ch, int(vol/5*4096)).encode("ascii"))
 
 def rlinput(prompt, prefill=''):
    readline.set_startup_hook(lambda: readline.insert_text(prefill))
@@ -92,13 +90,8 @@ def main():
     pst = datetime.datetime.now(tz=datetime.timezone.utc).astimezone(timezone('US/Pacific')).strftime("%m-%d-%Y %H:%M:%S")
     file_name  = rlinput('\nSave data as: \t', 'Diff_ADC_Data {}.csv'.format(pst))
 
-    # Plotter Stuff
-    size = 100
-    x_vec = np.linspace(0,1,size+1)[0:-1]
-    y_vec = np.zeros(size)
-    line1 = []
     with open(file_name, 'w') as csvfile:
-        tia = tia_module(0, serial_port, scheduler, csvfile)
+        tia = tia_module(2, serial_port, scheduler, csvfile)
 
         input("\nPress Enter to start, Control+C to stop\n")
         tia.start_routine()

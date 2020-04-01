@@ -1,7 +1,7 @@
 const uint8_t mux_a = 10;
 const uint8_t mux_b = 9;
 
-char buff[20];
+char buff[50];
 
 void setup() {
   Serial.begin(115200);
@@ -16,7 +16,7 @@ void setup() {
 
 void loop() {
   if (Serial.available()) {
-    size_t r = Serial.readBytesUntil('\n', buff, 20);
+    size_t r = Serial.readBytesUntil('\n', buff, 50);
     char s = buff[0];
     switch (s) {
       case 48:
@@ -40,14 +40,13 @@ void loop() {
       Serial1.write(buff[i]);
     }
     Serial1.write('\n');
-    //    Serial1.print(buff.substring(1));
   }
 
   if (Serial1.available()) {
-    size_t r = Serial1.readBytesUntil('\n', buff, 20);
+    size_t r = Serial1.readBytesUntil('\n', buff, 50);
     for (int i = 0; i < r; i++) {
       Serial.write(buff[i]);
     }
-    Serial.print("\n");
+    Serial.write("\n");
   }
 }

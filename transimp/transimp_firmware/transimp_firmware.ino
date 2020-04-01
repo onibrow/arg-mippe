@@ -15,19 +15,14 @@ const uint8_t VCC = 5;
 const float adc_resolution = 1024.0;
 const float dac_resolution = 4096.0;
 
-String buff;
-String func;
-String args;
+char buff[50];
+char args[50];
 
 void setup(void) {
   pinMode(MIPPE_LED, OUTPUT);
   digitalWrite(MIPPE_LED, HIGH);
   Serial.begin(115200);
-
-  buff.reserve(20);
-  func.reserve(20);
-  args.reserve(20);
-
+  
   dac1.begin(0x60);
   dac2.begin(0x63);
   for (int i = 0; i < 2; i++) {
@@ -59,21 +54,44 @@ void write_dac(uint8_t i, uint16_t val) {
   dacs[i]->setVoltage(val, false);
 }
 
-void loop(void) {
-  digitalWrite(MIPPE_LED, LOW);
-  if (Serial.available()) {
-    buff = Serial.readStringUntil('\n');
-    func = buff.substring(0, buff.indexOf('('));
-
-    if (func.equals("req")) {
-      req();
-    } else if (func.equals("write_dac")) {
-      args = buff.substring(buff.indexOf('(') + 1, buff.indexOf(')'));
-      uint8_t dac = (uint8_t) args.substring(0,  args.indexOf(',')).toInt();
-      uint16_t val = (uint16_t) args.substring(args.indexOf(',') + 1).toInt();
-      write_dac(dac, val);
-    } else if (func.equals("info")) {
-      info();
+uint16_t find_func(char * buff, uint8_t len) {
+  for (int i = 0; i < len; i++) {
+    if (buff[i] == '(') {
+      return i;
     }
   }
+  return len;
+}
+
+uint16_t find_arg(char * buff, uint8_t len, uint8_t start) {
+  for (int i = start; i < len; i++) {
+    if (buff[i] == ',') {
+      return i;
+    }
+  }
+  return len;
+}
+
+void serialEvent() {
+  size_t len = Serial.readBytesUntil('\n', buff, 50);
+  uint8_t func = find_func(buff, len);
+
+  if (strncmp(buff, "req", func) == 0) {
+    req();
+  } else if (strncmp(buff, "write_dac", func) == 0) {
+    uint8_t comma = find_arg(buff, len, func);
+    memcpy(args, &buff[func + 1], comma - func);
+    args[comma - func - 1] = '\0';
+    uint8_t channel = (uint8_t) atoi(args);
+    memcpy(args, &buff[comma + 1], len - 1 - comma);
+    args[len - 1 - comma - 1] = '\0';
+    uint16_t val = (uint16_t) atoi(args);
+    write_dac(channel, val);
+  } else if (strncmp(buff, "info", func) == 0) {
+    info();
+  }
+}
+
+void loop() {
+  digitalWrite(MIPPE_LED, LOW);
 }

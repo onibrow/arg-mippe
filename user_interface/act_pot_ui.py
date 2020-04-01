@@ -1,23 +1,65 @@
+import cereal_port
+from live_plotter import live_plotter
+import numpy as np
+
 import csv
-import serial
+import sched
 import time
-import sys
+
 import datetime
 from pytz import timezone
 import readline
 
-class Diff_ADC():
-    def __init__(self, cereal, scheduler):
+MIN_PERIOD = 100
+
+class act_pot_module():
+    def __init__(self, num, cereal, scheduler, csvfile):
+        self.module_num = str(num)
         self.cereal = cereal
         self.sched  = scheduler
+        self.csvfile = csvfile
+        self.ch_names = ['Ch1', 'Ch2', 'Ch3', 'Ch4', 'Ch5', 'Ch6', 'Ch7', 'Ch8']
+        self.period = MIN_PERIOD / 1000.0
+        self.setup_module()
+
+    def setup_module(self):
+        print("Setting up Active Sensor Module")
+
+        while (True):
+            try:
+                user_input = int(rlinput('Sampling period in ms (min {}): '.format(MIN_PERIOD), str(int(self.period * 1000))))
+                if (user_input < MIN_PERIOD): raise ValueError
+                self.period = user_input / 1000.0
+                break
+            except ValueError:
+                print("\nSampling period must be an integer greater than {}.".format(MIN_PERIOD))
+
+        for i in range(8):
+            self.ch_names[i] = rlinput("Channel {} Name: ".format(i+1), self.ch_names[i])
+
+    def log_channel_names(self):
+        to_write = self.module_num
+        for c in self.ch_names:
+            to_write += c + "."
+        self.csvfile.write(to_write)
 
     def data_req(self):
-        self.cereal.write_data(b'req\n')
-        serial_data = self.ser.readline().decode("utf-8")
+        self.cereal.write_data('{}req\n'.format(self.module_num).encode("ascii"))
+        serial_data = self.cereal.read_line()
         return serial_data
 
-    def serial_close(self):
-        self.ser.close()
+    def req_info(self):
+        self.cereal.write_data('{}info()\n'.format(self.module_num).encode("ascii"))
+        serial_data = self.cereal.read_line()
+        return serial_data
+
+    def next_routine(self):
+        self.sched.enter(self.period, 1, self.next_routine)
+        data = self.module_num +  self.data_req() + "\n"
+        self.csvfile.write(data)
+
+    def start_routine(self):
+        self.sched.enter(self.period, 1, self.next_routine)
 
 def rlinput(prompt, prefill=''):
    readline.set_startup_hook(lambda: readline.insert_text(prefill))
@@ -26,44 +68,40 @@ def rlinput(prompt, prefill=''):
    finally:
       readline.set_startup_hook()
 
-
 def main():
     print("Starting Quadchannel Differential ADC Data Logger")
-    pst = datetime.datetime.now(tz=datetime.timezone.utc).astimezone(timezone('US/Pacific')).strftime("%m-%d-%Y %H:%M")
-    file_name  = rlinput('\nSave data as: \t', 'Diff_ADC_Data {}.csv'.format(pst))
-    try:
-        delay = int(rlinput('\nSample period in ms (min 300): \t', '300')) / 1000.0
-    except ValueError:
-        print("\nSample period must be an integer in milliseconds. Exiting...")
-        quit()
-    ch1 = rlinput("\nChannel 1 Name: \t", 'Na')
-    ch2 = rlinput("Channel 2 Name: \t", 'K')
-    ch3 = rlinput("Channel 3 Name: \t", 'Unused')
-    ch4 = rlinput("Channel 4 Name: \t", 'NH4')
 
-    s = select_serial_port()
-    mcp = Diff_ADC(s)
-    print("\nInitializing MCP3424...")
-    time.sleep(3)
-    input("\nPress Enter to start, Control+C to stop\n")
+    scheduler   = sched.scheduler(time.time, time.sleep)
+    serial_port = cereal_port.Cereal()
+
+    pst = datetime.datetime.now(tz=datetime.timezone.utc).astimezone(timezone('US/Pacific')).strftime("%m-%d-%Y %H:%M:%S")
+    file_name  = rlinput('\nSave data as: \t', 'Data_Act_Pot {}.csv'.format(pst))
+
     with open(file_name, 'w') as csvfile:
-        start_time = time.time()
-        i = 0
-        prev_time = time.time()
-        csvfile.write("{}, {}, {}, {},\n".format(ch1, ch2, ch3, ch4))
-        while(True):
-            if (time.time() - prev_time > delay):
-                prev_time = time.time()
-                try:
-                    next_line = mcp.serial_request()
-                    csvfile.write(next_line)
-                    i += 1
-                except:
-                    mcp.serial_close()
-                    csvfile.close()
-                    print("\nElapsed Time:   {}".format(time.time() - start_time))
-                    print("Num Samples: {}".format(i))
-                    break
+        act = act_pot_module(0, serial_port, scheduler, csvfile)
+
+        input("\nPress Enter to start, Control+C to stop\n")
+        act.start_routine()
+        start = time.time()
+
+        try:
+            while (True):
+                next_ev = scheduler.run(False)
+                if next_ev is not None:
+                    time.sleep(min(1, next_ev))
+                else:
+                    pass
+        except KeyboardInterrupt:
+            csvfile.write(str(time.time() - start))
+            if (not scheduler.empty()):
+                queue = scheduler.queue
+                for e in queue:
+                    scheduler.cancel(e)
+            serial_port.close()
+            raise KeyboardInterrupt
 
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    except KeyboardInterrupt:
+        print("\n\nExitting...")

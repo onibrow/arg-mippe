@@ -1,15 +1,24 @@
 import cereal_port
+from live_plotter import live_plotter
+import numpy as np
+
+import csv
 import sched
 import time
+
+import datetime
+from pytz import timezone
 import readline
 
 DEBUG = True
 default_r = [[(104, 0.25), (255, 0.75)], [(255, 0.25), (102, 0.25), (255, 0.5)], [(255, 0.5), (106, 0.25), (255, 0.25)], [(255, 0.75), (101, 0.25)]]
 
 class oled_module():
-    def __init__(self, cereal, scheduler):
+    def __init__(self, num, cereal, scheduler, csvfile):
+        self.module_num = str(num)
         self.cereal = cereal
         self.sched  = scheduler
+        self.csvfile = csvfile
         self.oled_cals = [[], [], [], []]
         self.oled_routines = [[], [], [], []]
         self.oled_inuse = [False, False, False, False]
@@ -44,7 +53,7 @@ class oled_module():
     def calibrate_oled(self, num):
             print("Calibrating OLED {}".format(num+1))
             cal = []
-            self.cereal.write_data("calibrate_led({})".format(num).encode("ascii"))
+            self.cereal.write_data("{}calibrate_led({})\n".format(self.module_num, num).encode("ascii"))
             serial_data = self.cereal.read_line()
             while (serial_data != "CC"):
                 cal += [int(serial_data)]
@@ -104,15 +113,15 @@ class oled_module():
                 self.next_routine(i)
 
     def req_info(self):
-        self.cereal.write_data(b'info()')
+        self.cereal.write_data('{}info()\n'.format(self.module_num).encode("ascii"))
         serial_data = self.cereal.read_line()
         return serial_data
 
     def write_led(self, oled_num, voltage):
-        self.cereal.write_data("write_led({},{})\n".format(oled_num, voltage).encode("ascii"))
+        self.cereal.write_data("{}write_led({},{})\n".format(self.module_num,oled_num, voltage).encode("ascii"))
 
     def voltage_req(self):
-        self.cereal.write_data(b'print_voltages()\n')
+        self.cereal.write_data('{}print_voltages()\n'.format(self.module_num).encode("ascii"))
         serial_data = self.cereal.read_line()
         return serial_data
 
@@ -131,16 +140,29 @@ def main():
     scheduler   = sched.scheduler(time.time, time.sleep)
     serial_port = cereal_port.Cereal()
 
-    print("")
-
-    oled = oled_module(serial_port, scheduler)
+    oled = oled_module(2, serial_port, scheduler, None)
 
     input("\nPress Enter to start, Control+C to stop\n")
     oled.start_routine()
+    start = time.time()
+
     try:
-        scheduler.run(blocking=True)
+        while (True):
+            next_ev = scheduler.run(False)
+            if next_ev is not None:
+                time.sleep(min(1, next_ev))
+            else:
+                pass
     except KeyboardInterrupt:
+        if (not scheduler.empty()):
+            queue = scheduler.queue
+            for e in queue:
+                scheduler.cancel(e)
         serial_port.close()
+        raise KeyboardInterrupt
 
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    except KeyboardInterrupt:
+        print("\n\nExitting...")
