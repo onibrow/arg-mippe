@@ -3,6 +3,7 @@ import readline
 import datetime
 import matplotlib.pyplot as plt
 import numpy as np
+import re
 from scipy.signal import butter, lfilter, freqz
 import csv
 from pytz import timezone
@@ -158,3 +159,5 @@ def plot_data(data):
                     ax.set_ylabel(module.y_axis)
                     ax.legend()
 
+def clean_string(s):
+    return re.sub("[^0-9]", "", s)

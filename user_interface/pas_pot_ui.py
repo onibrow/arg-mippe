@@ -66,7 +66,7 @@ class pas_pot_module(object):
     def parse_vals(vals):
         r = []
         for x in vals:
-            r += [int(x) / 100000.0]
+            r += [int(helpers.clean_string(x)) / 100000.0]
         return r
 
 def main():

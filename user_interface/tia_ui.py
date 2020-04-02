@@ -61,7 +61,7 @@ class tia_module(object):
     def parse_vals(vals):
         r = []
         for x in vals:
-            r += [round(int(x) / 1024.0 * 5, 3)]
+            r += [round(int(helpers.clean_string(x)) / 1024.0 * 5, 3)]
         return r
 
 def main():
