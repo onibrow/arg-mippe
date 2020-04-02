@@ -1,19 +1,15 @@
 import cereal_port
-from live_plotter import live_plotter
-import numpy as np
-
-import csv
+import helpers
 import sched
 import time
 
-import datetime
-from pytz import timezone
-import readline
-
 DEBUG = True
-default_r = [[(104, 0.25), (255, 0.75)], [(255, 0.25), (102, 0.25), (255, 0.5)], [(255, 0.5), (106, 0.25), (255, 0.25)], [(255, 0.75), (101, 0.25)]]
+default_r = [[(0, 0.25), (255, 0.75)], [(255, 0.25), (0, 0.25), (255, 0.5)], [(255, 0.5), (0, 0.25), (255, 0.25)], [(255, 0.75), (0, 0.25)]]
 
-class oled_module():
+class oled_module(object):
+    full_name  = 'OLED Module'
+    plot = False
+    y_axis = 'Volts (V)'
     def __init__(self, num, cereal, scheduler, csvfile):
         self.module_num = str(num)
         self.cereal = cereal
@@ -24,16 +20,23 @@ class oled_module():
         self.oled_inuse = [False, False, False, False]
         self.oled_marks = [0, 0, 0, 0]
         self.oled_volts = [0, 0, 0, 0]
+        self.oled_names = ['OLED1', 'OLED2', 'OLED3', 'OLED4']
         time.sleep(2)
         self.setup_module()
 
     def setup_module(self):
+        print("Setting up OLED Module")
         if (DEBUG):
             self.oled_routines = default_r
             self.oled_inuse = [True, True, True, True]
         else:
             for oled in range(4):
                 self.setup_oled(oled)
+        self.csvfile.write("{num},{name},{oled1},{oled2},{oled3},{oled4}\n".format(num=self.module_num, name='oled',
+            oled1=self.oled_names[0],
+            oled2=self.oled_names[1],
+            oled3=self.oled_names[2],
+            oled4=self.oled_names[3]))
 
     def setup_oled(self, num):
         while (True):
@@ -125,17 +128,11 @@ class oled_module():
         serial_data = self.cereal.read_line()
         return serial_data
 
-def rlinput(prompt, prefill=''):
-   readline.set_startup_hook(lambda: readline.insert_text(prefill))
-   try:
-      return input(prompt)
-   finally:
-      readline.set_startup_hook()
+    def parse_vals(vals):
+        return 'None'
 
 def main():
     print("Startin Quad Channel OLED Driver Module")
-    # pst = datetime.datetime.now(tz=datetime.timezone.utc).astimezone(timezone('US/Pacific')).strftime("%m-%d-%Y %H:%M")
-    # file_name  = rlinput('\nSave data as: \t', 'Diff_ADC_Data {}.csv'.format(pst))
 
     scheduler   = sched.scheduler(time.time, time.sleep)
     serial_port = cereal_port.Cereal()

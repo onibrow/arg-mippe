@@ -1,14 +1,7 @@
 import cereal_port
-from live_plotter import live_plotter
-import numpy as np
-
-import csv
+import helpers
 import sched
 import time
-
-import datetime
-from pytz import timezone
-import readline
 
 from act_pot_ui import act_pot_module
 from pas_pot_ui import pas_pot_module
@@ -24,6 +17,7 @@ class MIPPE():
         self.setup_module()
 
     def setup_module(self):
+        self.csvfile.write("MIPPE Data\n")
         print("Loading Modules...\n")
         for i in range(3):
             self.cereal.write_data('{}info\n'.format(i).encode("ascii"))
@@ -39,44 +33,37 @@ class MIPPE():
             else:
                 self.loaded_modules[i] = None
                 print("Module {} Not Identified.".format(i+1))
+                self.csvfile.write("{},None\n".format(i))
             print("")
 
     def start_routine(self):
         for x in self.loaded_modules:
             if (x != None):
                 x.start_routine()
-
-def rlinput(prompt, prefill=''):
-   readline.set_startup_hook(lambda: readline.insert_text(prefill))
-   try:
-      return input(prompt)
-   finally:
-      readline.set_startup_hook()
+                time.sleep(0.3)
 
 def main():
-    print("=== Modular Integration Platform for Printed Electronics ===")
-    print("===                    Seiya Ono '20                     ===\n")
+    print("+----------------------------------------------------------+")
+    print("|   Modular Integration Platform for Printed Electronics   |")
+    print("|                      Seiya Ono '20                       |")
+    print("+----------------------------------------------------------+")
 
     scheduler   = sched.scheduler(time.time, time.sleep)
     serial_port = cereal_port.Cereal()
-
-    pst = datetime.datetime.now(tz=datetime.timezone.utc).astimezone(timezone('US/Pacific')).strftime("%m-%d-%Y %H:%M:%S")
-    file_name  = rlinput('\nSave data as: \t', 'MIPPE_Data {}.csv'.format(pst))
+    pst = helpers.get_datetime()
+    file_name  = helpers.rlinput('\nSave data as: \t', 'MIPPE_Data {}.csv'.format(pst))
 
     with open(file_name, 'w') as csvfile:
 
         mippe = MIPPE(serial_port, scheduler, csvfile)
 
-        input("\nPress Enter to start, Control+C to stop\n")
-        #raise KeyboardInterrupt
+        input("\nPress Enter to start, Control+C to stop")
         start = time.time()
         mippe.start_routine()
         try:
             scheduler.run(True)
-            # while (True):
-            #    next_ev = scheduler.run(False)
         except KeyboardInterrupt:
-            csvfile.write(str(time.time() - start))
+            csvfile.write("{0:.2f}".format(time.time() - start))
             if (not scheduler.empty()):
                 queue = scheduler.queue
                 for e in queue:

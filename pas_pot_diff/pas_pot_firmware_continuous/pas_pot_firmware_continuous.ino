@@ -65,7 +65,7 @@ void req() {
     Serial.print(meas_buff[i][3]); Serial.print(",");
     Serial.print(meas_buff[i][0]); Serial.print(",");
     Serial.print(meas_buff[i][1]); Serial.print(",");
-    Serial.print(meas_buff[i][2]); Serial.print(",\n");
+    Serial.print(meas_buff[i][2]); Serial.print("\n");
   }
   Serial.print("d\n");
   next_meas = 0;

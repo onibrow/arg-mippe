@@ -40,7 +40,7 @@ void req() {
   digitalWrite(MIPPE_LED, HIGH);
   for (int i = 0; i < next_meas; i++) {
     Serial.print(meas_buff[i][0]); Serial.print(",");
-    Serial.print(meas_buff[i][1]); Serial.print(",\n");
+    Serial.print(meas_buff[i][1]); Serial.print("\n");
   }
   Serial.print("d\n");
   next_meas = 0;

@@ -6,7 +6,7 @@ BAUD_RATE = 115200
 TIMEOUT = 2
 STOPBITS = serial.STOPBITS_ONE
 
-class Cereal():
+class Cereal(object):
 
     def __init__(self):
         self.sys_write_flag = sys.platform.startswith('win')

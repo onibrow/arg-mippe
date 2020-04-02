@@ -1,18 +1,14 @@
 import cereal_port
-from live_plotter import live_plotter
-import numpy as np
-
-import csv
+import helpers
 import sched
 import time
 
-import datetime
-from pytz import timezone
-import readline
-
 MIN_PERIOD = 1000
 
-class pas_pot_module():
+class pas_pot_module(object):
+    full_name = 'Passive Potentiometric Sensor Module'
+    plot = True
+    y_axis = 'Volts (V)'
     def __init__(self, num, cereal, scheduler, csvfile):
         self.module_num = str(num)
         self.cereal = cereal
@@ -25,36 +21,25 @@ class pas_pot_module():
 
     def setup_module(self):
         print("Setting up Passive Sensor Module")
-
-        """
-        while (True):
-            try:
-                user_input = int(rlinput('Sampling period in ms (min {}): '.format(MIN_PERIOD), str(int(self.period * 1000))))
-                if (user_input < MIN_PERIOD): raise ValueError
-                self.period = user_input / 1000.0
-                break
-            except ValueError:
-                print("\nSampling period must be an integer greater than {}.".format(MIN_PERIOD))
-        """
-
         for i in range(4):
             print("Channel {}:".format(i+1))
-            self.ch_names[i] = rlinput("Name: ".format(i), self.ch_names[i])
+            self.ch_names[i] = helpers.rlinput("Name: ", self.ch_names[i])
             while (True):
                 try:
-                    self.ch_res[i]   = int(int(rlinput("Reference Resistance (0 - 100k): ", self.ch_res[i])) / 100000.0 * 255)
+                    self.ch_res[i]   = int(int(helpers.rlinput("Reference Resistance (0 - 100k): ", str(self.ch_res[i]))) / 100000.0 * 256 - 1)
+                    if (self.ch_res[i] == -1): self.ch_res[i] = 0
                     if (self.ch_res[i] < 0 or self.ch_res[i] > 255): raise ValueError
-                    print("Writing Closeset Resistance {:.2f} Ohms".format(self.ch_res[i] / 255.0 * 100000))
+                    print("Writing Closeset Resistance {:.2f} Ohms".format((self.ch_res[i]+1) / 256.0 * 100000))
                     self.write_pot(i, self.ch_res[i])
                     break
                 except ValueError:
+                    self.ch_res[i] = 0
                     print("\nResistance must be between 0 and 100k")
-
-    def log_channel_names(self):
-        to_write = self.module_num
-        for c in self.ch_names:
-            to_write += c + "."
-        self.csvfile.write(to_write)
+        self.csvfile.write("{num},{name},{name1} Ref: {res1} Ohms,{name2} Ref: {res2} Ohms,{name3} Ref: {res3} Ohms,{name4} Ref: {res4} Ohms\n".format(num=self.module_num,name='pas',
+            name1=self.ch_names[0], res1="{:.2f}".format((self.ch_res[0]+1) / 256.0 * 100000),
+            name2=self.ch_names[1], res2="{:.2f}".format((self.ch_res[1]+1) / 256.0 * 100000),
+            name3=self.ch_names[2], res3="{:.2f}".format((self.ch_res[2]+1) / 256.0 * 100000),
+            name4=self.ch_names[3], res4="{:.2f}".format((self.ch_res[3]+1) / 256.0 * 100000)))
 
     def req_info(self):
         self.cereal.write_data('{}info()\n'.format(self.module_num).encode("ascii"))
@@ -67,7 +52,7 @@ class pas_pot_module():
         to_write = ""
         serial_data = self.cereal.read_line()
         while (serial_data != 'd'):
-            to_write += self.module_num + serial_data + "\n"
+            to_write += self.module_num + "," + serial_data + "\n"
             serial_data = self.cereal.read_line()
         self.csvfile.write(to_write)
 
@@ -78,12 +63,11 @@ class pas_pot_module():
     def write_pot(self, ch, val):
         self.cereal.write_data('{}write_pot({},{})\n'.format(self.module_num, ch, val).encode("ascii"))
 
-def rlinput(prompt, prefill=''):
-   readline.set_startup_hook(lambda: readline.insert_text(prefill))
-   try:
-      return input(prompt)
-   finally:
-      readline.set_startup_hook()
+    def parse_vals(vals):
+        r = []
+        for x in vals:
+            r += [int(x) / 100000.0]
+        return r
 
 def main():
     print("Starting Quadchannel Differential ADC Data Logger")
@@ -91,8 +75,8 @@ def main():
     scheduler   = sched.scheduler(time.time, time.sleep)
     serial_port = cereal_port.Cereal()
 
-    pst = datetime.datetime.now(tz=datetime.timezone.utc).astimezone(timezone('US/Pacific')).strftime("%m-%d-%Y %H:%M:%S")
-    file_name  = rlinput('\nSave data as: \t', 'Data_OLED {}.csv'.format(pst))
+    pst = helpers.get_datetime()
+    file_name  = helpers.rlinput('\nSave data as: \t', 'Pas_Pot_Data {}.csv'.format(pst))
 
     with open(file_name, 'w') as csvfile:
         pas = pas_pot_module(1, serial_port, scheduler, csvfile)

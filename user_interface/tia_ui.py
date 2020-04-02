@@ -1,20 +1,15 @@
 import cereal_port
-from live_plotter import live_plotter
-import numpy as np
-
-import csv
+import helpers
 import sched
 import time
 
-import datetime
-from pytz import timezone
-import readline
-
 MIN_PERIOD = 1000
 
-class tia_module():
+class tia_module(object):
+    full_name = 'Transimpedance Amplifier Sensor Module'
+    plot = True
+    y_axis = 'Volts (V)'
     def __init__(self, num, cereal, scheduler, csvfile):
-        print("\nSetting up TIA Module")
         time.sleep(1);
         self.module_num = str(num)
         self.cereal = cereal
@@ -26,34 +21,20 @@ class tia_module():
         self.setup_module()
 
     def setup_module(self):
-        """
-        while (True):
-            try:
-                user_input = int(rlinput('Sampling period in ms (min {}): '.format(MIN_PERIOD), str(int(self.period * 1000))))
-                if (user_input < MIN_PERIOD): raise ValueError
-                self.period = user_input / 1000.0
-                break
-            except ValueError:
-                print("\nSampling period must be an integer greater than {}.".format(MIN_PERIOD))
-        """
-
+        print("Setting up TIA Module")
         for i in range(2):
-            self.ch_names[i] = rlinput("Channel {} Name: ".format(i+1), self.ch_names[i])
+            self.ch_names[i] = helpers.rlinput("Channel {} Name: ".format(i+1), self.ch_names[i])
             while (True):
                 try:
-                    user_input = float(rlinput('{} Bias Voltage (max 5): '.format(self.ch_names[i]), str(self.ch_biases[i])))
+                    user_input = float(helpers.rlinput('{} Bias Voltage (max 5): '.format(self.ch_names[i]), str(self.ch_biases[i])))
                     if (user_input < 0 or user_input > 5): raise ValueError
                     self.ch_biases[i] = user_input
                     self.write_voltage_to_dac(i, self.ch_biases[i])
                     break
                 except ValueError:
                     print("\nBias must be between 0 and 5.")
-
-    def log_channel_names(self):
-        to_write = self.module_num
-        for c in self.ch_names:
-            to_write += c + "."
-        self.csvfile.write(to_write)
+        self.csvfile.write("{num},{name},{ch1} Bias: {ch1bias}V,{ch2} Bias: {ch2bias}V\n".format(num=self.module_num, name='tia',
+            ch1=self.ch_names[0], ch1bias=self.ch_biases[0], ch2=self.ch_names[1], ch2bias=self.ch_biases[1]))
 
     def req_info(self):
         self.cereal.write_data('{}info()\n'.format(self.module_num).encode("ascii"))
@@ -61,16 +42,14 @@ class tia_module():
         return serial_data
 
     def next_routine(self):
-        s = time.time()
         self.sched.enter(self.period, 1, self.next_routine)
         self.cereal.write_data('{}req\n'.format(self.module_num).encode("ascii"))
         to_write = ""
         serial_data = self.cereal.read_line()
         while (serial_data != 'd'):
-            to_write += self.module_num + serial_data + "\n"
+            to_write += self.module_num + "," + serial_data + "\n"
             serial_data = self.cereal.read_line()
         self.csvfile.write(to_write)
-        print('Routine time: {}'.format(time.time() - s))
 
     def start_routine(self):
         self.cereal.write_data('{}start()\n'.format(self.module_num).encode("ascii"))
@@ -79,12 +58,11 @@ class tia_module():
     def write_voltage_to_dac(self, ch, vol):
         return self.cereal.write_data("{}write_dac({},{})\n".format(self.module_num, ch, int(vol/5*4096)).encode("ascii"))
 
-def rlinput(prompt, prefill=''):
-   readline.set_startup_hook(lambda: readline.insert_text(prefill))
-   try:
-      return input(prompt)
-   finally:
-      readline.set_startup_hook()
+    def parse_vals(vals):
+        r = []
+        for x in vals:
+            r += [round(int(x) / 1024.0 * 5, 3)]
+        return r
 
 def main():
     print("Starting Dual Channel Organic Photodiode Transimpedance Module")
@@ -92,8 +70,8 @@ def main():
     scheduler   = sched.scheduler(time.time, time.sleep)
     serial_port = cereal_port.Cereal()
 
-    pst = datetime.datetime.now(tz=datetime.timezone.utc).astimezone(timezone('US/Pacific')).strftime("%m-%d-%Y %H:%M:%S")
-    file_name  = rlinput('\nSave data as: \t', 'TIA_Data {}.csv'.format(pst))
+    pst = helpers.get_datetime()
+    file_name  = helpers.rlinput('\nSave data as: \t', 'TIA_Data {}.csv'.format(pst))
 
     with open(file_name, 'w') as csvfile:
         tia = tia_module(1, serial_port, scheduler, csvfile)

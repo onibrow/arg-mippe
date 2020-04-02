@@ -38,7 +38,7 @@ void req() {
     Serial.print(meas_buff[i][7]); Serial.print(",");
     Serial.print(meas_buff[i][4]); Serial.print(",");
     Serial.print(meas_buff[i][5]); Serial.print(",");
-    Serial.print(meas_buff[i][6]); Serial.print(",\n");
+    Serial.print(meas_buff[i][6]); Serial.print("\n");
   }
   Serial.print("d\n");
   next_meas = 0;
