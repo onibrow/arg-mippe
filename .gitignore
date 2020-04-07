@@ -46,3 +46,6 @@ scono.l#*
 *.sco
 placement.*
 toollist.*
+
+#####
+*.csv
