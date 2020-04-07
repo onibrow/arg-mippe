@@ -1,3 +1,4 @@
+from mippe_mod_ui import mippe_module
 import cereal_port
 import helpers
 import sched
@@ -5,7 +6,7 @@ import time
 
 MIN_PERIOD = 1000
 
-class pas_pot_module(object):
+class pas_pot_module(mippe_module):
     full_name = 'Passive Potentiometric Sensor Module'
     plot = True
     y_axis = 'Volts (V)'
@@ -40,11 +41,6 @@ class pas_pot_module(object):
             name2=self.ch_names[1], res2="{:.2f}".format((self.ch_res[1]+1) / 256.0 * 100000),
             name3=self.ch_names[2], res3="{:.2f}".format((self.ch_res[2]+1) / 256.0 * 100000),
             name4=self.ch_names[3], res4="{:.2f}".format((self.ch_res[3]+1) / 256.0 * 100000)))
-
-    def req_info(self):
-        self.cereal.write_data('{}info()\n'.format(self.module_num).encode("ascii"))
-        serial_data = self.cereal.read_line()
-        return serial_data
 
     def next_routine(self):
         self.sched.enter(self.period, 1, self.next_routine)

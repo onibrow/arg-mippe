@@ -1,3 +1,4 @@
+from mippe_mod_ui import mippe_module
 import cereal_port
 import helpers
 import sched
@@ -5,7 +6,7 @@ import time
 
 MIN_PERIOD = 1000
 
-class tia_module(object):
+class tia_module(mippe_module):
     full_name = 'Transimpedance Amplifier Sensor Module'
     plot = True
     y_axis = 'Volts (V)'
@@ -35,11 +36,6 @@ class tia_module(object):
                     print("\nBias must be between 0 and 5.")
         self.csvfile.write("{num},{name},{ch1} Bias: {ch1bias}V,{ch2} Bias: {ch2bias}V\n".format(num=self.module_num, name='tia',
             ch1=self.ch_names[0], ch1bias=self.ch_biases[0], ch2=self.ch_names[1], ch2bias=self.ch_biases[1]))
-
-    def req_info(self):
-        self.cereal.write_data('{}info()\n'.format(self.module_num).encode("ascii"))
-        serial_data = self.cereal.read_line()
-        return serial_data
 
     def next_routine(self):
         self.sched.enter(self.period, 1, self.next_routine)

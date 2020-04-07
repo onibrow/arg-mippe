@@ -51,7 +51,7 @@ def main():
     scheduler   = sched.scheduler(time.time, time.sleep)
     serial_port = cereal_port.Cereal()
     pst = helpers.get_datetime()
-    file_name  = helpers.rlinput('\nSave data as: \t', 'MIPPE_Data {}.csv'.format(pst))
+    file_name  = 'data/' + helpers.rlinput('\nSave data as: \t', 'MIPPE_Data {}.csv'.format(pst))
 
     with open(file_name, 'w') as csvfile:
 

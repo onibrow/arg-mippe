@@ -1,12 +1,13 @@
+from mippe_mod_ui import mippe_module
 import cereal_port
 import helpers
 import sched
 import time
 
-DEBUG = True
+DEBUG = False
 default_r = [[(0, 0.25), (255, 0.75)], [(255, 0.25), (0, 0.25), (255, 0.5)], [(255, 0.5), (0, 0.25), (255, 0.25)], [(255, 0.75), (0, 0.25)]]
 
-class oled_module(object):
+class oled_module(mippe_module):
     full_name  = 'OLED Module'
     plot = False
     y_axis = 'Volts (V)'

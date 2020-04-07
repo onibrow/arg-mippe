@@ -1,3 +1,4 @@
+from mippe_mod_ui import mippe_module
 import cereal_port
 import helpers
 import sched
@@ -5,7 +6,7 @@ import time
 
 MIN_PERIOD = 1000
 
-class act_pot_module(object):
+class act_pot_module(mippe_module):
     full_name = 'Active Potentiometric Sensor Module'
     plot = False
     y_axis = 'Volts (V)'
@@ -26,11 +27,6 @@ class act_pot_module(object):
             num=self.module_num, name='tia',
             ch0=self.ch_names[0], ch1=self.ch_names[1], ch2=self.ch_names[2], ch3=self.ch_names[3],
             ch4=self.ch_names[4], ch5=self.ch_names[5], ch6=self.ch_names[6], ch7=self.ch_names[7]))
-
-    def req_info(self):
-        self.cereal.write_data('{}info()\n'.format(self.module_num).encode("ascii"))
-        serial_data = self.cereal.read_line()
-        return serial_data
 
     def next_routine(self):
         self.sched.enter(self.period, 1, self.next_routine)
