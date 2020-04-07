@@ -37,20 +37,6 @@ class tia_module(mippe_module):
         self.csvfile.write("{num},{name},{ch1} Bias: {ch1bias}V,{ch2} Bias: {ch2bias}V\n".format(num=self.module_num, name='tia',
             ch1=self.ch_names[0], ch1bias=self.ch_biases[0], ch2=self.ch_names[1], ch2bias=self.ch_biases[1]))
 
-    def next_routine(self):
-        self.sched.enter(self.period, 1, self.next_routine)
-        self.cereal.write_data('{}req\n'.format(self.module_num).encode("ascii"))
-        to_write = ""
-        serial_data = self.cereal.read_line()
-        while (serial_data != 'd'):
-            to_write += self.module_num + "," + serial_data + "\n"
-            serial_data = self.cereal.read_line()
-        self.csvfile.write(to_write)
-
-    def start_routine(self):
-        self.cereal.write_data('{}start()\n'.format(self.module_num).encode("ascii"))
-        self.sched.enter(self.period, 1, self.next_routine)
-
     def write_voltage_to_dac(self, ch, vol):
         return self.cereal.write_data("{}write_dac({},{})\n".format(self.module_num, ch, int(vol/5*4096)).encode("ascii"))
 

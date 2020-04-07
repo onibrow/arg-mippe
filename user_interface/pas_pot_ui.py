@@ -42,20 +42,6 @@ class pas_pot_module(mippe_module):
             name3=self.ch_names[2], res3="{:.2f}".format((self.ch_res[2]+1) / 256.0 * 100000),
             name4=self.ch_names[3], res4="{:.2f}".format((self.ch_res[3]+1) / 256.0 * 100000)))
 
-    def next_routine(self):
-        self.sched.enter(self.period, 1, self.next_routine)
-        self.cereal.write_data('{}req\n'.format(self.module_num).encode("ascii"))
-        to_write = ""
-        serial_data = self.cereal.read_line()
-        while (serial_data != 'd'):
-            to_write += self.module_num + "," + serial_data + "\n"
-            serial_data = self.cereal.read_line()
-        self.csvfile.write(to_write)
-
-    def start_routine(self):
-        self.cereal.write_data('{}start()\n'.format(self.module_num).encode("ascii"))
-        self.sched.enter(self.period, 1, self.next_routine)
-
     def write_pot(self, ch, val):
         self.cereal.write_data('{}write_pot({},{})\n'.format(self.module_num, ch, val).encode("ascii"))
 

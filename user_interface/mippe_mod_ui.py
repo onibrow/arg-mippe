@@ -24,7 +24,13 @@ class mippe_module(object):
 
     def next_routine(self):
         self.sched.enter(self.period, 1, self.next_routine)
-        self.csvfile.write("{}MIPPE DATA\n".format(self.module_num))
+        self.cereal.write_data('{}req\n'.format(self.module_num).encode("ascii"))
+        to_write = ""
+        serial_data = self.cereal.read_line()
+        while (serial_data != 'd'):
+            to_write += self.module_num + "," + serial_data + "\n"
+            serial_data = self.cereal.read_line()
+        self.csvfile.write(to_write)
 
     def start_routine(self):
         self.cereal.write_data('{}start()\n'.format(self.module_num).encode("ascii"))

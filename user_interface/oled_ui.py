@@ -116,11 +116,6 @@ class oled_module(mippe_module):
             if (self.oled_inuse[i]):
                 self.next_routine(i)
 
-    def req_info(self):
-        self.cereal.write_data('{}info()\n'.format(self.module_num).encode("ascii"))
-        serial_data = self.cereal.read_line()
-        return serial_data
-
     def write_led(self, oled_num, voltage):
         self.cereal.write_data("{}write_led({},{})\n".format(self.module_num,oled_num, voltage).encode("ascii"))
 

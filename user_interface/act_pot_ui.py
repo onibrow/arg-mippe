@@ -28,20 +28,6 @@ class act_pot_module(mippe_module):
             ch0=self.ch_names[0], ch1=self.ch_names[1], ch2=self.ch_names[2], ch3=self.ch_names[3],
             ch4=self.ch_names[4], ch5=self.ch_names[5], ch6=self.ch_names[6], ch7=self.ch_names[7]))
 
-    def next_routine(self):
-        self.sched.enter(self.period, 1, self.next_routine)
-        self.cereal.write_data('{}req\n'.format(self.module_num).encode("ascii"))
-        to_write = ""
-        serial_data = self.cereal.read_line()
-        while (serial_data != 'd'):
-            to_write += self.module_num + "," + serial_data + "\n"
-            serial_data = self.cereal.read_line()
-        self.csvfile.write(to_write)
-
-    def start_routine(self):
-        self.cereal.write_data('{}start()\n'.format(self.module_num).encode("ascii"))
-        self.sched.enter(self.period, 1, self.next_routine)
-
     def parse_vals(vals):
         r = []
         for x in vals:
