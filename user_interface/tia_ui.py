@@ -4,8 +4,6 @@ import helpers
 import sched
 import time
 
-MIN_PERIOD = 1000
-
 class tia_module(mippe_module):
     full_name = 'Transimpedance Amplifier Sensor Module'
     plot = True
@@ -18,7 +16,6 @@ class tia_module(mippe_module):
         self.csvfile = csvfile
         self.ch_names = ['OPD1', 'OPD2']
         self.ch_biases = [0, 0]
-        self.period = MIN_PERIOD / 1000.0
         self.setup_module()
 
     def setup_module(self):

@@ -4,8 +4,6 @@ import helpers
 import sched
 import time
 
-MIN_PERIOD = 1000
-
 class pas_pot_module(mippe_module):
     full_name = 'Passive Potentiometric Sensor Module'
     plot = True
@@ -17,7 +15,6 @@ class pas_pot_module(mippe_module):
         self.csvfile = csvfile
         self.ch_names = ['Ch1', 'Ch2', 'Ch3', 'Ch4']
         self.ch_res   = [    0,     0,     0,     0]
-        self.period = MIN_PERIOD / 1000.0
         self.setup_module()
 
     def setup_module(self):

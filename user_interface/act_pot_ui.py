@@ -4,8 +4,6 @@ import helpers
 import sched
 import time
 
-MIN_PERIOD = 1000
-
 class act_pot_module(mippe_module):
     full_name = 'Active Potentiometric Sensor Module'
     plot = False
@@ -16,7 +14,6 @@ class act_pot_module(mippe_module):
         self.sched  = scheduler
         self.csvfile = csvfile
         self.ch_names = ['Ch1', 'Ch2', 'Ch3', 'Ch4', 'Ch5', 'Ch6', 'Ch7', 'Ch8']
-        self.period = MIN_PERIOD / 1000.0
         self.setup_module()
 
     def setup_module(self):

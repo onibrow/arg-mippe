@@ -30,6 +30,10 @@ class MIPPE():
                 self.loaded_modules[i] = oled_module(i, self.cereal, self.scheduler, self.csvfile)
             elif (data == 'tia'):
                 self.loaded_modules[i] = tia_module(i, self.cereal, self.scheduler, self.csvfile)
+            elif (data == 'mippe mod'):
+                # NEW MODULE HERE
+                self.loaded_modules[i] = None
+                self.csvfile.write("{},None\n".format(i))
             else:
                 self.loaded_modules[i] = None
                 print("Module {} Not Identified.".format(i+1))

@@ -20,12 +20,14 @@ void setup() {
 
 void info() {
   digitalWrite(MIPPE_LED, HIGH);
+  // EDIT CODE NAME
   Serial.print("mippe_mod\n");
 }
 
 void req() {
   digitalWrite(MIPPE_LED, HIGH);
   for (int i = 0; i < next_meas; i++) {
+    // SEND ALL DATA
     Serial.print(meas_buff[i]); Serial.print("\n");
   }
   Serial.print("d\n");
@@ -45,6 +47,7 @@ void serialEvent() {
   size_t len = Serial.readBytesUntil('\n', buff, 50);
   uint8_t func = find_func(buff, len);
 
+  // ADD ANY OTHER FUNCITONALITY
   if (strncmp(buff, "req", func) == 0) {
     req();
   } else if (strncmp(buff, "info", func) == 0) {
