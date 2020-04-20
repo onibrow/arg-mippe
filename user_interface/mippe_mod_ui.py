@@ -7,6 +7,7 @@ class mippe_module(object):
     full_name = 'Generic Mippe Module'
     plot = False
     y_axis = 'Data'
+    period = 1
     def __init__(self, num, cereal, scheduler, csvfile):
         self.module_num = str(num)
         self.cereal = cereal
@@ -23,7 +24,7 @@ class mippe_module(object):
         return serial_data
 
     def next_routine(self):
-        self.sched.enter(self.period, 1, self.next_routine)
+        self.sched.enter(mippe_module.period, 1, self.next_routine)
         self.cereal.write_data('{}req\n'.format(self.module_num).encode("ascii"))
         to_write = ""
         serial_data = self.cereal.read_line()
@@ -34,7 +35,7 @@ class mippe_module(object):
 
     def start_routine(self):
         self.cereal.write_data('{}start()\n'.format(self.module_num).encode("ascii"))
-        self.sched.enter(self.period, 1, self.next_routine)
+        self.sched.enter(mippe_module.period, 1, self.next_routine)
 
     def parse_vals(vals):
         return [x * 1.0 for x in vals]
